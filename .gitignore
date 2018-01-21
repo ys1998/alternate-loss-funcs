@@ -1,0 +1,9 @@
+*.txt
+*.pyc
+*.tar.gz
+*.pkl
+*.npy
+*.zip
+Data/*
+ptb/*
+indian/*
