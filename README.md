@@ -32,4 +32,5 @@ Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIOba
 * `python utils/gen_char_frequency.py --data_dir ptb/ --filename ptb.char.train.txt --word_file ptb.train.txt`. (Only for character level models)
 * `mkdir save`
 * `python train.py --data_dir ptb/ --save_dir save/ --filename ptb.train.txt --eval_text ptb/ptb.valid.txt` (for word level models)
+* **Currently using this until errors are resolved** : `python train.py --data_dir ptb/ --train_dir save/ --filename ptb.train.txt`
 * `python train.py --data_dir ptb/ --save_dir save/ --filename ptb.char.train.txt --eval_text ptb/ptb.char.valid.txt --char` (for character level models, don't forget the `--char` flag)
