@@ -5,7 +5,16 @@ This repository is an extension of the **Language Models** codebase by Kalpesh K
 * TensorFlow v1.1
 * Python 2.7
 * other Python packages as mentioned in `requirements.txt`
-
+## Setting up the SRILM code
+* Download the code from [here](http://verispeak.com/projects/srilm/download.html) by filling the form.
+* Extract the code and `cd` into the directory.
+* Follow the instructions listed in the `INSTALL` file.
+* In order to set the `PATH` and `MANPATH` variables, add these lines to `~/.profile` file:
+```
+export PATH=$PATH:<$SRILM/bin/$MACHINE_TYPE>:<$SRILM/bin>
+export MANPATH=$MANPATH:<$SRILM/man>
+```
+(here `$SRILM` is the path to `srilm` as mentioned in the `Makefile`)
 ## Steps to run this code on *voxel10*
 * Copy the code to the remote machine using `scp`:
 ```
