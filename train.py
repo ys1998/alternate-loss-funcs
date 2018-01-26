@@ -327,4 +327,5 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
     sess.run(model.epoch_incr)
 
 if __name__ == '__main__':
+    
     main()

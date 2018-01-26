@@ -3,6 +3,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir', type=str, default='data', help='data directory containing input.txt')
+parser.add_argument('--filename', type=str, default='input.txt',help='Filename having textual data in data_dir.')
 parser.add_argument('--char', action='store_true', default=False, help='Train a character level RNN')
 parser.add_argument('--config_file', type=str, default="config/default.yml", help='Model configuration file')
 parser.add_argument('--vocab', type=str, default="vocab", help='Use SRILM processed vocabulary')
