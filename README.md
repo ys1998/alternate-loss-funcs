@@ -6,7 +6,34 @@ This repository is an extension of the **Language Models** codebase by Kalpesh K
 * Python 2.7
 * other Python packages as mentioned in `requirements.txt`
 
+## Steps to run this code on *voxel10*
+* Copy the code to the remote machine using `scp`:
+```
+scp -r <path to local codebase> <username>@voxel10:<folder path relative to remote home directory>
+```
+(I have assigned `10.130.39.40 voxel10` in my PC's `/etc/hosts` file)
+* Set up a proxy in order to access internet via the remote terminal. For this, add these lines to the `~/.profile` file :
+```
+export HTTP_PROXY = <LDAP ID>:<LDAP password>@netmon.iitb.ac.in:80
+export HTTPS_PROXY = $HTTP_PROXY
+```
+Then execute `source ~/.profile` in order to reflect these changes in the current session.
+* Since you don't have permissions to use `sudo`, all the required packages have to be installed locally.
+* Set up the `PYTHONPATH` variable by adding this line to `~/.profile` so that Python can recognize and use packages not present in the default install directory:
+```
+export PYTHONPATH = $PYTHONPATH:<absolute path to home directory>
+```
+* Install the required packages using `easy_install`:
+```
+easy_install --install-dir <absolute path to home directory> <PACKAGE NAME>
+```
+## How to run the code
+* `python utils/gen_frequency.py --data_dir ptb/ --filename ptb.train.txt`
+* `python train.py --data_dir ptb/ --train_dir save/ --filename ptb.train.txt --config_file config/sgd.yml`
 * * *
+* * *
+# Original README
+
 Courtesy : Kalpesh Krishna (@martiansideofthemoon)
 
 ## File Description
@@ -32,5 +59,4 @@ Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIOba
 * `python utils/gen_char_frequency.py --data_dir ptb/ --filename ptb.char.train.txt --word_file ptb.train.txt`. (Only for character level models)
 * `mkdir save`
 * `python train.py --data_dir ptb/ --save_dir save/ --filename ptb.train.txt --eval_text ptb/ptb.valid.txt` (for word level models)
-* **Currently using this until errors are resolved** : `python train.py --data_dir ptb/ --train_dir save/ --filename ptb.train.txt`
 * `python train.py --data_dir ptb/ --save_dir save/ --filename ptb.char.train.txt --eval_text ptb/ptb.char.valid.txt --char` (for character level models, don't forget the `--char` flag)
