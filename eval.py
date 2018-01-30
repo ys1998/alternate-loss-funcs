@@ -29,7 +29,7 @@ def evaluate(args):
     """Prepare the data and begins evaluation."""
     # check if all necessary files exist
     args.save_dir = os.path.join(args.save_dir,args.job_id)
-    
+
     ckpt = tf.train.get_checkpoint_state(args.save_dir)
 
     # open old config and check if models are compatible
@@ -43,12 +43,12 @@ def evaluate(args):
     # Define the training and eval models in correct scopes
     with tf.name_scope("Train"):
         with tf.variable_scope("Model", reuse=None):
-            model = Model(saved_model_args)
+            model = Model(saved_model_args, saved_model_args.config.batch_size, mode='train')
     eval_args = copy.deepcopy(saved_model_args)
     eval_args.batch_size = 1
     with tf.name_scope("Eval"):
         with tf.variable_scope("Model", reuse=True):
-            eval_model = Model(eval_args, evaluation=True)
+            eval_model = Model(eval_args, eval_args.batch_size, mode='eval')
 
     # Preparing evaluation data
     print(LOGS[8])
