@@ -36,10 +36,10 @@ def main():
     args = parser.parse_args()
     with open(args.config_file, 'r') as stream:
         args.config = bunchify(yaml.load(stream))
-    args.train_dir = os.path.join(args.train_dir, args.job_id)
+    args.save_dir = os.path.join(args.save_dir, args.job_id)
     args.best_dir = os.path.join(args.best_dir, args.job_id)
-    if not os.path.exists(args.train_dir):
-        os.makedirs(args.train_dir)
+    if not os.path.exists(args.save_dir):
+        os.makedirs(args.save_dir)
     if not os.path.exists(args.best_dir):
         os.makedirs(args.best_dir)
     logger.info(args)
@@ -109,12 +109,12 @@ def generate(args):
         output = output.replace('</s>', '\n')
         output = output + "\n"
 
-        with open(os.path.join(args.train_dir, 'generate.txt'), 'w') as f:
+        with open(os.path.join(args.save_dir, 'generate.txt'), 'w') as f:
             f.write(output)
 
 
 def initialize_weights(sess, model, args, mode):
-    ckpt = tf.train.get_checkpoint_state(args.train_dir)
+    ckpt = tf.train.get_checkpoint_state(args.save_dir)
     ckpt_best = tf.train.get_checkpoint_state(args.best_dir)
     if mode == 'test' and ckpt_best:
         logger.info("Reading best model parameters from %s", ckpt_best.model_checkpoint_path)
@@ -202,7 +202,7 @@ def test(args):
         ppl, prob_output = evaluate(
             sess, model_eval, test_data, args, calculate_prob=True, rev_vocab=data_loader.rev_vocab
         )
-        with open(os.path.join(args.train_dir, "probs.txt"), 'w') as f:
+        with open(os.path.join(args.save_dir, "probs.txt"), 'w') as f:
             f.write(prob_output)
         logger.info("Perplexity is %.4f", ppl)
 
@@ -234,7 +234,7 @@ def train(args):
         valid_data['x'], valid_data['y'], valid_data['len'] = eval_loader(args, data_loader.vocab, split='valid')
         batch_loader.eval_data = valid_data
 
-        train_writer = tf.summary.FileWriter(args.train_dir + '/logs/', tf.get_default_graph())
+        train_writer = tf.summary.FileWriter(args.save_dir + '/logs/', tf.get_default_graph())
 
         # Making the graph read-only to prevent memory leaks
         # https://stackoverflow.com/documentation/tensorflow/3883/how-to-debug-a-memory-leak-in-tensorflow/13426/use-graph-finalize-to-catch-nodes-being-added-to-the-graph#t=201612280201558374055
@@ -324,10 +324,10 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
                 sess.run(model.lr_decay)
                 logger.info("decaying lr after %d epochs to %.4f" % (model.epoch.eval(), model.lr.eval()))
 
-            checkpoint_path = os.path.join(args.train_dir, "lm.ckpt")
+            checkpoint_path = os.path.join(args.save_dir, "lm.ckpt")
             model.saver.save(sess, checkpoint_path, global_step=model.global_step, write_meta_graph=False)
             # Save config file for trained model
-            with open(os.path.join(args.train_dir,"config.pkl")) as f:
+            with open(os.path.join(args.save_dir,"config.pkl")) as f:
                 cPickle.dump(model.args, f)
 
     sess.run(model.epoch_incr)

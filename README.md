@@ -38,7 +38,7 @@ easy_install --install-dir <absolute path to home directory> <PACKAGE NAME>
 ```
 ## How to run the code
 * `python utils/gen_frequency.py --data_dir ptb/ --filename ptb.train.txt`
-* `python train.py --data_dir ptb/ --train_dir save/ --filename ptb.train.txt --config_file config/sgd.yml`
+* `python train.py --data_dir ptb/ --save_dir save/ --filename ptb.train.txt --config_file config/sgd.yml`
 * * *
 * * *
 # Original README
