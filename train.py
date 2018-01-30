@@ -310,6 +310,9 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
                 # Saving the best model
                 checkpoint_path = os.path.join(args.best_dir, "lm.ckpt")
                 model.best_saver.save(sess, checkpoint_path, global_step=model.global_step, write_meta_graph=False)
+                # Save config file for best model
+                with open(os.path.join(args.best_dir,"config.pkl")) as f:
+                    cPickle.dump(model.args, f)
             # elif batch_num - last_ppl_update > args.config.eval_freq * 30:
             #     logger.info("Decaying Learning Rate")
             #     sess.run(model.lr_decay)
@@ -323,9 +326,12 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 
             checkpoint_path = os.path.join(args.train_dir, "lm.ckpt")
             model.saver.save(sess, checkpoint_path, global_step=model.global_step, write_meta_graph=False)
+            # Save config file for trained model
+            with open(os.path.join(args.train_dir,"config.pkl")) as f:
+                cPickle.dump(model.args, f)
 
     sess.run(model.epoch_incr)
 
 if __name__ == '__main__':
-    
+
     main()
