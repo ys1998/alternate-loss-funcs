@@ -37,8 +37,8 @@ def evaluate(args):
         saved_model_args = cPickle.load(f)
 
     # open saved vocab/dict and check if vocabs/dicts are compatible
-    with open(os.path.join(args.save_dir, FILES[3])) as f:
-        saved_vocab = cPickle.load(f)
+    # with open(os.path.join(args.save_dir, FILES[3])) as f:
+    #    saved_vocab = cPickle.load(f)
 
     # Define the training and eval models in correct scopes
     with tf.name_scope("Train"):
