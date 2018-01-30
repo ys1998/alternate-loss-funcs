@@ -28,6 +28,8 @@ def main():
 def evaluate(args):
     """Prepare the data and begins evaluation."""
     # check if all necessary files exist
+    args.save_dir = os.path.join(args.save_dir,args.job_id)
+    
     ckpt = tf.train.get_checkpoint_state(args.save_dir)
 
     # open old config and check if models are compatible
