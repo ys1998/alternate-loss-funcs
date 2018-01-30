@@ -2,6 +2,7 @@
 """The primary script to execute the tensorflow models."""
 from __future__ import print_function
 from bunch import bunchify
+from six.moves import cPickle
 
 from config.arguments import parser
 from model.model import Model
