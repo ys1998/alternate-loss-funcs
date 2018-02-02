@@ -33,8 +33,10 @@ def evaluate(args):
     ckpt = tf.train.get_checkpoint_state(args.save_dir)
 
     # open old config and check if models are compatible
+    # also store config data in args
     with open(os.path.join(args.save_dir, FILES[2])) as f:
         saved_model_args = cPickle.load(f)
+        args.config = saved_model_args.config
 
     # open saved vocab/dict and check if vocabs/dicts are compatible
     # with open(os.path.join(args.save_dir, FILES[3])) as f:
