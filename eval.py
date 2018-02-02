@@ -40,6 +40,9 @@ def evaluate(args):
     # with open(os.path.join(args.save_dir, FILES[3])) as f:
     #    saved_vocab = cPickle.load(f)
 
+    with open(os.path.join(args.save_dir, FILES[0])) as f:
+       saved_vocab = cPickle.load(f)
+
     # Define the training and eval models in correct scopes
     with tf.name_scope("Train"):
         with tf.variable_scope("Model", reuse=None):
@@ -52,7 +55,7 @@ def evaluate(args):
 
     # Preparing evaluation data
     print(LOGS[8])
-    eval_x, eval_y, eval_total_len = eval_loader(args, saved_vocab)
+    eval_x, eval_y, eval_total_len = eval_loader(args, saved_vocab, split='test')
     print(LOGS[4])
 
     with tf.Session() as sess:

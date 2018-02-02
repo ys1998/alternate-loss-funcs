@@ -1,7 +1,8 @@
 """This file loads text, processes it and converts it into batches."""
 from decoder import trie
-from strings import LOGS, ERRORS
+from strings import FILES, LOGS, ERRORS
 
+from six.moves import cPickle
 import codecs
 import numpy as np
 import os
@@ -34,6 +35,11 @@ class DataLoader(object):
             self.rev_vocab = f.read().split()
 
         self.vocab = vocab = {word: i for i, word in enumerate(self.rev_vocab)}
+
+        # Save vocabulary for evaluation
+        with open(os.path.join(args.save_dir,FILES[0]),'wb') as f:
+            cPickle.dump(f, self.vocab)
+
         args.vocab_size = self.vocab_size = len(self.vocab)
 
         if args.mode == 'test':
