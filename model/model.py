@@ -147,5 +147,7 @@ class Model():
         )
 
         # Model savers
-        self.saver = tf.train.Saver(tf.global_variables(), max_to_keep=1)
-        self.best_saver = tf.train.Saver(tf.global_variables(), max_to_keep=1)
+        # self.saver = tf.train.Saver(tf.global_variables(), max_to_keep=1)
+        # self.best_saver = tf.train.Saver(tf.global_variables(), max_to_keep=1)
+        self.saver = tf.train.Saver(max_to_keep=1)
+        self.best_saver = tf.train.Saver(max_to_keep=1)
