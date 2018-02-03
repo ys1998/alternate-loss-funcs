@@ -7,7 +7,7 @@ from six.moves import cPickle
 from config.arguments import parser
 from model.model import Model
 from utils.processor import BatchLoader, DataLoader, eval_loader
-from strings import FILES
+from utils.strings import FILES
 
 import utils.adaptive as adaptive
 
