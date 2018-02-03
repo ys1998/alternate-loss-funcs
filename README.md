@@ -1,10 +1,10 @@
 # Research - Neural Language Modeling
-This repository is an extension of the **Language Models** codebase by Kalpesh Krishna (@martiansideofthemoon) and was developed as a part of my R&D Project titled **"Alternate Loss Functions for Neural Language Modeling"** under Prof. Preethi Jyothi (@pjyothi) during January 2018 - present.
+This repository is an extension of the **Language Models** codebase by **Kalpesh Krishna** (@martiansideofthemoon) and was developed as a part of my R&D Project titled **"Alternate Loss Functions for Neural Language Modeling"** under *Prof. Preethi Jyothi* (@pjyothi) during January 2018 - present.
 
 ## Requirements
 * TensorFlow v1.1
 * Python 2.7
-* other Python packages as mentioned in `requirements.txt` (doesn't exist currently)
+* other Python packages as mentioned in `requirements.txt` *(doesn't exist currently)*
 ## Setting up the SRILM code
 * Download the code from [here](http://verispeak.com/projects/srilm/download.html) by filling the form.
 * Extract the code and `cd` into the directory.
@@ -36,10 +36,13 @@ export PYTHONPATH = $PYTHONPATH:<absolute path to home directory>
 ```
 easy_install --install-dir <absolute path to home directory> <PACKAGE NAME>
 ```
-## How to run the code
-* `python utils/gen_frequency.py --data_dir ptb/ --filename ptb.train.txt`
-* `python train.py --data_dir ptb/ --save_dir save/ --filename ptb.train.txt --config_file config/sgd.yml`
-* `python eval.py`
+## Running the code
+Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIObaE52dmZ0YVFXckU/view?usp=sharing). Assuming you have stored the folders `ptb` and `indian` in the same directory as the rest of the code, run the following commands -
+* `python utils/gen_frequency.py --data_dir ptb/ --filename ptb.train.txt` : This is done to generate the necessary n-gram files using the SRILM toolkit. `counts.txt`, `ngram-lm` and `vocab` files are generated in the `data_dir`. The `filename` attribute specifies the file for which n-grams are calculated.
+* `python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --loss_mode l1 [--mixed_constant 0.6]` : Initiates training the model. Different loss modes can be tried by changing the `loss_mode` argument, and the `mixed_constant` can be changed for *mixed* loss (i.e. `--loss_mode mixed`) by changing the corresponding argument. Custom config file can be used using the `config_file` flag.
+* `python main.py --mode valid --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml` : Loads the best model from `best_dir` and evaluates perplexity on validation set and stores the probability distribution in `probs_valid.txt` in the `save_dir`.
+* `python main.py --mode test --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml` : Loads the best model from `best_dir` and evaluates perplexity on test set and stores the probability distribution in `probs_test.txt` in the `save_dir`.
+* Sample output can also be generated for the trained model using this command : `python main.py --mode generate --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml`. It generates sample text file and stores it in `save_dir` as `generate.txt`.
 * * *
 # Original README
 
