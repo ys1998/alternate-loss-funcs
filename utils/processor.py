@@ -36,10 +36,6 @@ class DataLoader(object):
 
         self.vocab = vocab = {word: i for i, word in enumerate(self.rev_vocab)}
 
-        # Save vocabulary for evaluation
-        with open(os.path.join(args.save_dir,FILES[0]),'wb') as f:
-            cPickle.dump(self.vocab, f)
-
         args.vocab_size = self.vocab_size = len(self.vocab)
 
         if args.mode == 'test':
