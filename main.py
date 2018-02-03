@@ -6,6 +6,7 @@ from six.moves import cPickle
 
 from config.arguments import parser
 from model.model import Model
+# from model.TModel import TemperatureModel as Model 
 from utils.processor import BatchLoader, DataLoader, eval_loader
 from utils.strings import FILES
 

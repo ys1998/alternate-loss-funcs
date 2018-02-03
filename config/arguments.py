@@ -17,4 +17,7 @@ parser.add_argument('--gen_config', type=str, default="{\"prior\": \"a\", \"leng
 parser.add_argument('--device', type=str, default="gpu", choices=["cpu", "gpu"], help='gpu / cpu')
 parser.add_argument('--job_id', type=str, default="job_0", help='ID of the current job')
 
+# My additions
+parser.add_argument('--T', type=float, default=1.0, help='Temperature for softmax layer')
+
 SUMMARY = "This model uses the new augmented cost function for training"
