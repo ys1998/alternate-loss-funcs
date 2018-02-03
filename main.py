@@ -111,7 +111,7 @@ def generate(args):
         output = output.replace('</s>', '\n')
         output = output + "\n"
 
-        with open(os.path.join(args.save_dir, 'generate.txt'), 'w') as f:
+        with open(os.path.join(args.save_dir, "generate_{0}.txt".format(args.job_id), 'w') as f:
             f.write(output)
 
 
@@ -204,7 +204,7 @@ def test(args):
         ppl, prob_output = evaluate(
             sess, model_eval, test_data, args, calculate_prob=True, rev_vocab=data_loader.rev_vocab
         )
-        with open(os.path.join(args.save_dir, "probs_{0}.txt".format(args.mode)), 'w') as f:
+        with open(os.path.join(args.save_dir, "probs_{0}_{1}.txt".format(args.mode,args.job_id)), 'w') as f:
             f.write(prob_output)
         logger.info("Perplexity is %.4f", ppl)
 
