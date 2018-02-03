@@ -43,7 +43,7 @@ Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIOba
 python utils/gen_frequency.py --data_dir ptb/ --filename ptb.train.txt
 ```
 * Initiate training the model. Different loss modes can be tried by changing the `loss_mode` argument, and the `mixed_constant` can be changed for *mixed* loss (i.e. `--loss_mode mixed`) by changing the corresponding argument. Custom config file can be used using the `config_file` flag.
- 
+
 ```
 python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm --loss_mode l1 [--mixed_constant 0.6]
 ```
@@ -58,7 +58,13 @@ python main.py --mode test --data_dir ptb/ --save_dir save/ --best_dir save_best
 * Sample output can also be generated for the trained model using this command. It generates sample text file and stores it in `save_dir` as `generate.txt`.
 ```
 python main.py --mode generate --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm
-``` 
+```
+## Experiments
+These were the experiments I performed during my R&D project, and the steps by which they can be replicated :
+1. **Alter temperature for softmax layer** : Import the correct model in `main.py` by commenting/uncommenting the required import statements. Add the `--T` argument to the *train* command and obtain results for different value of `T` and `loss_mode`.
+```
+python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm --loss_mode l1 --T 5
+```
 * * *
 # Original README
 
