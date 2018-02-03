@@ -204,7 +204,7 @@ def test(args):
         ppl, prob_output = evaluate(
             sess, model_eval, test_data, args, calculate_prob=True, rev_vocab=data_loader.rev_vocab
         )
-        with open(os.path.join(args.save_dir, "probs.txt"), 'w') as f:
+        with open(os.path.join(args.save_dir, "probs_{0}.txt".format(args.mode)), 'w') as f:
             f.write(prob_output)
         logger.info("Perplexity is %.4f", ppl)
 
@@ -245,7 +245,6 @@ def train(args):
         start_epoch = model.epoch.eval()
         for epoch in range(start_epoch, args.config.num_epochs):
             run_epoch(sess, model, model_eval, args, batch_loader, epoch)
-
 
 def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
     """Run one epoch of training."""
@@ -312,9 +311,6 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
                 # Saving the best model
                 checkpoint_path = os.path.join(args.best_dir, "lm.ckpt")
                 model.best_saver.save(sess, checkpoint_path, global_step=model.global_step, write_meta_graph=False)
-                # Save config file for best model
-                with open(os.path.join(args.best_dir,FILES[2]), 'wb') as f:
-                    cPickle.dump(model.args, f)
             # elif batch_num - last_ppl_update > args.config.eval_freq * 30:
             #     logger.info("Decaying Learning Rate")
             #     sess.run(model.lr_decay)
@@ -323,14 +319,12 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
             #     sess.run(model.last_ppl_update_assign, feed_dict={model.last_ppl_update_new: batch_num})
             # Learning rate decay schedule
             else:
+                # Decay learning rate whenever ppl is greater than best_ppl so far
                 sess.run(model.lr_decay)
                 logger.info("decaying lr after %d epochs to %.4f" % (model.epoch.eval(), model.lr.eval()))
 
             checkpoint_path = os.path.join(args.save_dir, "lm.ckpt")
             model.saver.save(sess, checkpoint_path, global_step=model.global_step, write_meta_graph=False)
-            # Save config file for trained model
-            with open(os.path.join(args.save_dir,FILES[2]), 'wb') as f:
-                cPickle.dump(model.args, f)
 
     sess.run(model.epoch_incr)
 
