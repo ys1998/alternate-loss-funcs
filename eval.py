@@ -62,8 +62,9 @@ def evaluate(args):
 
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        saver = tf.train.Saver()
+        saver = tf.train.Saver(max_to_keep=1)
         # restore model
+        print(ckpt.model_checkpoint_path)
         saver.restore(sess, ckpt.model_checkpoint_path)
         run_eval_epoch(sess=sess,
                        model=eval_model,

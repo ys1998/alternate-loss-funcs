@@ -4,7 +4,7 @@ This repository is an extension of the **Language Models** codebase by Kalpesh K
 ## Requirements
 * TensorFlow v1.1
 * Python 2.7
-* other Python packages as mentioned in `requirements.txt`
+* other Python packages as mentioned in `requirements.txt` (doesn't exist currently)
 ## Setting up the SRILM code
 * Download the code from [here](http://verispeak.com/projects/srilm/download.html) by filling the form.
 * Extract the code and `cd` into the directory.
@@ -39,7 +39,7 @@ easy_install --install-dir <absolute path to home directory> <PACKAGE NAME>
 ## How to run the code
 * `python utils/gen_frequency.py --data_dir ptb/ --filename ptb.train.txt`
 * `python train.py --data_dir ptb/ --save_dir save/ --filename ptb.train.txt --config_file config/sgd.yml`
-* * *
+* `python eval.py`
 * * *
 # Original README
 
