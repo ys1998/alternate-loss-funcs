@@ -38,9 +38,9 @@ easy_install --install-dir <absolute path to home directory> <PACKAGE NAME>
 ```
 ## Running the code
 Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIObaE52dmZ0YVFXckU/view?usp=sharing). Assuming you have stored the folders `ptb` and `indian` in the same directory as the rest of the code, run the following commands -
-* This step is done to generate the necessary n-gram files using the SRILM toolkit. `counts.txt`, `ngram-lm` and `vocab` files are generated in the `data_dir`. The `filename` attribute specifies the file for which n-grams are calculated.
+* This step is done to generate the necessary n-gram files using the SRILM toolkit. `counts.txt`, `ngram-lm` and `vocab` files are generated for the specified text corpus.
 ```
-python utils/gen_frequency.py --data_dir ptb/ --filename ptb.train.txt
+srilm/bin/i686-m64/ngram-count -unk -order 3 -text ptb/ptb.train.txt -kndiscount1 -kndiscount2 -kndiscount3 -write ptb/counts.txt -lm ptb/ngram-lm -interpolate2 -gt3min 1
 ```
 * Initiate training the model. Different loss modes can be tried by changing the `loss_mode` argument, and the `mixed_constant` can be changed for *mixed* loss (i.e. `--loss_mode mixed`) by changing the corresponding argument. Custom config file can be used using the `config_file` flag.
 
