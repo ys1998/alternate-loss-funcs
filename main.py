@@ -230,25 +230,17 @@ def train(args):
         logger.info("loaded %d completed steps", steps_done)
 
         # Reusing weights for evaluation model
-        print(1)
         with tf.variable_scope("model", reuse=True, initializer=initializer):
             model_eval = Model(args, batch_size=1, mode='eval')
         valid_data = {}
-        print(2)
         valid_data['x'], valid_data['y'], valid_data['len'] = eval_loader(args, data_loader.vocab, split='valid')
-        print(3)
         batch_loader.eval_data = valid_data
-        print(4)
         train_writer = tf.summary.FileWriter(args.save_dir + '/logs/', tf.get_default_graph())
-        print(5)
         # Making the graph read-only to prevent memory leaks
         # https://stackoverflow.com/documentation/tensorflow/3883/how-to-debug-a-memory-leak-in-tensorflow/13426/use-graph-finalize-to-catch-nodes-being-added-to-the-graph#t=201612280201558374055
         sess.graph.finalize()
-        print(6)
         start_epoch = model.epoch.eval()
-        print(7)
         for epoch in range(start_epoch, args.config.num_epochs):
-            print(8+epoch)
             run_epoch(sess, model, model_eval, args, batch_loader, epoch)
 
 def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
@@ -262,6 +254,7 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
     # Start from an empty RNN state
     states = sess.run(model.initial_states)
 
+    print(batch_loader.num_batches)
     start_batch = model.global_step.eval() % batch_loader.num_batches
     if start_batch != 0:
         logger.info("Starting from batch %d / %d", start_batch, batch_loader.num_batches)
@@ -271,8 +264,7 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
         start = time.time()
         l1 = adaptive_loss(epoch, b, args=args)
         sess.run(model.l1_assign, feed_dict={model.l1_new: l1})
-        x, y, ngram = batch_loader.next_batch(l1)
-
+	x, y, ngram = batch_loader.next_batch(l1)
         # With probability 0.01 feed the initial state
         if np.random.randint(1, 101) <= 1:
             states = sess.run(model.initial_states)
