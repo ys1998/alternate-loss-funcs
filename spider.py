@@ -3,10 +3,10 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
-LANGUAGE = "te"
+LANGUAGE = "hi"
 PAGE_LIMIT = 300
 DEPTH = 10
-FILE_NAME = "final_te.txt"
+FILE_NAME = "hi_animals.txt"
 
 # Look up tables
 languages = {
@@ -17,7 +17,10 @@ languages = {
   "te": ur"[^\u0C00-\u0C7F\u002E]+",
 }
 seed_urls = {
-  "hi": "https://hi.wikipedia.org/wiki/%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A5%89%E0%A4%9F%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%A3%E0%A5%8D%E0%A4%A1",
+  # Scotland
+  # "hi": "https://hi.wikipedia.org/wiki/%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A5%89%E0%A4%9F%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%A3%E0%A5%8D%E0%A4%A1",
+  # Animal
+  "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%A3%E0%A5%80",
   "ml": "https://ml.wikipedia.org/wiki/%E0%B4%97%E0%B5%8B%E0%B4%B5%E0%B4%AF%E0%B4%BF%E0%B4%B2%E0%B5%86_%E0%B4%AE%E0%B4%A4%E0%B4%A6%E0%B5%8D%E0%B4%B0%E0%B5%8B%E0%B4%B9%E0%B4%B5%E0%B4%BF%E0%B4%9A%E0%B4%BE%E0%B4%B0%E0%B4%A3%E0%B4%95%E0%B5%BE",
   "ta": "https://ta.wikipedia.org/wiki/%E0%AE%9A%E0%AE%AE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AE%A8%E0%AF%8D%E0%AE%A4%E0%AF%81",
   "kn": "https://kn.wikipedia.org/wiki/%E0%B2%9C%E0%B3%86._%E0%B2%9C%E0%B2%AF%E0%B2%B2%E0%B2%B2%E0%B2%BF%E0%B2%A4%E0%B2%BE",
@@ -169,6 +172,8 @@ class Spider(object):
     """
     with codecs.open(self.filename, "a", "utf8") as myfile:
       myfile.write(self.data)
+
+    print("{0} tokens written.".format(len(self.data)))
     self.data = ""
 
 
@@ -179,9 +184,6 @@ def main():
              page_limit=PAGE_LIMIT,
              filename=FILE_NAME)
   s.run(write_file=True)
-  print s.data
-
 
 if __name__ == "__main__":
   main()
-
