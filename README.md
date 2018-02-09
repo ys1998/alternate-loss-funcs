@@ -59,6 +59,12 @@ python main.py --mode test --data_dir ptb/ --save_dir save/ --best_dir save_best
 ```
 python main.py --mode generate --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm
 ```
+* More data can be easily mined using the `spider.py` script. Change the global variables `LANGUAGE`, `DEPTH`, `PAGE_LIMIT` and `FILENAME` and then execute this command:
+```
+python spider.py
+```
+This will initiate a *spider* which will crawl across pages, collecting data and storing it in the `FILENAME` file.
+
 ## Experiments
 These were the experiments I performed during my R&D project, and the steps by which they can be replicated :
 1. **Alter temperature for softmax layer** : Import the correct model in `main.py` by commenting/uncommenting the required import statements. Add the `--T` argument to the *train* command and obtain results for different value of `T` and `loss_mode`.
