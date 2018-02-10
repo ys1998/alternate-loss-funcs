@@ -37,7 +37,7 @@ export PYTHONPATH = $PYTHONPATH:<absolute path to home directory>
 easy_install --install-dir <absolute path to home directory> <PACKAGE NAME>
 ```
 ## Running the code
-Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIObaE52dmZ0YVFXckU/view?usp=sharing). Assuming you have stored the folders `ptb` and `indian` in the same directory as the rest of the code, run the following commands -
+Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIObaE52dmZ0YVFXckU/view?usp=sharing). Assuming you have stored the folders `ptb` and `indian` in the same directory as the rest of the code, run the following commands (you will have to provide the `--job_id` argument in each one according to your requirements)-
 * This step is done to generate the necessary n-gram files using the SRILM toolkit. `counts.txt`, `ngram-lm` and `vocab` files are generated for the specified text corpus.
 ```
 srilm/bin/i686-m64/ngram-count -unk -order 3 -text ptb/ptb.train.txt -kndiscount1 -kndiscount2 -kndiscount3 -write ptb/counts.txt -lm ptb/ngram-lm -interpolate2 -gt3min 1
