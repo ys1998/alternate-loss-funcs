@@ -1,12 +1,14 @@
 import codecs
 import requests
 import re
+import argparse
 from bs4 import BeautifulSoup
 
-LANGUAGE = "hi"
-PAGE_LIMIT = 300
-DEPTH = 10
-FILE_NAME = "hi_animals.txt"
+parser = argparse.ArgumentParser()
+parser.add_argument("--lang", type=str, default="hi", help="Language for which data has to be scraped.")
+parser.add_argument("--N", type=int, default=300, help="Maximum number of webpages scraped.")
+parser.add_argument("--D", type=int, default=10, help="Maximum depth upto which BFS is applied.")
+parser.add_argument("--filename", type=str, default="data.txt", help="File to which scraped data is written.")
 
 # Look up tables
 languages = {
@@ -16,11 +18,16 @@ languages = {
   "kn": ur"[^\u0C80-\u0CFF\u002E]+",
   "te": ur"[^\u0C00-\u0C7F\u002E]+",
 }
+
 seed_urls = {
   # Scotland
   # "hi": "https://hi.wikipedia.org/wiki/%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A5%89%E0%A4%9F%E0%A5%8D%E0%A4%B2%E0%A5%88%E0%A4%A3%E0%A5%8D%E0%A4%A1",
   # Animal
-  "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%A3%E0%A5%80",
+  # "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%A3%E0%A5%80",
+  # Space
+  # "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B7",
+  # Politics
+  "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%A8%E0%A5%80%E0%A4%A4%E0%A4%BF",
   "ml": "https://ml.wikipedia.org/wiki/%E0%B4%97%E0%B5%8B%E0%B4%B5%E0%B4%AF%E0%B4%BF%E0%B4%B2%E0%B5%86_%E0%B4%AE%E0%B4%A4%E0%B4%A6%E0%B5%8D%E0%B4%B0%E0%B5%8B%E0%B4%B9%E0%B4%B5%E0%B4%BF%E0%B4%9A%E0%B4%BE%E0%B4%B0%E0%B4%A3%E0%B4%95%E0%B5%BE",
   "ta": "https://ta.wikipedia.org/wiki/%E0%AE%9A%E0%AE%AE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AE%A8%E0%AF%8D%E0%AE%A4%E0%AF%81",
   "kn": "https://kn.wikipedia.org/wiki/%E0%B2%9C%E0%B3%86._%E0%B2%9C%E0%B2%AF%E0%B2%B2%E0%B2%B2%E0%B2%BF%E0%B2%A4%E0%B2%BE",
@@ -117,6 +124,7 @@ class Spider(object):
     self.data = ""
     self.page_limit = page_limit
     self.filename = filename
+    self.total_tokens = 0
 
   def run(self, write_file=True):
     """
@@ -160,10 +168,12 @@ class Spider(object):
         # Impose condition of total URLs
         if len(self.urls) >= self.page_limit:
           print "URL limit reached!"
-          return
+          break
 
       # Remove duplicates URLs
       current_urls = list(set(next_list))
+
+    print("Total tokens scraped : {0}".format(self.total_tokens))
 
   def write_file(self):
     """
@@ -173,11 +183,20 @@ class Spider(object):
     with codecs.open(self.filename, "a", "utf8") as myfile:
       myfile.write(self.data)
 
-    print("{0} tokens written.".format(len(self.data)))
+    t = len(self.data)
+    print("{0} tokens written.".format(t))
+    self.total_tokens += t
     self.data = ""
 
 
 def main():
+  args = parser.parse_args()
+
+  LANGUAGE = args.lang
+  PAGE_LIMIT = args.N
+  DEPTH = args.D
+  FILE_NAME = args.filename
+
   s = Spider(seed_url=seed_urls[LANGUAGE],
              depth=DEPTH,
              lang=LANGUAGE,
