@@ -63,7 +63,7 @@ python main.py --mode generate --data_dir ptb/ --save_dir save/ --best_dir save_
 ```
 python spider.py --lang hi --N 500 --D 15 --filename hi_space.txt
 ```
-This will initiate a *spider* which will crawl across `N` pages upto a maximum depth of `D` in the corresponding BFS tree, collecting data of `lang` language and storing it in the `filename` file.
+This will initiate a *spider* which will crawl across `N` pages upto a maximum depth of `D` in the corresponding BFS tree, collecting data of `lang` language and storing it in the `filename` file. Possible languages are Hindi (`hi`), Tamil (`ta`), Telugu (`te`), Kannada (`ka`) and Malayalam (`ma`).
 
 ## Experiments
 These were the experiments I performed during my R&D project, and the steps by which they can be replicated :
