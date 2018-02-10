@@ -263,7 +263,6 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 	# Start from an empty RNN state
 	states = sess.run(model.initial_states)
 
-	print(batch_loader.num_batches)
 	start_batch = model.global_step.eval() % batch_loader.num_batches
 	if start_batch != 0:
 		logger.info("Starting from batch %d / %d", start_batch, batch_loader.num_batches)
@@ -292,7 +291,7 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 		batch_num = epoch * batch_loader.num_batches + b
 		total_num = args.config.num_epochs * batch_loader.num_batches
         logger.info("Epoch %d, %d / %d. Loss - %.4f, Time - %.2f", epoch, batch_num, total_num, train_loss, end - start)
-        
+
 		# Save after `args.eval_freq` batches or at the very end
         if batch_num != 0 and (batch_num % args.config.eval_freq == 0 or b == batch_loader.num_batches - 1):
 			ppl = evaluate(sess, model_eval, batch_loader.eval_data, args)
