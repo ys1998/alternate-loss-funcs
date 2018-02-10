@@ -27,11 +27,22 @@ seed_urls = {
   # Space
   # "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%85%E0%A4%82%E0%A4%A4%E0%A4%B0%E0%A4%BF%E0%A4%95%E0%A5%8D%E0%A4%B7",
   # Politics
-  "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%A8%E0%A5%80%E0%A4%A4%E0%A4%BF",
+  # "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%A8%E0%A5%80%E0%A4%A4%E0%A4%BF",
+  # Computer
+  "hi" : "https://hi.wikipedia.org/wiki/%E0%A4%95%E0%A4%82%E0%A4%AA%E0%A5%8D%E0%A4%AF%E0%A5%82%E0%A4%9F%E0%A4%B0",
   "ml": "https://ml.wikipedia.org/wiki/%E0%B4%97%E0%B5%8B%E0%B4%B5%E0%B4%AF%E0%B4%BF%E0%B4%B2%E0%B5%86_%E0%B4%AE%E0%B4%A4%E0%B4%A6%E0%B5%8D%E0%B4%B0%E0%B5%8B%E0%B4%B9%E0%B4%B5%E0%B4%BF%E0%B4%9A%E0%B4%BE%E0%B4%B0%E0%B4%A3%E0%B4%95%E0%B5%BE",
   "ta": "https://ta.wikipedia.org/wiki/%E0%AE%9A%E0%AE%AE%E0%AE%B0%E0%AF%8D%E0%AE%95%E0%AE%A8%E0%AF%8D%E0%AE%A4%E0%AF%81",
   "kn": "https://kn.wikipedia.org/wiki/%E0%B2%9C%E0%B3%86._%E0%B2%9C%E0%B2%AF%E0%B2%B2%E0%B2%B2%E0%B2%BF%E0%B2%A4%E0%B2%BE",
-  "te": "https://te.wikipedia.org/wiki/%E0%B0%AA%E0%B1%8D%E0%B0%B2%E0%B0%BE%E0%B0%B8%E0%B1%80_%E0%B0%AF%E0%B1%81%E0%B0%A6%E0%B1%8D%E0%B0%A7%E0%B0%82",
+  # Battle of Plassey
+  # "te": "https://te.wikipedia.org/wiki/%E0%B0%AA%E0%B1%8D%E0%B0%B2%E0%B0%BE%E0%B0%B8%E0%B1%80_%E0%B0%AF%E0%B1%81%E0%B0%A6%E0%B1%8D%E0%B0%A7%E0%B0%82",
+  # Computer
+  # "te" : "https://te.wikipedia.org/wiki/%E0%B0%97%E0%B0%A3%E0%B0%A8%E0%B0%AF%E0%B0%82%E0%B0%A4%E0%B1%8D%E0%B0%B0%E0%B0%82",
+  # Tiger
+  # "te" : "https://te.wikipedia.org/wiki/%E0%B0%AA%E0%B1%81%E0%B0%B2%E0%B0%BF",
+  # Politics
+  # "te" : "https://te.wikipedia.org/wiki/%E0%B0%B0%E0%B0%BE%E0%B0%9C%E0%B0%95%E0%B1%80%E0%B0%AF_%E0%B0%AA%E0%B0%BE%E0%B0%B0%E0%B1%8D%E0%B0%9F%E0%B1%80",
+  # Hubble space telescope
+  "te" : "https://te.wikipedia.org/wiki/%E0%B0%B9%E0%B0%AC%E0%B1%81%E0%B0%B2%E0%B1%8D_%E0%B0%9F%E0%B1%86%E0%B0%B2%E0%B1%80%E0%B0%B8%E0%B1%8D%E0%B0%95%E0%B1%8B%E0%B0%AA%E0%B1%81",
 }
 
 # Used to remove image URLs
@@ -137,7 +148,7 @@ class Spider(object):
     next_list = []
     # depth of BFS
     for i in range(0, self.depth):
-        
+
       if len(self.urls) >= self.page_limit:
         break
 
