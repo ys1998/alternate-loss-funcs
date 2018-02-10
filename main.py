@@ -291,10 +291,10 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 		# print the result so far on terminal
 		batch_num = epoch * batch_loader.num_batches + b
 		total_num = args.config.num_epochs * batch_loader.num_batches
-		logger.info("Epoch %d, %d / %d. Loss - %.4f, Time - %.2f", epoch, batch_num, total_num, train_loss, end - start)
-
+        logger.info("Epoch %d, %d / %d. Loss - %.4f, Time - %.2f", epoch, batch_num, total_num, train_loss, end - start)
+        print(model.cost.eval(), model.cost2.eval())
 		# Save after `args.eval_freq` batches or at the very end
-		if batch_num != 0 and (batch_num % args.config.eval_freq == 0 or b == batch_loader.num_batches - 1):
+        if batch_num != 0 and (batch_num % args.config.eval_freq == 0 or b == batch_loader.num_batches - 1):
 			ppl = evaluate(sess, model_eval, batch_loader.eval_data, args)
 			logger.info("Perplexity after %d steps - %.4f", batch_num, ppl)
 

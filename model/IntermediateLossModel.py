@@ -76,6 +76,8 @@ class IntermediateLossModel():
             else:
                 self.softmax_w = softmax_w = tf.get_variable("softmax_w", [config.rnn_size, args.vocab_size])
             self.softmax_b = softmax_b = tf.get_variable("softmax_b", [args.vocab_size])
+            self.w0 = tf.get_variable("w0", [config.rnn_size,args.vocab_size])
+            self.b0 = tf.get_variable("b0", [args.vocab_size])
 
         # The actual LSTM computation, `self.initial_state` will be fed later on
         final_states = []
@@ -94,12 +96,8 @@ class IntermediateLossModel():
             if i != config.num_layers-1:
                 self.loss2 += tf.nn.softmax_cross_entropy_with_logits(
                     labels=self.distro2,
-                    logits=tf.nn.xw_plus_b(
-                            tf.reshape(inputs,[-1,config.rnn_size]),
-                            softmax_w,
-                            softmax_b
-                        )
-                    )
+                    logits=tf.nn.xw_plus_b(tf.reshape(inputs,[-1,config.rnn_size]), self.w0, self.b0)
+                )
             else:
                 self.outputs = inputs
             final_states.append(final_state)
