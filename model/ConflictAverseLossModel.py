@@ -109,7 +109,7 @@ class ConflictAverseLossModel():
         self.log_ngram = tf.reshape(self.ngram, [-1, args.vocab_size])
         self.loss3 = tf.multiply(tf.nn.softmax(self.logits), self.log_ngram)
         # Scaling by interpolation values of L2
-        self.cost3 = tf.reduce_sum(self.loss2) / batch_size
+        self.cost3 = tf.reduce_sum(self.loss3) / batch_size
 
         # self.final_cost = self.cost
 
