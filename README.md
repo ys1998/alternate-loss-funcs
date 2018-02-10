@@ -71,3 +71,12 @@ These were the experiments I performed during my R&D project, and the steps by w
 ```
 python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm --loss_mode l1 --T 5
 ```
+2. **Introduce an intermediate L2 loss layer** : Make the following changes to `main.py` :
+```python
+# from model.model import Model
+from model.IntermediateLossModel import IntermediateLossModel as Model
+```
+Then train the model using the following command :
+```
+python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm --job_id intermediate_loss
+```
