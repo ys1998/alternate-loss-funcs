@@ -86,3 +86,13 @@ Then train the model using the following command :
 ```
 python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm --job_id intermediate_loss
 ```
+3. **Implement the Conflict Averse loss function (L3 loss)** : Make the following changes to `main.py` :
+```python
+# from model.model import Model
+from model.ConflictAverseLossModel import ConflictAverseLossModel as Model
+```
+Then train the model using the following command (the value of `mixed_constant` can be altered to vary the contributions of L1 and L3 losses to the final loss) :
+```
+python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --con
+fig_file config/sgd.yml --lm ngram-lm --job_id ca_model --loss_mode mixed --mixed_constant 0.5
+```
