@@ -15,7 +15,7 @@ parser.add_argument('--mixed_constant', type=float, default=0.5, help='Constant 
 parser.add_argument('--mode', type=str, default="train", choices=["test", "valid", "train", "generate"], help='train / test')
 parser.add_argument('--gen_config', type=str, default="{\"prior\": \"a\", \"length\": 100}", help='Config for generate mode')
 parser.add_argument('--device', type=str, default="gpu", choices=["cpu", "gpu"], help='gpu / cpu')
-parser.add_argument('--job_id', type=str, default="job_0", help='ID of the current job')
+parser.add_argument('--job_id', type=str, required = True, help='ID of the current job')
 
 # My additions
 parser.add_argument('--T', type=float, default=1.0, help='Temperature for softmax layer')
