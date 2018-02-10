@@ -1,0 +1,4 @@
+bunch
+requests
+bs4
+lxml
