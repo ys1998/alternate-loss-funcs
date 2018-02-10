@@ -59,11 +59,11 @@ python main.py --mode test --data_dir ptb/ --save_dir save/ --best_dir save_best
 ```
 python main.py --mode generate --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm
 ```
-* More data can be easily mined using the `spider.py` script. Change the global variables `LANGUAGE`, `DEPTH`, `PAGE_LIMIT` and `FILENAME` and then execute this command:
+* More data can be easily mined using the `spider.py` script, as shown :
 ```
-python spider.py
+python spider.py --lang hi --N 500 --D 15 --filename hi_space.txt
 ```
-This will initiate a *spider* which will crawl across pages, collecting data and storing it in the `FILENAME` file.
+This will initiate a *spider* which will crawl across `N` pages upto a maximum depth of `D` in the corresponding BFS tree, collecting data of `lang` language and storing it in the `filename` file.
 
 ## Experiments
 These were the experiments I performed during my R&D project, and the steps by which they can be replicated :

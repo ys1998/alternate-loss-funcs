@@ -137,6 +137,10 @@ class Spider(object):
     next_list = []
     # depth of BFS
     for i in range(0, self.depth):
+        
+      if len(self.urls) >= self.page_limit:
+        break
+
       # Current depth's status
       print "Depth " + str(i) + " => " + str(len(current_urls)) + " URL(s)"
 
