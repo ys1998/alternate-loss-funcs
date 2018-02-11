@@ -70,14 +70,15 @@ class IntermediateLossModel():
         self.initial_states = tuple(initial_states)
 
         # Weight tying - same weights used for loss calculations for output and intermediate layers
-        with tf.variable_scope('logits'):
+        with tf.variable_scope('logit_weights'):
             if config.shared_embeddings is True:
-                self.softmax_w = softmax_w = tf.transpose(embedding, [1, 0])
+                self.softmax_w = self.w0 = softmax_w = tf.transpose(embedding, [1, 0])
+                self.softmax_b = self.b0 = softmax_b = tf.get_variable("b", [args.vocab_size])
             else:
-                self.softmax_w = softmax_w = tf.get_variable("softmax_w", [config.rnn_size, args.vocab_size])
-            self.softmax_b = softmax_b = tf.get_variable("softmax_b", [args.vocab_size])
-            self.w0 = tf.get_variable("w0", [config.rnn_size,args.vocab_size])
-            self.b0 = tf.get_variable("b0", [args.vocab_size])
+                self.softmax_w = softmax_w = tf.get_variable("w1", [config.rnn_size,args.vocab_size])
+                self.softmax_b = softmax_b = tf.get_variable("b1", [args.vocab_size])
+                self.w0 = tf.get_variable("w0", [config.rnn_size,args.vocab_size])
+                self.b0 = tf.get_variable("b0", [args.vocab_size])
 
         # The actual LSTM computation, `self.initial_state` will be fed later on
         final_states = []
@@ -85,7 +86,6 @@ class IntermediateLossModel():
         # This is already a valid distribution. Just needs reshaping to 2D form
         ngram_exp = tf.exp(self.ngram)
         self.distro2 = tf.reshape(ngram_exp, [-1, args.vocab_size])
-        # Finding 1-D cross entropy loss tensor
         self.loss2 = 0.0
 
         for i in range(config.num_layers):
@@ -119,7 +119,7 @@ class IntermediateLossModel():
 
         self.cost = tf.reduce_sum(self.loss) / batch_size
         self.cost2 = tf.reduce_sum(self.loss2) / batch_size
-        self.final_cost = tf.add(self.cost, self.cost2)
+        self.final_cost = tf.add(self.l1*self.cost, (1.0 - self.l1)*self.cost2)
 
         if mode == 'eval':
             return
