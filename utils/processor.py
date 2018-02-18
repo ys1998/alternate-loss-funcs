@@ -150,7 +150,15 @@ def eval_loader(args, vocab, split):
     # Fix data to add <s> and </s> characters
     tokens = text.replace('\n', ' </s> ').split()
     # Replacing all OOV with <unk>, converting to integers
-    x = [vocab[c] for c in tokens]
+    # x = [unicode(vocab[c]).encode('utf8') for c in tokens]
+    x = []
+    for c in tokens:
+	try:
+		temp = vocab[c]
+	except:
+		temp = vocab['<unk>']
+	x.append(temp)
+
     total_len = len(x)
     # pad ipa_x so the batch_size divides it exactly
     while len(x) % timesteps != 1:
