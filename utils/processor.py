@@ -20,7 +20,7 @@ class DataLoader(object):
 		print(LOGS[0])
 		# codecs is needed due to utf-8 setting
 		# This is essential for non-ASCII characters
-		with codecs.open(input_path, "r", encoding='utf-8') as f:
+		with open(input_path, "r") as f:
 			text = f.read()
 
 		# Fix data to add </s> tokens
@@ -150,19 +150,8 @@ def eval_loader(args, vocab, split):
 	# Fix data to add <s> and </s> characters
 	tokens = text.replace('\n', ' </s> ').split()
 	# Replacing all OOV with <unk>, converting to integers
-	# x = [vocab[c] for c in tokens]
-	cntr = 0; x = []; nonascii = {}
-	for c in tokens:
-		try:
-			temp = vocab[c]
-		except:
-			if c not in nonascii:
-				nonascii[c] = 1
-			else:
-				nonascii[c] += 1
-		x.append(temp)
-
-	print("ERROR CAUSING TOKENS ", len(nonascii), nonascii)
+	x = [vocab[c] for c in tokens]
+	
 	total_len = len(x)
 	# pad ipa_x so the batch_size divides it exactly
 	while len(x) % timesteps != 1:
