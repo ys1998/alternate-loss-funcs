@@ -282,6 +282,8 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 				model.ngram: ngram,
 				model.initial_states: states}
 
+		# print(feed)
+
 		train_loss, l1, states, _ = sess.run([model.final_cost,
 											 model.cost,
 											 model.final_states,
