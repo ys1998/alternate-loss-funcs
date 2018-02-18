@@ -42,24 +42,24 @@ Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIOba
 ```
 srilm/bin/i686-m64/ngram-count -unk -order 3 -text ptb/ptb.train.txt -kndiscount1 -kndiscount2 -kndiscount3 -write ptb/counts.txt -lm ptb/ngram-lm -interpolate2 -gt3min 1
 ```
-* Initiate training the model. Different loss modes can be tried by changing the `loss_mode` argument, and the `mixed_constant` can be changed for *mixed* loss (i.e. `--loss_mode mixed`) by changing the corresponding argument. Custom config file can be used using the `config_file` flag.
+* Initiate **training** the model. Different loss modes can be tried by changing the `loss_mode` argument, and the `mixed_constant` can be changed for *mixed* loss (i.e. `--loss_mode mixed`) by changing the corresponding argument. Custom config file can be used using the `config_file` flag.
 
 ```
 python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm --loss_mode l1 [--mixed_constant 0.6]
 ```
-* Load the best model from `best_dir` and evaluate perplexity on validation set and stores the probability distribution in `probs_valid.txt` in the `save_dir`.
+* Load the best model from `best_dir` and **evaluate perplexity on validation set** and store the probability distribution in `probs_valid.txt` in the `save_dir`.
 ```
 python main.py --mode valid --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm
 ```
-* Load the best model from `best_dir` and evaluate perplexity on test set and stores the probability distribution in `probs_test.txt` in the `save_dir`.
+* Load the best model from `best_dir` and **evaluate perplexity on test set** and store the probability distribution in `probs_test.txt` in the `save_dir`.
 ```
 python main.py --mode test --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm
 ```
-* Sample output can also be generated for the trained model using this command. It generates sample text file and stores it in `save_dir` as `generate.txt`.
+* Generate **sample output** for the trained model using this command. It generates sample text file and stores it in `save_dir` as `generate.txt`.
 ```
 python main.py --mode generate --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm
 ```
-* More data can be easily mined using the `spider.py` script, as shown :
+* More data can be easily **mined** using the `spider.py` script, as shown :
 ```
 python spider.py --lang hi --N 500 --D 15 --filename hi_space.txt
 ```
