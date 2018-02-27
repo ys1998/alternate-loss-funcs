@@ -38,6 +38,11 @@ easy_install --install-dir <absolute path to home directory> <PACKAGE NAME>
 ```
 ## Running the code
 Download the datasets from [here](https://drive.google.com/file/d/0B5Y_SiDYwIObaE52dmZ0YVFXckU/view?usp=sharing). Assuming you have stored the folders `ptb` and `indian` in the same directory as the rest of the code, run the following commands (you will have to provide the `--job_id` argument in each one according to your requirements)-
+* Many times the dataset contains several non-ASCII characters which hinder with the code. In order to prevent this from happening, first map all such tokens to a rare ASCII token (such as *<unk1>*, *<unk2>* etc) using this script:
+```bash
+python map_dataset.py --data_dir wiki/ --dataset wiki
+```
+This collectively maps all non-ASCII tokens in `wiki.train.txt`, `wiki.valid.txt` and `wiki.test.txt` to a rare ASCII token and saves the mapping in `wiki/mapping.pkl` for future use.
 * This step is done to generate the necessary n-gram files using the SRILM toolkit. `counts.txt`, `ngram-lm` and `vocab` files are generated for the specified text corpus.
 ```bash
 srilm/bin/i686-m64/ngram-count -unk -order 3 -text ptb/ptb.train.txt -kndiscount1 -kndiscount2 -kndiscount3 -write ptb/counts.txt -lm ptb/ngram-lm -interpolate2 -gt3min 1 -write-vocab ptb/vocab
@@ -95,4 +100,4 @@ Then train the model using the following command (the value of `mixed_constant` 
 ```bash
 python main.py --mode train --data_dir ptb/ --save_dir save/ --best_dir save_best --config_file config/sgd.yml --lm ngram-lm --job_id ca_model --loss_mode mixed --mixed_constant 0.99
 ```
-4. **Shifting from PTB to WikiText2** : 
+4. **Shifting from PTB to WikiText2** : Due to presence of several non-ASCII tokens, `map_dataset.py` was first executed and subsequent experiments were run on the mapped dataset.
