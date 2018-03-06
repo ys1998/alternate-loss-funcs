@@ -22,7 +22,7 @@ data = "\n".join(data).split()
 
 # This RE is used to parse output produced by SRILM
 regex = re.compile(r'\sp\(\s(.*)\s\|.*\]\s(.*)\s\[')
-srilm = '/share/data/speech/Software/SRILM/bin/i686-m64'
+srilm = 'srilm/bin/i686-m64'
 ngram = os.path.join(srilm, 'ngram')
 
 lm_file = args.lm
@@ -40,7 +40,9 @@ results = subprocess.check_output(command,
 results = results.split('\n')
 token_ptr = 0
 output = ""
+print(data[0])
 for result in results:
+    print(result)
     match = regex.search(result)
     if not match:
         continue
@@ -53,6 +55,7 @@ for result in results:
         continue
     active_token = data[token_ptr]
     # Confirm active_token and matched token are same!
+    print(token_ptr, active_token, match.group(1))
     if active_token != match.group(1) and match.group(1) != '<unk>':
         print "Error! " + active_token + " " + match.group(1)
         sys.exit()
