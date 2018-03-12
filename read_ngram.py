@@ -40,9 +40,9 @@ results = subprocess.check_output(command,
 results = results.split('\n')
 token_ptr = 0
 output = ""
-print(data[0])
 for result in results:
     print(result)
+    print data[token_ptr:token_ptr+5]
     match = regex.search(result)
     if not match:
         continue
@@ -53,9 +53,9 @@ for result in results:
         # Ignoring the first word
         token_ptr += 1
         continue
+        
     active_token = data[token_ptr]
     # Confirm active_token and matched token are same!
-    print(token_ptr, active_token, match.group(1))
     if active_token != match.group(1) and match.group(1) != '<unk>':
         print "Error! " + active_token + " " + match.group(1)
         sys.exit()
