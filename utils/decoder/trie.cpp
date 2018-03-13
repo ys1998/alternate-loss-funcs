@@ -32,12 +32,11 @@ void Trie::get_distro(list<int> &context, double* distro, int distro_size) {
                 current = current->children[*it];
                 if (it == last_word) {
                     // Arrived at the end of the context, hunt for distribution
-                    map<int, Trie*>::iterator it2;
-                    for (it2 = current->children.begin(); it2 != current->children.end(); it2++) {
-                        if (distro[it2->first] == 0.0) {
+                    for (auto it2 : current->children){
+                        if (distro[it2.first] == 0.0) {
                             // This indicates that this token has not been written
                             // by a higher order gram.
-                            distro[it2->first] = it2->second->log_prob + backoff;
+                            distro[it2.first] = it2.second->log_prob + backoff;
                         }
                     }
                     // Update the backoff values
@@ -60,7 +59,7 @@ void Trie::get_distro(list<int> &context, double* distro, int distro_size) {
 }
 
 
-void Trie::load_arpa(string filename, map<string, int> &vocab) {
+void Trie::load_arpa(string filename, unordered_map<string, int> &vocab) {
     ifstream infile(filename.c_str());
     string line;
     vector<int> ngram_sizes;
