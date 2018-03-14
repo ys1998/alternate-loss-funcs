@@ -500,6 +500,122 @@ class list_int(_object):
 list_int_swigregister = _trie.list_int_swigregister
 list_int_swigregister(list_int)
 
+class list_int_int(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, list_int_int, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, list_int_int, name)
+    __repr__ = _swig_repr
+
+    def iterator(self):
+        return _trie.list_int_int_iterator(self)
+    def __iter__(self):
+        return self.iterator()
+
+    def __nonzero__(self):
+        return _trie.list_int_int___nonzero__(self)
+
+    def __bool__(self):
+        return _trie.list_int_int___bool__(self)
+
+    def __len__(self):
+        return _trie.list_int_int___len__(self)
+
+    def __getslice__(self, i, j):
+        return _trie.list_int_int___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        return _trie.list_int_int___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        return _trie.list_int_int___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        return _trie.list_int_int___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        return _trie.list_int_int___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        return _trie.list_int_int___setitem__(self, *args)
+
+    def pop(self):
+        return _trie.list_int_int_pop(self)
+
+    def append(self, x):
+        return _trie.list_int_int_append(self, x)
+
+    def empty(self):
+        return _trie.list_int_int_empty(self)
+
+    def size(self):
+        return _trie.list_int_int_size(self)
+
+    def swap(self, v):
+        return _trie.list_int_int_swap(self, v)
+
+    def begin(self):
+        return _trie.list_int_int_begin(self)
+
+    def end(self):
+        return _trie.list_int_int_end(self)
+
+    def rbegin(self):
+        return _trie.list_int_int_rbegin(self)
+
+    def rend(self):
+        return _trie.list_int_int_rend(self)
+
+    def clear(self):
+        return _trie.list_int_int_clear(self)
+
+    def get_allocator(self):
+        return _trie.list_int_int_get_allocator(self)
+
+    def pop_back(self):
+        return _trie.list_int_int_pop_back(self)
+
+    def erase(self, *args):
+        return _trie.list_int_int_erase(self, *args)
+
+    def __init__(self, *args):
+        this = _trie.new_list_int_int(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def push_back(self, x):
+        return _trie.list_int_int_push_back(self, x)
+
+    def front(self):
+        return _trie.list_int_int_front(self)
+
+    def back(self):
+        return _trie.list_int_int_back(self)
+
+    def assign(self, n, x):
+        return _trie.list_int_int_assign(self, n, x)
+
+    def resize(self, *args):
+        return _trie.list_int_int_resize(self, *args)
+
+    def insert(self, *args):
+        return _trie.list_int_int_insert(self, *args)
+
+    def pop_front(self):
+        return _trie.list_int_int_pop_front(self)
+
+    def push_front(self, x):
+        return _trie.list_int_int_push_front(self, x)
+
+    def reverse(self):
+        return _trie.list_int_int_reverse(self)
+    __swig_destroy__ = _trie.delete_list_int_int
+    __del__ = lambda self: None
+list_int_int_swigregister = _trie.list_int_int_swigregister
+list_int_int_swigregister(list_int_int)
+
 class Trie(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Trie, name, value)
@@ -533,8 +649,8 @@ class Trie(_object):
     def load_arpa(self, filename, vocab):
         return _trie.Trie_load_arpa(self, filename, vocab)
 
-    def get_distro(self, context, distro):
-        return _trie.Trie_get_distro(self, context, distro)
+    def get_distro(self, context, num_batches, vocab_size, batch_size, timesteps, pointer, distro):
+        return _trie.Trie_get_distro(self, context, num_batches, vocab_size, batch_size, timesteps, pointer, distro)
     __swig_destroy__ = _trie.delete_Trie
     __del__ = lambda self: None
 Trie_swigregister = _trie.Trie_swigregister

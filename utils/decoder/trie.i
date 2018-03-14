@@ -8,6 +8,7 @@ namespace std {
     %template(map_string_int) unordered_map<string, int>;
     %template(vector_float) vector<float>;
     %template(list_int) list<int>;
+    %template(list_int_int) list< list<int> >;
 }
 
 %{
@@ -18,7 +19,6 @@ namespace std {
 %init %{
     import_array();
 %}
-%apply (double* INPLACE_ARRAY1, int DIM1) {(double* distro, int distro_size)}
 
 class Trie {
 public:
@@ -28,5 +28,5 @@ public:
     std::string character;
     Trie();
     void load_arpa(std::string filename, std::unordered_map<string, int> &vocab);
-    void get_distro(std::list<int> &context, double* distro, int distro_size);
+    void get_distro(std::list< list<int> > &context, int num_batches, int vocab_size, int batch_size, int timesteps, int pointer, double* distro);
 };

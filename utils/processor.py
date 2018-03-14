@@ -126,14 +126,14 @@ class BatchLoader(object):
 		vocab_size = self.vocab_size
 		tr = self.data_loader.tr
 		# `tensor` will store the final batch to be sent to TensorFlow
-		tensor = np.zeros((batch_size, timesteps, vocab_size))
-
-		for i in range(0, batch_size):
-			for j in range(0, timesteps):
-				# Offset in the index
-				index = i * timesteps * num_batches + self.pointer * timesteps + j
-				tr.get_distro(self.contexts[index], tensor[i][j])
-		return tensor
+		tensor = np.zeros(batch_size * timesteps * vocab_size)
+		# for i in range(0, batch_size):
+		# 	for j in range(0, timesteps):
+		# 		# Offset in the index
+		# 		index = i * timesteps * num_batches + self.pointer * timesteps + j
+		# 		tr.get_distro(self.contexts[index], tensor[i][j])
+		tr.get_distro(trie.list_int_int(self.contexts), num_batches, vocab_size, batch_size, timesteps, pointer, tensor)
+		return tensor.reshape([batch_size, timesteps, vocab_size])
 
 	def reset_batch_pointer(self):
 		"""Bring pointer back to first batch."""

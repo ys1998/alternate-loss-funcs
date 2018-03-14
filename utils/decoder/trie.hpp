@@ -34,6 +34,6 @@ public:
     string character;
     Trie();
     void load_arpa(string filename, unordered_map<string, int> &vocab);
-    void get_distro(list<int> &context, double* distro, int distro_size);
+    void get_distro(list< list<int> > &context, int num_batches, int vocab_size, int batch_size, int timesteps, int pointer, double* distro);
 };
 
