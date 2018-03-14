@@ -179,14 +179,6 @@ class map_string_int(_object):
 
     def __len__(self):
         return _trie.map_string_int___len__(self)
-    def __iter__(self):
-        return self.key_iterator()
-    def iterkeys(self):
-        return self.key_iterator()
-    def itervalues(self):
-        return self.value_iterator()
-    def iteritems(self):
-        return self.iterator()
 
     def __getitem__(self, key):
         return _trie.map_string_int___getitem__(self, key)
@@ -214,12 +206,17 @@ class map_string_int(_object):
 
     def value_iterator(self):
         return _trie.map_string_int_value_iterator(self)
+    def __iter__(self):
+        return self.key_iterator()
+    def iterkeys(self):
+        return self.key_iterator()
+    def itervalues(self):
+        return self.value_iterator()
+    def iteritems(self):
+        return self.iterator()
 
-    def __setitem__(self, *args):
-        return _trie.map_string_int___setitem__(self, *args)
-
-    def asdict(self):
-        return _trie.map_string_int_asdict(self)
+    def __setitem__(self, key, x):
+        return _trie.map_string_int___setitem__(self, key, x)
 
     def __init__(self, *args):
         this = _trie.new_map_string_int(*args)

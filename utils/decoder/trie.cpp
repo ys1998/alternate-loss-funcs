@@ -12,7 +12,7 @@ Trie::Trie() {
 }
 
 
-void Trie::get_distro(list< list<int> > &context, int num_batches, int vocab_size, int batch_size, int timesteps, int pointer, double* distro){
+void Trie::get_distro(vector< vector<int> > &context, int num_batches, int vocab_size, int batch_size, int timesteps, int pointer, double* distro, int distro_size){
 	for(int i=0; i < batch_size; ++i){
 		for(int j=0; j < timesteps; ++j){
 			int index = i * timesteps * num_batches + pointer * timesteps + j;
@@ -53,7 +53,7 @@ void Trie::get_distro(list< list<int> > &context, int num_batches, int vocab_siz
 			}
 			// Separately hunt for unigrams
 			Trie* current = this;
-			for (int k = 0; k < distro_size; ++k) {
+			for (int k = 0; k < vocab_size; ++k) {
 				if (distro[i*batch_size + j*timesteps + k] == 0) {
 					distro[i*batch_size + j*timesteps + k] = current->children[k]->log_prob + backoff;
 				}
@@ -63,7 +63,7 @@ void Trie::get_distro(list< list<int> > &context, int num_batches, int vocab_siz
 }
 
 
-void Trie::load_arpa(string filename, unordered_map<string, int> &vocab) {
+void Trie::load_arpa(string filename, map<string, int> &vocab) {
 	ifstream infile(filename.c_str());
 	string line;
 	vector<int> ngram_sizes;

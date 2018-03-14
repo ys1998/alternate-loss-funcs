@@ -5,10 +5,12 @@ setup.py file for SWIG example
 """
 
 from distutils.core import setup, Extension
+import numpy
 
 
 trie_module = Extension('_trie',
                         sources=['trie_wrap.cxx', 'trie.cpp'],
+                        include_dirs=[numpy.get_include()],
                         )
 
 setup (name = 'trie',

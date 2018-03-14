@@ -82,7 +82,7 @@ class BatchLoader(object):
 					context = [vocab['<s>'], data[i]]
 				else:
 					context = [data[i - 1], data[i]]
-				contexts.append(trie.list_int(context))
+				contexts.append(trie.vector_int(context))
 
 		xdata = data[:num_batches * batch_size * timesteps]
 		ydata = np.copy(xdata)
@@ -127,12 +127,7 @@ class BatchLoader(object):
 		tr = self.data_loader.tr
 		# `tensor` will store the final batch to be sent to TensorFlow
 		tensor = np.zeros(batch_size * timesteps * vocab_size)
-		# for i in range(0, batch_size):
-		# 	for j in range(0, timesteps):
-		# 		# Offset in the index
-		# 		index = i * timesteps * num_batches + self.pointer * timesteps + j
-		# 		tr.get_distro(self.contexts[index], tensor[i][j])
-		tr.get_distro(trie.list_int_int(self.contexts), num_batches, vocab_size, batch_size, timesteps, pointer, tensor)
+		tr.get_distro(trie.vector_vector_int(self.contexts), num_batches, vocab_size, batch_size, timesteps, self.pointer, tensor)
 		return tensor.reshape([batch_size, timesteps, vocab_size])
 
 	def reset_batch_pointer(self):
