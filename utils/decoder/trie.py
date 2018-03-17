@@ -646,8 +646,8 @@ class Trie(_object):
     def load_arpa(self, filename, vocab):
         return _trie.Trie_load_arpa(self, filename, vocab)
 
-    def get_distro(self, context, num_batches, vocab_size, batch_size, timesteps, pointer, distro):
-        return _trie.Trie_get_distro(self, context, num_batches, vocab_size, batch_size, timesteps, pointer, distro)
+    def get_distro(self, context, num_batches, pointer, distro):
+        return _trie.Trie_get_distro(self, context, num_batches, pointer, distro)
     __swig_destroy__ = _trie.delete_Trie
     __del__ = lambda self: None
 Trie_swigregister = _trie.Trie_swigregister

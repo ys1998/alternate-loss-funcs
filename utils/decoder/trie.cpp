@@ -16,16 +16,17 @@ void Trie::get_distro(vector< vector<int> > &context, int num_batches, int point
 	for(int i=0; i < batch_size; ++i){
 		for(int j=0; j < timesteps; ++j){
 			int index = i * timesteps * num_batches + pointer * timesteps + j;
+			// cout<<context[index].size()<<" "<<context[index][0]<<endl;
 			// context[index]
-			// distro[i * batch_size + j * timesteps + ]
-			auto context_start = context[index].begin();
-			auto context_end = context[index].end();
+			// distro[i * batch_size * timesteps + j * timesteps + ]
+			vector<int>::iterator context_start = context[index].begin();
+			vector<int>::iterator context_end = context[index].end();
 			int context_size = context[index].size();
-			auto last_word = context_end;
+			vector<int>::iterator last_word = context_end;
 			advance(last_word, -1);
 			float backoff = 0.0;
 			for (int gram = 0; gram < context_size; gram++) {
-				auto it = context_start;
+				vector<int>::iterator it = context_start;
 				advance(it, gram);
 				Trie* current = this;
 				while (it != context_end) {
@@ -37,11 +38,11 @@ void Trie::get_distro(vector< vector<int> > &context, int num_batches, int point
 						current = current->children[*it];
 						if (it == last_word) {
 							// Arrived at the end of the context, hunt for distribution
-							for (auto it2 : current->children){
-								if (distro[i*batch_size + j*timesteps + it2.first] == 0.0) {
+							for (map<int, Trie*>::iterator it2 = current->children.begin(); it2 != current->children.end(); ++it2){
+								if (distro[i*batch_size*timesteps + j*timesteps + it2->first] == 0.0) {
 									// This indicates that this token has not been written
 									// by a higher order gram.
-									distro[i*batch_size + j*timesteps + it2.first] = it2.second->log_prob + backoff;
+									distro[i*batch_size*timesteps + j*timesteps + it2->first] = (it2->second)->log_prob + backoff;
 								}
 							}
 							// Update the backoff values
@@ -54,8 +55,8 @@ void Trie::get_distro(vector< vector<int> > &context, int num_batches, int point
 			// Separately hunt for unigrams
 			Trie* current = this;
 			for (int k = 0; k < vocab_size; ++k) {
-				if (distro[i*batch_size + j*timesteps + k] == 0) {
-					distro[i*batch_size + j*timesteps + k] = current->children[k]->log_prob + backoff;
+				if (distro[i*batch_size*timesteps + j*timesteps + k] == 0.0) {
+					distro[i*batch_size*timesteps + j*timesteps + k] = (current->children[k])->log_prob + backoff;
 				}
 			}
 		}

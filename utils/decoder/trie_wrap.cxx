@@ -14527,11 +14527,10 @@ SWIGINTERN PyObject *_wrap_Trie_get_distro(PyObject *SWIGUNUSEDPARM(self), PyObj
   std::vector< std::vector< int,std::allocator< int > >,std::allocator< std::vector< int,std::allocator< int > > > > *arg2 = 0 ;
   int arg3 ;
   int arg4 ;
-  int arg5 ;
+  double *arg5 = (double *) 0 ;
   int arg6 ;
   int arg7 ;
-  double *arg8 = (double *) 0 ;
-  int arg9 ;
+  int arg8 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -14540,24 +14539,14 @@ SWIGINTERN PyObject *_wrap_Trie_get_distro(PyObject *SWIGUNUSEDPARM(self), PyObj
   int ecode3 = 0 ;
   int val4 ;
   int ecode4 = 0 ;
-  int val5 ;
-  int ecode5 = 0 ;
-  int val6 ;
-  int ecode6 = 0 ;
-  int val7 ;
-  int ecode7 = 0 ;
-  PyArrayObject *array8 = NULL ;
-  int i8 = 1 ;
+  PyArrayObject *array5 = NULL ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  PyObject * obj6 = 0 ;
-  PyObject * obj7 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"OOOOOOOO:Trie_get_distro",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:Trie_get_distro",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Trie, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Trie_get_distro" "', argument " "1"" of type '" "Trie *""'"); 
@@ -14581,30 +14570,16 @@ SWIGINTERN PyObject *_wrap_Trie_get_distro(PyObject *SWIGUNUSEDPARM(self), PyObj
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Trie_get_distro" "', argument " "4"" of type '" "int""'");
   } 
   arg4 = static_cast< int >(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Trie_get_distro" "', argument " "5"" of type '" "int""'");
-  } 
-  arg5 = static_cast< int >(val5);
-  ecode6 = SWIG_AsVal_int(obj5, &val6);
-  if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Trie_get_distro" "', argument " "6"" of type '" "int""'");
-  } 
-  arg6 = static_cast< int >(val6);
-  ecode7 = SWIG_AsVal_int(obj6, &val7);
-  if (!SWIG_IsOK(ecode7)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "Trie_get_distro" "', argument " "7"" of type '" "int""'");
-  } 
-  arg7 = static_cast< int >(val7);
   {
-    array8 = obj_to_array_no_conversion(obj7, NPY_DOUBLE);
-    if (!array8 || !require_dimensions(array8,1) || !require_contiguous(array8)
-      || !require_native(array8)) SWIG_fail;
-    arg8 = (double*) array_data(array8);
-    arg9 = 1;
-    for (i8=0; i8 < array_numdims(array8); ++i8) arg9 *= array_size(array8,i8);
+    array5 = obj_to_array_no_conversion(obj4, NPY_DOUBLE);
+    if (!array5 || !require_dimensions(array5,3) || !require_contiguous(array5) ||
+      !require_native(array5)) SWIG_fail;
+    arg5 = (double*) array_data(array5);
+    arg6 = (int) array_size(array5,0);
+    arg7 = (int) array_size(array5,1);
+    arg8 = (int) array_size(array5,2);
   }
-  (arg1)->get_distro(*arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
+  (arg1)->get_distro(*arg2,arg3,arg4,arg5,arg6,arg7,arg8);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:

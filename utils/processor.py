@@ -126,7 +126,7 @@ class BatchLoader(object):
 		vocab_size = self.vocab_size
 		tr = self.data_loader.tr
 		# `tensor` will store the final batch to be sent to TensorFlow
-		tensor = np.zeros([batch_size, timesteps, vocab_size])
+		tensor = np.zeros([batch_size, timesteps, vocab_size], order='C')
 		tr.get_distro(trie.vector_vector_int(self.contexts), num_batches, self.pointer, tensor)
 		return tensor
 
