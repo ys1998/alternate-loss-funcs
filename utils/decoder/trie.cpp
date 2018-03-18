@@ -84,6 +84,7 @@ void Trie::load_arpa(string filename, map<string, int> &vocab) {
 	infile.close();
 }
 
+// Structure to store and pass data to threads
 struct thread_data{
 	Trie *ptr;
 	int i, j;
@@ -92,7 +93,8 @@ struct thread_data{
 	int pointer;
 	double* distro;
 	int batch_size, timesteps, vocab_size;
-
+    
+    // Default constructor
 	thread_data(){
 		this->ptr = NULL;
 		this->i = 0;
@@ -104,7 +106,8 @@ struct thread_data{
 		this->batch_size = 0;
 		this->timesteps = 0;
 		this->vocab_size = 0;
-	};
+	}
+    // Parameterized constructor
 	thread_data(Trie *T, int i, int j, vector<int> cntxt, int nb, int ptr, double* d, int bs, int t, int vs){
 		this->ptr = T;
 		this->i = i;
@@ -119,10 +122,12 @@ struct thread_data{
 	}
 };
 
+// Callable for every thread
 void *gen_freq(void *thread_arg){
 	// Typecast thread_arg from void* to ptr of structure
 	thread_data *D = (thread_data *)thread_arg;
-
+    
+    // Find probability distribution for each i,j independently
 	vector<int>::iterator context_start = D->context.begin();
 	vector<int>::iterator context_end = D->context.end();
 	int context_size = D->context.size();
@@ -166,7 +171,9 @@ void *gen_freq(void *thread_arg){
 }
 
 void Trie::parallel_get_distro(vector< vector<int> > &context, int num_batches, int pointer, double* distro, int batch_size, int timesteps, int vocab_size){
+    // Declare N_THREAD threads
 	pthread_t thread[N_THREADS];
+    // Variable to store exit status of threads
 	void *status;
 	int i=0, j=0, cntr=0;
 	int total_iters = batch_size * timesteps;
@@ -207,51 +214,6 @@ void Trie::parallel_get_distro(vector< vector<int> > &context, int num_batches, 
 }
 
 void Trie::get_distro(vector< vector<int> > &context, int num_batches, int pointer, double* distro, int batch_size, int timesteps, int vocab_size){
-	parallel_get_distro(context, num_batches, pointer, distro, batch_size, timesteps, vocab_size);
-	// for(int i=0; i < batch_size; ++i){
-	// 	for(int j=0; j < timesteps; ++j){
-	// 		int index = i * timesteps * num_batches + pointer * timesteps + j;
-			
-	// 		vector<int>::iterator context_start = context[index].begin();
-	// 		vector<int>::iterator context_end = context[index].end();
-	// 		int context_size = context[index].size();
-	// 		vector<int>::iterator last_word = context_end;
-	// 		advance(last_word, -1);
-	// 		float backoff = 0.0;
-	// 		for (int gram = 0; gram < context_size; gram++) {
-	// 			vector<int>::iterator it = context_start;
-	// 			advance(it, gram);
-	// 			Trie* current = this;
-	// 			while (it != context_end) {
-	// 				if (current->children.find(*it) == current->children.end()) {
-	// 					// Context is not found! Search for a smaller gram
-	// 					break;
-	// 				} else {
-	// 					// Context found, proceed in the trie.
-	// 					current = current->children[*it];
-	// 					if (it == last_word) {
-	// 						// Arrived at the end of the context, hunt for distribution
-	// 						for (map<int, Trie*>::iterator it2 = current->children.begin(); it2 != current->children.end(); it2++){
-	// 							if (distro[i*vocab_size*timesteps + j*vocab_size + it2->first] == 0.0) {
-	// 								// This indicates that this token has not been written
-	// 								// by a higher order gram.
-	// 								distro[i*vocab_size*timesteps + j*vocab_size + it2->first] = (it2->second)->log_prob + backoff;
-	// 							}
-	// 						}
-	// 						// Update the backoff values
-	// 						backoff += current->backoff;
-	// 					}
-	// 				}
-	// 				it++;
-	// 			}
-	// 		}
-	// 		// Separately hunt for unigrams
-	// 		Trie* current = this;
-	// 		for (int k = 0; k < vocab_size; ++k) {
-	// 			if (distro[i*vocab_size*timesteps + j*vocab_size + k] == 0.0) {
-	// 				distro[i*vocab_size*timesteps + j*vocab_size + k] = (current->children[k])->log_prob + backoff;
-	// 			}
-	// 		}
-	// 	}
-	// }
+	// Call parallelized code
+    parallel_get_distro(context, num_batches, pointer, distro, batch_size, timesteps, vocab_size);
 }
