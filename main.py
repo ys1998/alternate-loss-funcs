@@ -272,7 +272,10 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 		start = time.time()
 		l1 = adaptive_loss(epoch, b, args=args)
 		sess.run(model.l1_assign, feed_dict={model.l1_new: l1})
+		time1 = time.time()
 		x, y, ngram = batch_loader.next_batch(l1)
+		time2 = time.time()
+		logger.info("Time for loading ngram distribution - %.2f", time2 - time1)
 		# With probability 0.01 feed the initial state
 		if np.random.randint(1, 101) <= 1:
 			states = sess.run(model.initial_states)
@@ -281,7 +284,7 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 				model.targets: y,
 				model.ngram: ngram,
 				model.initial_states: states}
-
+		time3 = time.time()
 		train_loss, l1, states, _ = sess.run([model.final_cost,
 											 model.cost,
 											 model.final_states,
@@ -290,6 +293,7 @@ def run_epoch(sess, model, model_eval, args, batch_loader, epoch):
 		# print the result so far on terminal
 		batch_num = epoch * batch_loader.num_batches + b
 		total_num = args.config.num_epochs * batch_loader.num_batches
+		logger.info("Time for TensorFlow calculations - %.2f", end - time3)
 		logger.info("Epoch %d, %d / %d. Loss - %.4f, Time - %.2f", epoch, batch_num, total_num, train_loss, end - start)
 
 		# Save after `args.eval_freq` batches or at the very end
