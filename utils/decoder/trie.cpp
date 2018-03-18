@@ -123,8 +123,6 @@ void *gen_freq(void *thread_arg){
 	// Typecast thread_arg from void* to ptr of structure
 	thread_data *D = (thread_data *)thread_arg;
 
-	cout<<"i = "<<D->i<<", j = "<<D->j<<endl;
-	
 	vector<int>::iterator context_start = D->context.begin();
 	vector<int>::iterator context_end = D->context.end();
 	int context_size = D->context.size();
@@ -171,9 +169,10 @@ void Trie::parallel_get_distro(vector< vector<int> > &context, int num_batches, 
 	pthread_t thread[N_THREADS];
 	void *status;
 	int i=0, j=0, cntr=0;
+	int total_iters = batch_size * timesteps;
 	vector<thread_data> data(0);
 
-	while(true){
+	while(total_iters > 0){
 		bool start = false;
 		// Clear thread data
 		data.resize(0);
@@ -189,6 +188,7 @@ void Trie::parallel_get_distro(vector< vector<int> > &context, int num_batches, 
 					int index = i * timesteps * num_batches + pointer * timesteps + j;
 					data.push_back(thread_data(this, i, j, context[index], num_batches, pointer, distro, batch_size, timesteps, vocab_size));
 					cntr++;
+					total_iters--;
 				}
 			}
 			if(j == timesteps) j=0;
@@ -197,16 +197,12 @@ void Trie::parallel_get_distro(vector< vector<int> > &context, int num_batches, 
 		// Create as many threads as the number of thread_data instances
 		// All threads are joinable by default
 		for(int k=0; k<data.size(); ++k){
-			cout<<"Creating thread "<<k<<endl;
 			pthread_create(&thread[k], NULL, gen_freq, (void *)&data[k]);
 		}
 		// Wait for all threads to join - change this if too much time required
 		for(int k=0; k<data.size(); ++k){
-			cout<<"Joining thread "<<k<<endl;
 			pthread_join(thread[k], &status);
 		}
-		// Terminating condition
-		if(i == batch_size-1 && j == timesteps) break;
 	}
 }
 
