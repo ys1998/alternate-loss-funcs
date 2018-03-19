@@ -1,7 +1,7 @@
 """ L2 loss in intermediate layer and L1 loss in the final layer """
 import logging
 import tensorflow as tf
-from tensorflow.contrib.rnn import core_rnn_cell as rnn_cell
+from tensorflow.contrib.rnn import BasicLSTMCell, DropoutWrapper
 
 
 class IntermediateLossModel():
@@ -53,11 +53,11 @@ class IntermediateLossModel():
         cells = []
         initial_states = []
         for i in range(config.num_layers):
-            cell = rnn_cell.BasicLSTMCell(
+            cell = BasicLSTMCell(
                 config.rnn_size, forget_bias=0.0, state_is_tuple=True, reuse=tf.get_variable_scope().reuse
             )
             if mode == 'train':
-                cell = rnn_cell.DropoutWrapper(
+                cell = DropoutWrapper(
                     cell=cell,
                     output_keep_prob=config.intra_keep_prob,
                     state_keep_prob=config.state_keep_prob,
@@ -94,8 +94,8 @@ class IntermediateLossModel():
                     self.cells[i], inputs, initial_state=self.initial_states[i]
                 )
             if i != config.num_layers-1:
-                self.loss2 += tf.nn.softmax_cross_entropy_with_logits(
-                    labels=self.distro2,
+                self.loss2 += tf.nn.softmax_cross_entropy_with_logits_v2(
+                    labels=tf.stop_gradient(self.distro2),
                     logits=tf.nn.xw_plus_b(tf.reshape(inputs,[-1,config.rnn_size]), self.w0, self.b0)
                 )
             else:
@@ -115,7 +115,7 @@ class IntermediateLossModel():
         # Converting the distribution to a one hot vector
         self.distro1 = tf.reshape(tf.one_hot(self.targets, args.vocab_size), [-1, args.vocab_size])
         # Finding 1-D cross entropy loss tensor
-        self.loss = tf.nn.softmax_cross_entropy_with_logits(labels=self.distro1, logits=self.logits)
+        self.loss = tf.nn.softmax_cross_entropy_with_logits_v2(labels=tf.stop_gradient(self.distro1), logits=self.logits)
 
         self.cost = tf.reduce_sum(self.loss) / batch_size
         self.cost2 = tf.reduce_sum(self.loss2) / batch_size
