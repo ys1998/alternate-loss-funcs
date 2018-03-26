@@ -107,7 +107,7 @@ class TemperatureModel():
         # Converting the distribution to a one hot vector
         self.distro1 = tf.reshape(tf.one_hot(self.targets, args.vocab_size), [-1, args.vocab_size])
         # Finding 1-D cross entropy loss tensor
-        self.loss = tf.nn.softmax_cross_entropy_with_logits_v2(labels=tf.stop_gradient(self.distro1), logits=self.logits/self.T)
+        self.loss = tf.nn.softmax_cross_entropy_with_logits(labels=tf.stop_gradient(self.distro1), logits=self.logits/self.T)
         # Scaling by interpolation values of L1
         self.cost = tf.reduce_sum(self.loss) / batch_size
 
@@ -115,7 +115,7 @@ class TemperatureModel():
         ngram_exp = tf.exp(self.ngram)
         self.distro2 = tf.reshape(ngram_exp, [-1, args.vocab_size])
         # Finding 1-D cross entropy loss tensor
-        self.loss2 = tf.nn.softmax_cross_entropy_with_logits_v2(labels=tf.stop_gradient(self.distro2), logits=self.logits/self.T)
+        self.loss2 = tf.nn.softmax_cross_entropy_with_logits(labels=tf.stop_gradient(self.distro2), logits=self.logits/self.T)
         # Scaling by interpolation values of L2
         self.cost2 = tf.reduce_sum(self.loss2) / batch_size
 
