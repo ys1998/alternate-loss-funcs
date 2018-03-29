@@ -1,7 +1,7 @@
 #include "trie.hpp"
 #include <pthread.h>
 
-#define N_THREADS 8
+#define N_THREADS 48
 
 float log_to_ln(float input) {
 	return (input * LN_10);
