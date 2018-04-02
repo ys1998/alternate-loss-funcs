@@ -1,0 +1,1197 @@
+2018-04-02 07:32:06,252 [INFO] __main__: Namespace(T=1.0, best_dir='save_best/wiki_int_l2_0', char=False, config=Bunch(batch_size=20, decay_after=13, eval_freq=500000000000, grad_clip=5.0, input_keep_prob=0.5, intra_keep_prob=0.5, lr=1.0, lr_decay=0.8, margin_ppl=1, num_epochs=50, num_layers=2, optimizer='sgd', output_keep_prob=0.5, rnn_size=650, shared_embeddings=True, state_keep_prob=1.0, timesteps=35), config_file='config/sgd.yml', data_dir='wiki/', dataset='wiki', device='gpu', gen_config='{"prior": "a", "length": 100}', job_id='wiki_int_l2_0', lm='ngram-lm', loss_mode='mixed', mixed_constant=0.4, mode='train', save_dir='save/wiki_int_l2_0', vocab='vocab')
+Reading text file..
+Reading pre-processed vocabulary..
+Reading # of ngrams...
+Loading 33279 1-grams
+Loading 619591 2-grams
+Loading 1398959 3-grams
+2018-04-02 07:32:30.403790: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+WARNING:tensorflow:From /exp/yash/research-nlm/model/IntermediateLossModel.py:99: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See tf.nn.softmax_cross_entropy_with_logits_v2.
+
+Loading contexts...
+2018-04-02 07:32:30,735 [WARNING] tensorflow: From /exp/yash/research-nlm/model/IntermediateLossModel.py:99: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See tf.nn.softmax_cross_entropy_with_logits_v2.
+
+2018-04-02 07:32:30,875 [INFO] model.IntermediateLossModel: model/embedding:0 - (33279, 650)
+2018-04-02 07:32:30,876 [INFO] model.IntermediateLossModel: model/logit_weights/b:0 - (33279,)
+2018-04-02 07:32:30,876 [INFO] model.IntermediateLossModel: model/layer0/rnn/basic_lstm_cell/kernel:0 - (1300, 2600)
+2018-04-02 07:32:30,876 [INFO] model.IntermediateLossModel: model/layer0/rnn/basic_lstm_cell/bias:0 - (2600,)
+2018-04-02 07:32:30,876 [INFO] model.IntermediateLossModel: model/layer1/rnn/basic_lstm_cell/kernel:0 - (1300, 2600)
+2018-04-02 07:32:30,876 [INFO] model.IntermediateLossModel: model/layer1/rnn/basic_lstm_cell/bias:0 - (2600,)
+2018-04-02 07:32:31,584 [INFO] __main__: loaded 0 completed steps
+2018-04-02 07:32:33,633 [INFO] __main__: Time for loading ngram distribution - 1.33
+2018-04-02 07:32:44,390 [INFO] __main__: Time for TensorFlow calculations - 10.75
+2018-04-02 07:32:44,390 [INFO] __main__: Epoch 0, 0 / 149150. Loss - 364.4412, Time - 12.09
+2018-04-02 07:32:45,804 [INFO] __main__: Time for loading ngram distribution - 1.41
+2018-04-02 07:32:56,406 [INFO] __main__: Time for TensorFlow calculations - 10.59
+2018-04-02 07:32:56,406 [INFO] __main__: Epoch 0, 1 / 149150. Loss - 353.0324, Time - 12.01
+2018-04-02 07:32:57,897 [INFO] __main__: Time for loading ngram distribution - 1.49
+2018-04-02 07:33:08,506 [INFO] __main__: Time for TensorFlow calculations - 10.60
+2018-04-02 07:33:08,507 [INFO] __main__: Epoch 0, 2 / 149150. Loss - 333.2941, Time - 12.10
+2018-04-02 07:33:09,897 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:33:20,384 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 07:33:20,385 [INFO] __main__: Epoch 0, 3 / 149150. Loss - 398.2648, Time - 11.88
+2018-04-02 07:33:21,510 [INFO] __main__: Time for loading ngram distribution - 1.12
+2018-04-02 07:33:32,325 [INFO] __main__: Time for TensorFlow calculations - 10.80
+2018-04-02 07:33:32,325 [INFO] __main__: Epoch 0, 4 / 149150. Loss - 324.2721, Time - 11.94
+2018-04-02 07:33:33,692 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 07:33:44,957 [INFO] __main__: Time for TensorFlow calculations - 11.25
+2018-04-02 07:33:44,958 [INFO] __main__: Epoch 0, 5 / 149150. Loss - 365.1868, Time - 12.63
+2018-04-02 07:33:46,363 [INFO] __main__: Time for loading ngram distribution - 1.40
+2018-04-02 07:33:57,054 [INFO] __main__: Time for TensorFlow calculations - 10.68
+2018-04-02 07:33:57,054 [INFO] __main__: Epoch 0, 6 / 149150. Loss - 322.1048, Time - 12.10
+2018-04-02 07:33:58,617 [INFO] __main__: Time for loading ngram distribution - 1.56
+2018-04-02 07:34:09,165 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 07:34:09,166 [INFO] __main__: Epoch 0, 7 / 149150. Loss - 363.2933, Time - 12.11
+2018-04-02 07:34:10,697 [INFO] __main__: Time for loading ngram distribution - 1.53
+2018-04-02 07:34:21,640 [INFO] __main__: Time for TensorFlow calculations - 10.93
+2018-04-02 07:34:21,641 [INFO] __main__: Epoch 0, 8 / 149150. Loss - 320.5875, Time - 12.47
+2018-04-02 07:34:23,136 [INFO] __main__: Time for loading ngram distribution - 1.49
+2018-04-02 07:34:33,864 [INFO] __main__: Time for TensorFlow calculations - 10.72
+2018-04-02 07:34:33,864 [INFO] __main__: Epoch 0, 9 / 149150. Loss - 305.6766, Time - 12.22
+2018-04-02 07:34:35,378 [INFO] __main__: Time for loading ngram distribution - 1.51
+2018-04-02 07:34:46,137 [INFO] __main__: Time for TensorFlow calculations - 10.75
+2018-04-02 07:34:46,137 [INFO] __main__: Epoch 0, 10 / 149150. Loss - 311.0279, Time - 12.27
+2018-04-02 07:34:47,517 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:34:58,557 [INFO] __main__: Time for TensorFlow calculations - 11.03
+2018-04-02 07:34:58,557 [INFO] __main__: Epoch 0, 11 / 149150. Loss - 328.0781, Time - 12.42
+2018-04-02 07:34:59,923 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 07:35:10,559 [INFO] __main__: Time for TensorFlow calculations - 10.62
+2018-04-02 07:35:10,559 [INFO] __main__: Epoch 0, 12 / 149150. Loss - 310.0632, Time - 12.00
+2018-04-02 07:35:12,012 [INFO] __main__: Time for loading ngram distribution - 1.45
+2018-04-02 07:35:22,716 [INFO] __main__: Time for TensorFlow calculations - 10.69
+2018-04-02 07:35:22,716 [INFO] __main__: Epoch 0, 13 / 149150. Loss - 309.0882, Time - 12.16
+2018-04-02 07:35:24,105 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:35:34,906 [INFO] __main__: Time for TensorFlow calculations - 10.79
+2018-04-02 07:35:34,907 [INFO] __main__: Epoch 0, 14 / 149150. Loss - 375.6437, Time - 12.19
+2018-04-02 07:35:36,310 [INFO] __main__: Time for loading ngram distribution - 1.40
+2018-04-02 07:35:46,845 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 07:35:46,845 [INFO] __main__: Epoch 0, 15 / 149150. Loss - 348.1242, Time - 11.94
+2018-04-02 07:35:48,380 [INFO] __main__: Time for loading ngram distribution - 1.53
+2018-04-02 07:35:58,872 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 07:35:58,872 [INFO] __main__: Epoch 0, 16 / 149150. Loss - 326.3285, Time - 12.03
+2018-04-02 07:36:00,257 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:36:10,961 [INFO] __main__: Time for TensorFlow calculations - 10.69
+2018-04-02 07:36:10,962 [INFO] __main__: Epoch 0, 17 / 149150. Loss - 311.9831, Time - 12.09
+2018-04-02 07:36:12,509 [INFO] __main__: Time for loading ngram distribution - 1.55
+2018-04-02 07:36:23,352 [INFO] __main__: Time for TensorFlow calculations - 10.83
+2018-04-02 07:36:23,352 [INFO] __main__: Epoch 0, 18 / 149150. Loss - 310.1161, Time - 12.39
+2018-04-02 07:36:24,746 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:36:35,456 [INFO] __main__: Time for TensorFlow calculations - 10.70
+2018-04-02 07:36:35,456 [INFO] __main__: Epoch 0, 19 / 149150. Loss - 343.5917, Time - 12.10
+2018-04-02 07:36:36,844 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:36:47,427 [INFO] __main__: Time for TensorFlow calculations - 10.57
+2018-04-02 07:36:47,428 [INFO] __main__: Epoch 0, 20 / 149150. Loss - 323.5522, Time - 11.97
+2018-04-02 07:36:48,771 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 07:36:59,742 [INFO] __main__: Time for TensorFlow calculations - 10.96
+2018-04-02 07:36:59,742 [INFO] __main__: Epoch 0, 21 / 149150. Loss - 325.3944, Time - 12.31
+2018-04-02 07:37:01,084 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 07:37:11,791 [INFO] __main__: Time for TensorFlow calculations - 10.70
+2018-04-02 07:37:11,792 [INFO] __main__: Epoch 0, 22 / 149150. Loss - 308.7211, Time - 12.05
+2018-04-02 07:37:13,224 [INFO] __main__: Time for loading ngram distribution - 1.43
+2018-04-02 07:37:24,404 [INFO] __main__: Time for TensorFlow calculations - 11.17
+2018-04-02 07:37:24,405 [INFO] __main__: Epoch 0, 23 / 149150. Loss - 341.0283, Time - 12.61
+2018-04-02 07:37:25,811 [INFO] __main__: Time for loading ngram distribution - 1.41
+2018-04-02 07:37:36,568 [INFO] __main__: Time for TensorFlow calculations - 10.75
+2018-04-02 07:37:36,569 [INFO] __main__: Epoch 0, 24 / 149150. Loss - 318.8633, Time - 12.16
+2018-04-02 07:37:38,048 [INFO] __main__: Time for loading ngram distribution - 1.45
+2018-04-02 07:37:48,724 [INFO] __main__: Time for TensorFlow calculations - 10.66
+2018-04-02 07:37:48,724 [INFO] __main__: Epoch 0, 25 / 149150. Loss - 320.2333, Time - 12.13
+2018-04-02 07:37:50,129 [INFO] __main__: Time for loading ngram distribution - 1.40
+2018-04-02 07:38:00,674 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 07:38:00,675 [INFO] __main__: Epoch 0, 26 / 149150. Loss - 295.9204, Time - 11.95
+2018-04-02 07:38:02,039 [INFO] __main__: Time for loading ngram distribution - 1.36
+2018-04-02 07:38:12,688 [INFO] __main__: Time for TensorFlow calculations - 10.64
+2018-04-02 07:38:12,689 [INFO] __main__: Epoch 0, 27 / 149150. Loss - 311.5053, Time - 12.01
+2018-04-02 07:38:14,171 [INFO] __main__: Time for loading ngram distribution - 1.48
+2018-04-02 07:38:25,162 [INFO] __main__: Time for TensorFlow calculations - 10.98
+2018-04-02 07:38:25,162 [INFO] __main__: Epoch 0, 28 / 149150. Loss - 308.6765, Time - 12.47
+2018-04-02 07:38:26,773 [INFO] __main__: Time for loading ngram distribution - 1.61
+2018-04-02 07:38:37,359 [INFO] __main__: Time for TensorFlow calculations - 10.57
+2018-04-02 07:38:37,359 [INFO] __main__: Epoch 0, 29 / 149150. Loss - 379.5877, Time - 12.20
+2018-04-02 07:38:38,778 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:38:49,125 [INFO] __main__: Time for TensorFlow calculations - 10.34
+2018-04-02 07:38:49,126 [INFO] __main__: Epoch 0, 30 / 149150. Loss - 335.2511, Time - 11.77
+2018-04-02 07:38:50,842 [INFO] __main__: Time for loading ngram distribution - 1.71
+2018-04-02 07:39:01,669 [INFO] __main__: Time for TensorFlow calculations - 10.82
+2018-04-02 07:39:01,669 [INFO] __main__: Epoch 0, 31 / 149150. Loss - 315.5974, Time - 12.54
+2018-04-02 07:39:03,016 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:39:13,677 [INFO] __main__: Time for TensorFlow calculations - 10.65
+2018-04-02 07:39:13,678 [INFO] __main__: Epoch 0, 32 / 149150. Loss - 358.4865, Time - 12.01
+2018-04-02 07:39:15,076 [INFO] __main__: Time for loading ngram distribution - 1.40
+2018-04-02 07:39:25,543 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 07:39:25,545 [INFO] __main__: Epoch 0, 33 / 149150. Loss - 323.3094, Time - 11.87
+2018-04-02 07:39:27,120 [INFO] __main__: Time for loading ngram distribution - 1.57
+2018-04-02 07:39:38,042 [INFO] __main__: Time for TensorFlow calculations - 10.91
+2018-04-02 07:39:38,042 [INFO] __main__: Epoch 0, 34 / 149150. Loss - 305.6566, Time - 12.50
+2018-04-02 07:39:39,461 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:39:50,304 [INFO] __main__: Time for TensorFlow calculations - 10.83
+2018-04-02 07:39:50,304 [INFO] __main__: Epoch 0, 35 / 149150. Loss - 339.4549, Time - 12.26
+2018-04-02 07:39:51,655 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:40:02,749 [INFO] __main__: Time for TensorFlow calculations - 11.08
+2018-04-02 07:40:02,750 [INFO] __main__: Epoch 0, 36 / 149150. Loss - 348.2106, Time - 12.44
+2018-04-02 07:40:04,133 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:40:14,604 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 07:40:14,604 [INFO] __main__: Epoch 0, 37 / 149150. Loss - 313.9185, Time - 11.85
+2018-04-02 07:40:16,041 [INFO] __main__: Time for loading ngram distribution - 1.44
+2018-04-02 07:40:26,716 [INFO] __main__: Time for TensorFlow calculations - 10.66
+2018-04-02 07:40:26,717 [INFO] __main__: Epoch 0, 38 / 149150. Loss - 295.0520, Time - 12.11
+2018-04-02 07:40:28,239 [INFO] __main__: Time for loading ngram distribution - 1.52
+2018-04-02 07:40:39,064 [INFO] __main__: Time for TensorFlow calculations - 10.81
+2018-04-02 07:40:39,065 [INFO] __main__: Epoch 0, 39 / 149150. Loss - 332.7139, Time - 12.35
+2018-04-02 07:40:40,466 [INFO] __main__: Time for loading ngram distribution - 1.40
+2018-04-02 07:40:51,485 [INFO] __main__: Time for TensorFlow calculations - 11.01
+2018-04-02 07:40:51,485 [INFO] __main__: Epoch 0, 40 / 149150. Loss - 318.8031, Time - 12.42
+2018-04-02 07:40:52,906 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:41:03,540 [INFO] __main__: Time for TensorFlow calculations - 10.62
+2018-04-02 07:41:03,541 [INFO] __main__: Epoch 0, 41 / 149150. Loss - 310.4831, Time - 12.05
+2018-04-02 07:41:04,916 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 07:41:15,397 [INFO] __main__: Time for TensorFlow calculations - 10.47
+2018-04-02 07:41:15,398 [INFO] __main__: Epoch 0, 42 / 149150. Loss - 304.9195, Time - 11.86
+2018-04-02 07:41:16,787 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:41:27,274 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 07:41:27,274 [INFO] __main__: Epoch 0, 43 / 149150. Loss - 408.2851, Time - 11.88
+2018-04-02 07:41:28,700 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:41:39,292 [INFO] __main__: Time for TensorFlow calculations - 10.58
+2018-04-02 07:41:39,292 [INFO] __main__: Epoch 0, 44 / 149150. Loss - 310.9378, Time - 12.02
+2018-04-02 07:41:40,667 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 07:41:51,381 [INFO] __main__: Time for TensorFlow calculations - 10.70
+2018-04-02 07:41:51,382 [INFO] __main__: Epoch 0, 45 / 149150. Loss - 300.7093, Time - 12.09
+2018-04-02 07:41:52,831 [INFO] __main__: Time for loading ngram distribution - 1.45
+2018-04-02 07:42:03,484 [INFO] __main__: Time for TensorFlow calculations - 10.64
+2018-04-02 07:42:03,484 [INFO] __main__: Epoch 0, 46 / 149150. Loss - 341.3594, Time - 12.10
+2018-04-02 07:42:04,916 [INFO] __main__: Time for loading ngram distribution - 1.43
+2018-04-02 07:42:15,235 [INFO] __main__: Time for TensorFlow calculations - 10.31
+2018-04-02 07:42:15,235 [INFO] __main__: Epoch 0, 47 / 149150. Loss - 300.1174, Time - 11.75
+2018-04-02 07:42:16,582 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:42:27,101 [INFO] __main__: Time for TensorFlow calculations - 10.51
+2018-04-02 07:42:27,101 [INFO] __main__: Epoch 0, 48 / 149150. Loss - 302.8448, Time - 11.86
+2018-04-02 07:42:28,636 [INFO] __main__: Time for loading ngram distribution - 1.53
+2018-04-02 07:42:39,166 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 07:42:39,167 [INFO] __main__: Epoch 0, 49 / 149150. Loss - 293.9247, Time - 12.06
+2018-04-02 07:42:40,607 [INFO] __main__: Time for loading ngram distribution - 1.44
+2018-04-02 07:42:51,056 [INFO] __main__: Time for TensorFlow calculations - 10.44
+2018-04-02 07:42:51,056 [INFO] __main__: Epoch 0, 50 / 149150. Loss - 303.6822, Time - 11.89
+2018-04-02 07:42:52,470 [INFO] __main__: Time for loading ngram distribution - 1.41
+2018-04-02 07:43:03,052 [INFO] __main__: Time for TensorFlow calculations - 10.57
+2018-04-02 07:43:03,052 [INFO] __main__: Epoch 0, 51 / 149150. Loss - 313.3161, Time - 11.99
+2018-04-02 07:43:04,459 [INFO] __main__: Time for loading ngram distribution - 1.41
+2018-04-02 07:43:15,030 [INFO] __main__: Time for TensorFlow calculations - 10.56
+2018-04-02 07:43:15,031 [INFO] __main__: Epoch 0, 52 / 149150. Loss - 310.3869, Time - 11.98
+2018-04-02 07:43:16,533 [INFO] __main__: Time for loading ngram distribution - 1.50
+2018-04-02 07:43:27,274 [INFO] __main__: Time for TensorFlow calculations - 10.73
+2018-04-02 07:43:27,275 [INFO] __main__: Epoch 0, 53 / 149150. Loss - 310.7992, Time - 12.24
+2018-04-02 07:43:28,700 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:43:39,283 [INFO] __main__: Time for TensorFlow calculations - 10.57
+2018-04-02 07:43:39,283 [INFO] __main__: Epoch 0, 54 / 149150. Loss - 304.8327, Time - 12.01
+2018-04-02 07:43:40,648 [INFO] __main__: Time for loading ngram distribution - 1.36
+2018-04-02 07:43:51,351 [INFO] __main__: Time for TensorFlow calculations - 10.69
+2018-04-02 07:43:51,351 [INFO] __main__: Epoch 0, 55 / 149150. Loss - 347.7776, Time - 12.07
+2018-04-02 07:43:52,818 [INFO] __main__: Time for loading ngram distribution - 1.47
+2018-04-02 07:44:03,696 [INFO] __main__: Time for TensorFlow calculations - 10.87
+2018-04-02 07:44:03,696 [INFO] __main__: Epoch 0, 56 / 149150. Loss - 297.9642, Time - 12.34
+2018-04-02 07:44:05,040 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 07:44:15,584 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 07:44:15,585 [INFO] __main__: Epoch 0, 57 / 149150. Loss - 292.7098, Time - 11.89
+2018-04-02 07:44:17,112 [INFO] __main__: Time for loading ngram distribution - 1.53
+2018-04-02 07:44:27,775 [INFO] __main__: Time for TensorFlow calculations - 10.65
+2018-04-02 07:44:27,775 [INFO] __main__: Epoch 0, 58 / 149150. Loss - 306.4281, Time - 12.19
+2018-04-02 07:44:29,193 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:44:39,790 [INFO] __main__: Time for TensorFlow calculations - 10.59
+2018-04-02 07:44:39,791 [INFO] __main__: Epoch 0, 59 / 149150. Loss - 307.9170, Time - 12.01
+2018-04-02 07:44:41,212 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:44:51,894 [INFO] __main__: Time for TensorFlow calculations - 10.67
+2018-04-02 07:44:51,894 [INFO] __main__: Epoch 0, 60 / 149150. Loss - 299.5207, Time - 12.10
+2018-04-02 07:44:53,480 [INFO] __main__: Time for loading ngram distribution - 1.58
+2018-04-02 07:45:04,544 [INFO] __main__: Time for TensorFlow calculations - 11.04
+2018-04-02 07:45:04,545 [INFO] __main__: Epoch 0, 61 / 149150. Loss - 310.4135, Time - 12.65
+2018-04-02 07:45:05,930 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:45:16,629 [INFO] __main__: Time for TensorFlow calculations - 10.69
+2018-04-02 07:45:16,629 [INFO] __main__: Epoch 0, 62 / 149150. Loss - 296.7025, Time - 12.08
+2018-04-02 07:45:18,126 [INFO] __main__: Time for loading ngram distribution - 1.50
+2018-04-02 07:45:28,797 [INFO] __main__: Time for TensorFlow calculations - 10.66
+2018-04-02 07:45:28,798 [INFO] __main__: Epoch 0, 63 / 149150. Loss - 303.1525, Time - 12.17
+2018-04-02 07:45:30,152 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:45:41,044 [INFO] __main__: Time for TensorFlow calculations - 10.88
+2018-04-02 07:45:41,044 [INFO] __main__: Epoch 0, 64 / 149150. Loss - 296.2718, Time - 12.25
+2018-04-02 07:45:42,441 [INFO] __main__: Time for loading ngram distribution - 1.40
+2018-04-02 07:45:53,111 [INFO] __main__: Time for TensorFlow calculations - 10.66
+2018-04-02 07:45:53,111 [INFO] __main__: Epoch 0, 65 / 149150. Loss - 289.1154, Time - 12.07
+2018-04-02 07:45:54,577 [INFO] __main__: Time for loading ngram distribution - 1.46
+2018-04-02 07:46:05,340 [INFO] __main__: Time for TensorFlow calculations - 10.75
+2018-04-02 07:46:05,341 [INFO] __main__: Epoch 0, 66 / 149150. Loss - 300.2658, Time - 12.23
+2018-04-02 07:46:06,786 [INFO] __main__: Time for loading ngram distribution - 1.44
+2018-04-02 07:46:17,545 [INFO] __main__: Time for TensorFlow calculations - 10.75
+2018-04-02 07:46:17,545 [INFO] __main__: Epoch 0, 67 / 149150. Loss - 306.6284, Time - 12.20
+2018-04-02 07:46:19,197 [INFO] __main__: Time for loading ngram distribution - 1.65
+2018-04-02 07:46:29,897 [INFO] __main__: Time for TensorFlow calculations - 10.69
+2018-04-02 07:46:29,897 [INFO] __main__: Epoch 0, 68 / 149150. Loss - 302.2916, Time - 12.35
+2018-04-02 07:46:31,519 [INFO] __main__: Time for loading ngram distribution - 1.62
+2018-04-02 07:46:42,106 [INFO] __main__: Time for TensorFlow calculations - 10.57
+2018-04-02 07:46:42,107 [INFO] __main__: Epoch 0, 69 / 149150. Loss - 311.4886, Time - 12.21
+2018-04-02 07:46:43,729 [INFO] __main__: Time for loading ngram distribution - 1.62
+2018-04-02 07:46:54,218 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 07:46:54,218 [INFO] __main__: Epoch 0, 70 / 149150. Loss - 307.6573, Time - 12.11
+2018-04-02 07:46:55,607 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:47:06,353 [INFO] __main__: Time for TensorFlow calculations - 10.73
+2018-04-02 07:47:06,354 [INFO] __main__: Epoch 0, 71 / 149150. Loss - 285.8273, Time - 12.13
+2018-04-02 07:47:07,943 [INFO] __main__: Time for loading ngram distribution - 1.59
+2018-04-02 07:47:18,194 [INFO] __main__: Time for TensorFlow calculations - 10.24
+2018-04-02 07:47:18,196 [INFO] __main__: Epoch 0, 72 / 149150. Loss - 285.3530, Time - 11.84
+2018-04-02 07:47:19,539 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 07:47:29,858 [INFO] __main__: Time for TensorFlow calculations - 10.31
+2018-04-02 07:47:29,858 [INFO] __main__: Epoch 0, 73 / 149150. Loss - 352.5988, Time - 11.66
+2018-04-02 07:47:31,439 [INFO] __main__: Time for loading ngram distribution - 1.58
+2018-04-02 07:47:41,940 [INFO] __main__: Time for TensorFlow calculations - 10.49
+2018-04-02 07:47:41,940 [INFO] __main__: Epoch 0, 74 / 149150. Loss - 318.5362, Time - 12.08
+2018-04-02 07:47:43,319 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:47:53,723 [INFO] __main__: Time for TensorFlow calculations - 10.39
+2018-04-02 07:47:53,723 [INFO] __main__: Epoch 0, 75 / 149150. Loss - 286.6408, Time - 11.78
+2018-04-02 07:47:55,140 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 07:48:05,807 [INFO] __main__: Time for TensorFlow calculations - 10.65
+2018-04-02 07:48:05,807 [INFO] __main__: Epoch 0, 76 / 149150. Loss - 309.9217, Time - 12.08
+2018-04-02 07:48:07,300 [INFO] __main__: Time for loading ngram distribution - 1.49
+2018-04-02 07:48:18,151 [INFO] __main__: Time for TensorFlow calculations - 10.84
+2018-04-02 07:48:18,151 [INFO] __main__: Epoch 0, 77 / 149150. Loss - 283.6398, Time - 12.34
+2018-04-02 07:48:19,725 [INFO] __main__: Time for loading ngram distribution - 1.57
+2018-04-02 07:48:30,861 [INFO] __main__: Time for TensorFlow calculations - 11.12
+2018-04-02 07:48:30,862 [INFO] __main__: Epoch 0, 78 / 149150. Loss - 284.6908, Time - 12.71
+2018-04-02 07:48:32,342 [INFO] __main__: Time for loading ngram distribution - 1.48
+2018-04-02 07:48:43,197 [INFO] __main__: Time for TensorFlow calculations - 10.84
+2018-04-02 07:48:43,197 [INFO] __main__: Epoch 0, 79 / 149150. Loss - 346.2347, Time - 12.33
+2018-04-02 07:48:44,715 [INFO] __main__: Time for loading ngram distribution - 1.52
+2018-04-02 07:48:55,715 [INFO] __main__: Time for TensorFlow calculations - 10.99
+2018-04-02 07:48:55,716 [INFO] __main__: Epoch 0, 80 / 149150. Loss - 300.9723, Time - 12.52
+2018-04-02 07:48:57,023 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 07:49:07,619 [INFO] __main__: Time for TensorFlow calculations - 10.58
+2018-04-02 07:49:07,620 [INFO] __main__: Epoch 0, 81 / 149150. Loss - 297.2520, Time - 11.90
+2018-04-02 07:49:09,109 [INFO] __main__: Time for loading ngram distribution - 1.49
+2018-04-02 07:49:19,833 [INFO] __main__: Time for TensorFlow calculations - 10.71
+2018-04-02 07:49:19,833 [INFO] __main__: Epoch 0, 82 / 149150. Loss - 291.4863, Time - 12.21
+2018-04-02 07:49:21,178 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 07:49:31,632 [INFO] __main__: Time for TensorFlow calculations - 10.44
+2018-04-02 07:49:31,632 [INFO] __main__: Epoch 0, 83 / 149150. Loss - 292.0325, Time - 11.80
+2018-04-02 07:49:33,010 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:49:43,664 [INFO] __main__: Time for TensorFlow calculations - 10.64
+2018-04-02 07:49:43,665 [INFO] __main__: Epoch 0, 84 / 149150. Loss - 295.4426, Time - 12.03
+2018-04-02 07:49:45,044 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:49:55,953 [INFO] __main__: Time for TensorFlow calculations - 10.90
+2018-04-02 07:49:55,953 [INFO] __main__: Epoch 0, 85 / 149150. Loss - 333.2214, Time - 12.29
+2018-04-02 07:49:57,410 [INFO] __main__: Time for loading ngram distribution - 1.46
+2018-04-02 07:50:08,105 [INFO] __main__: Time for TensorFlow calculations - 10.68
+2018-04-02 07:50:08,105 [INFO] __main__: Epoch 0, 86 / 149150. Loss - 284.1220, Time - 12.15
+2018-04-02 07:50:09,625 [INFO] __main__: Time for loading ngram distribution - 1.52
+2018-04-02 07:50:20,348 [INFO] __main__: Time for TensorFlow calculations - 10.71
+2018-04-02 07:50:20,348 [INFO] __main__: Epoch 0, 87 / 149150. Loss - 293.8802, Time - 12.24
+2018-04-02 07:50:21,687 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 07:50:32,015 [INFO] __main__: Time for TensorFlow calculations - 10.32
+2018-04-02 07:50:32,015 [INFO] __main__: Epoch 0, 88 / 149150. Loss - 296.5775, Time - 11.67
+2018-04-02 07:50:33,354 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 07:50:44,019 [INFO] __main__: Time for TensorFlow calculations - 10.66
+2018-04-02 07:50:44,020 [INFO] __main__: Epoch 0, 89 / 149150. Loss - 312.5114, Time - 12.00
+2018-04-02 07:50:45,391 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 07:50:56,120 [INFO] __main__: Time for TensorFlow calculations - 10.72
+2018-04-02 07:50:56,121 [INFO] __main__: Epoch 0, 90 / 149150. Loss - 298.6367, Time - 12.10
+2018-04-02 07:50:57,592 [INFO] __main__: Time for loading ngram distribution - 1.47
+2018-04-02 07:51:08,144 [INFO] __main__: Time for TensorFlow calculations - 10.54
+2018-04-02 07:51:08,145 [INFO] __main__: Epoch 0, 91 / 149150. Loss - 290.0130, Time - 12.02
+2018-04-02 07:51:09,516 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 07:51:20,444 [INFO] __main__: Time for TensorFlow calculations - 10.92
+2018-04-02 07:51:20,445 [INFO] __main__: Epoch 0, 92 / 149150. Loss - 285.7451, Time - 12.30
+2018-04-02 07:51:21,944 [INFO] __main__: Time for loading ngram distribution - 1.50
+2018-04-02 07:51:32,668 [INFO] __main__: Time for TensorFlow calculations - 10.71
+2018-04-02 07:51:32,668 [INFO] __main__: Epoch 0, 93 / 149150. Loss - 286.2760, Time - 12.22
+2018-04-02 07:51:34,104 [INFO] __main__: Time for loading ngram distribution - 1.43
+2018-04-02 07:51:44,860 [INFO] __main__: Time for TensorFlow calculations - 10.74
+2018-04-02 07:51:44,861 [INFO] __main__: Epoch 0, 94 / 149150. Loss - 305.3936, Time - 12.19
+2018-04-02 07:51:46,120 [INFO] __main__: Time for loading ngram distribution - 1.26
+2018-04-02 07:51:56,836 [INFO] __main__: Time for TensorFlow calculations - 10.70
+2018-04-02 07:51:56,837 [INFO] __main__: Epoch 0, 95 / 149150. Loss - 287.9178, Time - 11.98
+2018-04-02 07:51:58,225 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:52:09,308 [INFO] __main__: Time for TensorFlow calculations - 11.07
+2018-04-02 07:52:09,308 [INFO] __main__: Epoch 0, 96 / 149150. Loss - 329.1990, Time - 12.47
+2018-04-02 07:52:10,688 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 07:52:21,749 [INFO] __main__: Time for TensorFlow calculations - 11.05
+2018-04-02 07:52:21,749 [INFO] __main__: Epoch 0, 97 / 149150. Loss - 289.0714, Time - 12.44
+2018-04-02 07:52:23,104 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:52:34,289 [INFO] __main__: Time for TensorFlow calculations - 11.17
+2018-04-02 07:52:34,289 [INFO] __main__: Epoch 0, 98 / 149150. Loss - 316.5887, Time - 12.54
+2018-04-02 07:52:35,638 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:52:46,205 [INFO] __main__: Time for TensorFlow calculations - 10.56
+2018-04-02 07:52:46,205 [INFO] __main__: Epoch 0, 99 / 149150. Loss - 287.7653, Time - 11.91
+2018-04-02 07:52:47,634 [INFO] __main__: Time for loading ngram distribution - 1.43
+2018-04-02 07:52:58,696 [INFO] __main__: Time for TensorFlow calculations - 11.05
+2018-04-02 07:52:58,696 [INFO] __main__: Epoch 0, 100 / 149150. Loss - 286.3336, Time - 12.49
+2018-04-02 07:53:00,064 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 07:53:11,045 [INFO] __main__: Time for TensorFlow calculations - 10.97
+2018-04-02 07:53:11,045 [INFO] __main__: Epoch 0, 101 / 149150. Loss - 288.3977, Time - 12.35
+2018-04-02 07:53:12,562 [INFO] __main__: Time for loading ngram distribution - 1.52
+2018-04-02 07:53:24,030 [INFO] __main__: Time for TensorFlow calculations - 11.46
+2018-04-02 07:53:24,030 [INFO] __main__: Epoch 0, 102 / 149150. Loss - 289.7741, Time - 12.98
+2018-04-02 07:53:25,462 [INFO] __main__: Time for loading ngram distribution - 1.43
+2018-04-02 07:53:36,405 [INFO] __main__: Time for TensorFlow calculations - 10.93
+2018-04-02 07:53:36,405 [INFO] __main__: Epoch 0, 103 / 149150. Loss - 284.7343, Time - 12.37
+2018-04-02 07:53:37,851 [INFO] __main__: Time for loading ngram distribution - 1.44
+2018-04-02 07:53:49,214 [INFO] __main__: Time for TensorFlow calculations - 11.35
+2018-04-02 07:53:49,215 [INFO] __main__: Epoch 0, 104 / 149150. Loss - 279.5842, Time - 12.81
+2018-04-02 07:53:50,493 [INFO] __main__: Time for loading ngram distribution - 1.28
+2018-04-02 07:54:01,862 [INFO] __main__: Time for TensorFlow calculations - 11.36
+2018-04-02 07:54:01,863 [INFO] __main__: Epoch 0, 105 / 149150. Loss - 294.9619, Time - 12.65
+2018-04-02 07:54:03,172 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 07:54:14,676 [INFO] __main__: Time for TensorFlow calculations - 11.49
+2018-04-02 07:54:14,677 [INFO] __main__: Epoch 0, 106 / 149150. Loss - 284.6423, Time - 12.81
+2018-04-02 07:54:16,081 [INFO] __main__: Time for loading ngram distribution - 1.36
+2018-04-02 07:54:27,365 [INFO] __main__: Time for TensorFlow calculations - 11.27
+2018-04-02 07:54:27,365 [INFO] __main__: Epoch 0, 107 / 149150. Loss - 289.9267, Time - 12.64
+2018-04-02 07:54:28,716 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:54:40,567 [INFO] __main__: Time for TensorFlow calculations - 11.84
+2018-04-02 07:54:40,568 [INFO] __main__: Epoch 0, 108 / 149150. Loss - 281.1500, Time - 13.20
+2018-04-02 07:54:41,922 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 07:54:53,810 [INFO] __main__: Time for TensorFlow calculations - 11.88
+2018-04-02 07:54:53,810 [INFO] __main__: Epoch 0, 109 / 149150. Loss - 282.2945, Time - 13.24
+2018-04-02 07:54:55,377 [INFO] __main__: Time for loading ngram distribution - 1.57
+2018-04-02 07:55:06,334 [INFO] __main__: Time for TensorFlow calculations - 10.95
+2018-04-02 07:55:06,335 [INFO] __main__: Epoch 0, 110 / 149150. Loss - 334.5969, Time - 12.52
+2018-04-02 07:55:07,782 [INFO] __main__: Time for loading ngram distribution - 1.45
+2018-04-02 07:55:19,939 [INFO] __main__: Time for TensorFlow calculations - 12.15
+2018-04-02 07:55:19,939 [INFO] __main__: Epoch 0, 111 / 149150. Loss - 296.0624, Time - 13.60
+2018-04-02 07:55:21,326 [INFO] __main__: Time for loading ngram distribution - 1.39
+2018-04-02 07:55:32,961 [INFO] __main__: Time for TensorFlow calculations - 11.62
+2018-04-02 07:55:32,961 [INFO] __main__: Epoch 0, 112 / 149150. Loss - 310.5784, Time - 13.02
+2018-04-02 07:55:34,590 [INFO] __main__: Time for loading ngram distribution - 1.63
+2018-04-02 07:55:46,092 [INFO] __main__: Time for TensorFlow calculations - 11.49
+2018-04-02 07:55:46,093 [INFO] __main__: Epoch 0, 113 / 149150. Loss - 284.1570, Time - 13.13
+2018-04-02 07:55:47,577 [INFO] __main__: Time for loading ngram distribution - 1.48
+2018-04-02 07:55:59,778 [INFO] __main__: Time for TensorFlow calculations - 12.19
+2018-04-02 07:55:59,778 [INFO] __main__: Epoch 0, 114 / 149150. Loss - 290.9470, Time - 13.68
+2018-04-02 07:56:01,395 [INFO] __main__: Time for loading ngram distribution - 1.62
+2018-04-02 07:56:14,205 [INFO] __main__: Time for TensorFlow calculations - 12.79
+2018-04-02 07:56:14,205 [INFO] __main__: Epoch 0, 115 / 149150. Loss - 288.0284, Time - 14.43
+2018-04-02 07:56:16,344 [INFO] __main__: Time for loading ngram distribution - 2.14
+2018-04-02 07:56:28,003 [INFO] __main__: Time for TensorFlow calculations - 11.65
+2018-04-02 07:56:28,004 [INFO] __main__: Epoch 0, 116 / 149150. Loss - 280.5867, Time - 13.80
+2018-04-02 07:56:29,618 [INFO] __main__: Time for loading ngram distribution - 1.61
+2018-04-02 07:56:41,774 [INFO] __main__: Time for TensorFlow calculations - 12.14
+2018-04-02 07:56:41,775 [INFO] __main__: Epoch 0, 117 / 149150. Loss - 287.2282, Time - 13.77
+2018-04-02 07:56:43,790 [INFO] __main__: Time for loading ngram distribution - 2.01
+2018-04-02 07:56:55,488 [INFO] __main__: Time for TensorFlow calculations - 11.69
+2018-04-02 07:56:55,489 [INFO] __main__: Epoch 0, 118 / 149150. Loss - 306.0510, Time - 13.71
+2018-04-02 07:56:57,389 [INFO] __main__: Time for loading ngram distribution - 1.90
+2018-04-02 07:57:08,906 [INFO] __main__: Time for TensorFlow calculations - 11.50
+2018-04-02 07:57:08,906 [INFO] __main__: Epoch 0, 119 / 149150. Loss - 293.9746, Time - 13.42
+2018-04-02 07:57:10,803 [INFO] __main__: Time for loading ngram distribution - 1.89
+2018-04-02 07:57:22,484 [INFO] __main__: Time for TensorFlow calculations - 11.67
+2018-04-02 07:57:22,485 [INFO] __main__: Epoch 0, 120 / 149150. Loss - 282.5047, Time - 13.58
+2018-04-02 07:57:24,442 [INFO] __main__: Time for loading ngram distribution - 1.96
+2018-04-02 07:57:36,698 [INFO] __main__: Time for TensorFlow calculations - 12.23
+2018-04-02 07:57:36,699 [INFO] __main__: Epoch 0, 121 / 149150. Loss - 280.9208, Time - 14.21
+2018-04-02 07:57:38,769 [INFO] __main__: Time for loading ngram distribution - 2.07
+2018-04-02 07:57:50,123 [INFO] __main__: Time for TensorFlow calculations - 11.34
+2018-04-02 07:57:50,124 [INFO] __main__: Epoch 0, 122 / 149150. Loss - 281.1029, Time - 13.42
+2018-04-02 07:57:52,105 [INFO] __main__: Time for loading ngram distribution - 1.98
+2018-04-02 07:58:03,771 [INFO] __main__: Time for TensorFlow calculations - 11.65
+2018-04-02 07:58:03,772 [INFO] __main__: Epoch 0, 123 / 149150. Loss - 282.7148, Time - 13.65
+2018-04-02 07:58:05,790 [INFO] __main__: Time for loading ngram distribution - 2.02
+2018-04-02 07:58:17,413 [INFO] __main__: Time for TensorFlow calculations - 11.61
+2018-04-02 07:58:17,413 [INFO] __main__: Epoch 0, 124 / 149150. Loss - 283.6210, Time - 13.64
+2018-04-02 07:58:19,457 [INFO] __main__: Time for loading ngram distribution - 2.04
+2018-04-02 07:58:30,732 [INFO] __main__: Time for TensorFlow calculations - 11.26
+2018-04-02 07:58:30,732 [INFO] __main__: Epoch 0, 125 / 149150. Loss - 295.0258, Time - 13.32
+2018-04-02 07:58:32,535 [INFO] __main__: Time for loading ngram distribution - 1.80
+2018-04-02 07:58:43,679 [INFO] __main__: Time for TensorFlow calculations - 11.13
+2018-04-02 07:58:43,679 [INFO] __main__: Epoch 0, 126 / 149150. Loss - 285.3022, Time - 12.95
+2018-04-02 07:58:45,839 [INFO] __main__: Time for loading ngram distribution - 2.16
+2018-04-02 07:58:57,200 [INFO] __main__: Time for TensorFlow calculations - 11.35
+2018-04-02 07:58:57,200 [INFO] __main__: Epoch 0, 127 / 149150. Loss - 281.2026, Time - 13.52
+2018-04-02 07:58:59,222 [INFO] __main__: Time for loading ngram distribution - 2.02
+2018-04-02 07:59:10,296 [INFO] __main__: Time for TensorFlow calculations - 11.06
+2018-04-02 07:59:10,297 [INFO] __main__: Epoch 0, 128 / 149150. Loss - 273.1002, Time - 13.10
+2018-04-02 07:59:12,483 [INFO] __main__: Time for loading ngram distribution - 2.18
+2018-04-02 07:59:24,200 [INFO] __main__: Time for TensorFlow calculations - 11.70
+2018-04-02 07:59:24,200 [INFO] __main__: Epoch 0, 129 / 149150. Loss - 269.9607, Time - 13.90
+2018-04-02 07:59:26,127 [INFO] __main__: Time for loading ngram distribution - 1.92
+2018-04-02 07:59:38,528 [INFO] __main__: Time for TensorFlow calculations - 12.38
+2018-04-02 07:59:38,529 [INFO] __main__: Epoch 0, 130 / 149150. Loss - 281.4084, Time - 14.33
+2018-04-02 07:59:40,463 [INFO] __main__: Time for loading ngram distribution - 1.93
+2018-04-02 07:59:51,937 [INFO] __main__: Time for TensorFlow calculations - 11.46
+2018-04-02 07:59:51,938 [INFO] __main__: Epoch 0, 131 / 149150. Loss - 275.7578, Time - 13.41
+2018-04-02 07:59:53,907 [INFO] __main__: Time for loading ngram distribution - 1.97
+2018-04-02 08:00:06,198 [INFO] __main__: Time for TensorFlow calculations - 12.27
+2018-04-02 08:00:06,198 [INFO] __main__: Epoch 0, 132 / 149150. Loss - 293.1071, Time - 14.26
+2018-04-02 08:00:08,339 [INFO] __main__: Time for loading ngram distribution - 2.14
+2018-04-02 08:00:19,787 [INFO] __main__: Time for TensorFlow calculations - 11.43
+2018-04-02 08:00:19,787 [INFO] __main__: Epoch 0, 133 / 149150. Loss - 286.0796, Time - 13.59
+2018-04-02 08:00:21,749 [INFO] __main__: Time for loading ngram distribution - 1.96
+2018-04-02 08:00:33,263 [INFO] __main__: Time for TensorFlow calculations - 11.50
+2018-04-02 08:00:33,263 [INFO] __main__: Epoch 0, 134 / 149150. Loss - 331.5425, Time - 13.48
+2018-04-02 08:00:35,274 [INFO] __main__: Time for loading ngram distribution - 2.01
+2018-04-02 08:00:46,301 [INFO] __main__: Time for TensorFlow calculations - 11.01
+2018-04-02 08:00:46,301 [INFO] __main__: Epoch 0, 135 / 149150. Loss - 276.1891, Time - 13.04
+2018-04-02 08:00:48,050 [INFO] __main__: Time for loading ngram distribution - 1.75
+2018-04-02 08:01:00,148 [INFO] __main__: Time for TensorFlow calculations - 12.08
+2018-04-02 08:01:00,149 [INFO] __main__: Epoch 0, 136 / 149150. Loss - 306.3873, Time - 13.85
+2018-04-02 08:01:01,881 [INFO] __main__: Time for loading ngram distribution - 1.73
+2018-04-02 08:01:14,117 [INFO] __main__: Time for TensorFlow calculations - 12.22
+2018-04-02 08:01:14,117 [INFO] __main__: Epoch 0, 137 / 149150. Loss - 278.5553, Time - 13.97
+2018-04-02 08:01:16,264 [INFO] __main__: Time for loading ngram distribution - 2.15
+2018-04-02 08:01:27,729 [INFO] __main__: Time for TensorFlow calculations - 11.45
+2018-04-02 08:01:27,729 [INFO] __main__: Epoch 0, 138 / 149150. Loss - 279.2955, Time - 13.61
+2018-04-02 08:01:31,025 [INFO] __main__: Time for loading ngram distribution - 3.29
+2018-04-02 08:01:43,433 [INFO] __main__: Time for TensorFlow calculations - 12.39
+2018-04-02 08:01:43,434 [INFO] __main__: Epoch 0, 139 / 149150. Loss - 305.8622, Time - 15.70
+2018-04-02 08:01:46,572 [INFO] __main__: Time for loading ngram distribution - 3.14
+2018-04-02 08:01:58,577 [INFO] __main__: Time for TensorFlow calculations - 11.98
+2018-04-02 08:01:58,578 [INFO] __main__: Epoch 0, 140 / 149150. Loss - 282.0486, Time - 15.14
+2018-04-02 08:02:00,799 [INFO] __main__: Time for loading ngram distribution - 2.22
+2018-04-02 08:02:13,131 [INFO] __main__: Time for TensorFlow calculations - 12.31
+2018-04-02 08:02:13,132 [INFO] __main__: Epoch 0, 141 / 149150. Loss - 296.3359, Time - 14.55
+2018-04-02 08:02:15,951 [INFO] __main__: Time for loading ngram distribution - 2.82
+2018-04-02 08:02:28,702 [INFO] __main__: Time for TensorFlow calculations - 12.74
+2018-04-02 08:02:28,702 [INFO] __main__: Epoch 0, 142 / 149150. Loss - 277.2049, Time - 15.57
+2018-04-02 08:02:31,168 [INFO] __main__: Time for loading ngram distribution - 2.46
+2018-04-02 08:02:43,684 [INFO] __main__: Time for TensorFlow calculations - 12.50
+2018-04-02 08:02:43,685 [INFO] __main__: Epoch 0, 143 / 149150. Loss - 281.8878, Time - 14.98
+2018-04-02 08:02:45,788 [INFO] __main__: Time for loading ngram distribution - 2.10
+2018-04-02 08:02:58,316 [INFO] __main__: Time for TensorFlow calculations - 12.51
+2018-04-02 08:02:58,316 [INFO] __main__: Epoch 0, 144 / 149150. Loss - 290.5953, Time - 14.63
+2018-04-02 08:03:00,935 [INFO] __main__: Time for loading ngram distribution - 2.62
+2018-04-02 08:03:12,734 [INFO] __main__: Time for TensorFlow calculations - 11.79
+2018-04-02 08:03:12,734 [INFO] __main__: Epoch 0, 145 / 149150. Loss - 277.6914, Time - 14.42
+2018-04-02 08:03:15,692 [INFO] __main__: Time for loading ngram distribution - 2.96
+2018-04-02 08:03:27,402 [INFO] __main__: Time for TensorFlow calculations - 11.69
+2018-04-02 08:03:27,403 [INFO] __main__: Epoch 0, 146 / 149150. Loss - 272.5029, Time - 14.67
+2018-04-02 08:03:30,083 [INFO] __main__: Time for loading ngram distribution - 2.68
+2018-04-02 08:03:42,255 [INFO] __main__: Time for TensorFlow calculations - 12.15
+2018-04-02 08:03:42,255 [INFO] __main__: Epoch 0, 147 / 149150. Loss - 314.0619, Time - 14.85
+2018-04-02 08:03:45,190 [INFO] __main__: Time for loading ngram distribution - 2.93
+2018-04-02 08:03:57,072 [INFO] __main__: Time for TensorFlow calculations - 11.86
+2018-04-02 08:03:57,072 [INFO] __main__: Epoch 0, 148 / 149150. Loss - 278.7076, Time - 14.82
+2018-04-02 08:04:00,215 [INFO] __main__: Time for loading ngram distribution - 3.14
+2018-04-02 08:04:12,090 [INFO] __main__: Time for TensorFlow calculations - 11.86
+2018-04-02 08:04:12,090 [INFO] __main__: Epoch 0, 149 / 149150. Loss - 272.7466, Time - 15.02
+2018-04-02 08:04:15,163 [INFO] __main__: Time for loading ngram distribution - 3.07
+2018-04-02 08:04:26,898 [INFO] __main__: Time for TensorFlow calculations - 11.71
+2018-04-02 08:04:26,898 [INFO] __main__: Epoch 0, 150 / 149150. Loss - 271.4963, Time - 14.81
+2018-04-02 08:04:29,759 [INFO] __main__: Time for loading ngram distribution - 2.86
+2018-04-02 08:04:41,559 [INFO] __main__: Time for TensorFlow calculations - 11.78
+2018-04-02 08:04:41,559 [INFO] __main__: Epoch 0, 151 / 149150. Loss - 300.0820, Time - 14.66
+2018-04-02 08:04:44,518 [INFO] __main__: Time for loading ngram distribution - 2.96
+2018-04-02 08:04:56,450 [INFO] __main__: Time for TensorFlow calculations - 11.91
+2018-04-02 08:04:56,450 [INFO] __main__: Epoch 0, 152 / 149150. Loss - 272.4379, Time - 14.89
+2018-04-02 08:04:59,341 [INFO] __main__: Time for loading ngram distribution - 2.89
+2018-04-02 08:05:10,996 [INFO] __main__: Time for TensorFlow calculations - 11.63
+2018-04-02 08:05:10,997 [INFO] __main__: Epoch 0, 153 / 149150. Loss - 269.7820, Time - 14.55
+2018-04-02 08:05:14,104 [INFO] __main__: Time for loading ngram distribution - 3.11
+2018-04-02 08:05:25,706 [INFO] __main__: Time for TensorFlow calculations - 11.58
+2018-04-02 08:05:25,707 [INFO] __main__: Epoch 0, 154 / 149150. Loss - 279.3378, Time - 14.71
+2018-04-02 08:05:28,702 [INFO] __main__: Time for loading ngram distribution - 2.99
+2018-04-02 08:05:40,410 [INFO] __main__: Time for TensorFlow calculations - 11.69
+2018-04-02 08:05:40,410 [INFO] __main__: Epoch 0, 155 / 149150. Loss - 283.4069, Time - 14.70
+2018-04-02 08:05:43,315 [INFO] __main__: Time for loading ngram distribution - 2.90
+2018-04-02 08:05:54,999 [INFO] __main__: Time for TensorFlow calculations - 11.66
+2018-04-02 08:05:54,999 [INFO] __main__: Epoch 0, 156 / 149150. Loss - 272.2254, Time - 14.59
+2018-04-02 08:05:58,005 [INFO] __main__: Time for loading ngram distribution - 3.01
+2018-04-02 08:06:09,733 [INFO] __main__: Time for TensorFlow calculations - 11.71
+2018-04-02 08:06:09,733 [INFO] __main__: Epoch 0, 157 / 149150. Loss - 290.4955, Time - 14.73
+2018-04-02 08:06:12,661 [INFO] __main__: Time for loading ngram distribution - 2.93
+2018-04-02 08:06:24,495 [INFO] __main__: Time for TensorFlow calculations - 11.81
+2018-04-02 08:06:24,496 [INFO] __main__: Epoch 0, 158 / 149150. Loss - 275.3417, Time - 14.76
+2018-04-02 08:06:27,449 [INFO] __main__: Time for loading ngram distribution - 2.95
+2018-04-02 08:06:38,976 [INFO] __main__: Time for TensorFlow calculations - 11.51
+2018-04-02 08:06:38,977 [INFO] __main__: Epoch 0, 159 / 149150. Loss - 282.2419, Time - 14.48
+2018-04-02 08:06:42,134 [INFO] __main__: Time for loading ngram distribution - 3.16
+2018-04-02 08:06:54,156 [INFO] __main__: Time for TensorFlow calculations - 12.00
+2018-04-02 08:06:54,157 [INFO] __main__: Epoch 0, 160 / 149150. Loss - 267.7045, Time - 15.18
+2018-04-02 08:06:57,009 [INFO] __main__: Time for loading ngram distribution - 2.85
+2018-04-02 08:07:08,849 [INFO] __main__: Time for TensorFlow calculations - 11.82
+2018-04-02 08:07:08,849 [INFO] __main__: Epoch 0, 161 / 149150. Loss - 296.9074, Time - 14.69
+2018-04-02 08:07:11,853 [INFO] __main__: Time for loading ngram distribution - 3.00
+2018-04-02 08:07:23,519 [INFO] __main__: Time for TensorFlow calculations - 11.65
+2018-04-02 08:07:23,519 [INFO] __main__: Epoch 0, 162 / 149150. Loss - 275.1178, Time - 14.67
+2018-04-02 08:07:26,482 [INFO] __main__: Time for loading ngram distribution - 2.96
+2018-04-02 08:07:37,984 [INFO] __main__: Time for TensorFlow calculations - 11.48
+2018-04-02 08:07:37,985 [INFO] __main__: Epoch 0, 163 / 149150. Loss - 275.9102, Time - 14.47
+2018-04-02 08:07:40,925 [INFO] __main__: Time for loading ngram distribution - 2.94
+2018-04-02 08:07:52,674 [INFO] __main__: Time for TensorFlow calculations - 11.73
+2018-04-02 08:07:52,674 [INFO] __main__: Epoch 0, 164 / 149150. Loss - 272.0808, Time - 14.69
+2018-04-02 08:07:55,430 [INFO] __main__: Time for loading ngram distribution - 2.76
+2018-04-02 08:08:06,862 [INFO] __main__: Time for TensorFlow calculations - 11.41
+2018-04-02 08:08:06,862 [INFO] __main__: Epoch 0, 165 / 149150. Loss - 281.1652, Time - 14.19
+2018-04-02 08:08:09,869 [INFO] __main__: Time for loading ngram distribution - 3.01
+2018-04-02 08:08:21,721 [INFO] __main__: Time for TensorFlow calculations - 11.83
+2018-04-02 08:08:21,721 [INFO] __main__: Epoch 0, 166 / 149150. Loss - 272.7404, Time - 14.86
+2018-04-02 08:08:24,716 [INFO] __main__: Time for loading ngram distribution - 2.99
+2018-04-02 08:08:36,837 [INFO] __main__: Time for TensorFlow calculations - 12.10
+2018-04-02 08:08:36,837 [INFO] __main__: Epoch 0, 167 / 149150. Loss - 282.2132, Time - 15.12
+2018-04-02 08:08:39,848 [INFO] __main__: Time for loading ngram distribution - 3.01
+2018-04-02 08:08:51,686 [INFO] __main__: Time for TensorFlow calculations - 11.82
+2018-04-02 08:08:51,686 [INFO] __main__: Epoch 0, 168 / 149150. Loss - 277.2606, Time - 14.85
+2018-04-02 08:08:54,801 [INFO] __main__: Time for loading ngram distribution - 3.08
+2018-04-02 08:09:06,589 [INFO] __main__: Time for TensorFlow calculations - 11.75
+2018-04-02 08:09:06,589 [INFO] __main__: Epoch 0, 169 / 149150. Loss - 286.7411, Time - 14.86
+2018-04-02 08:09:09,726 [INFO] __main__: Time for loading ngram distribution - 3.14
+2018-04-02 08:09:21,303 [INFO] __main__: Time for TensorFlow calculations - 11.55
+2018-04-02 08:09:21,304 [INFO] __main__: Epoch 0, 170 / 149150. Loss - 269.6087, Time - 14.71
+2018-04-02 08:09:24,311 [INFO] __main__: Time for loading ngram distribution - 3.01
+2018-04-02 08:09:36,139 [INFO] __main__: Time for TensorFlow calculations - 11.81
+2018-04-02 08:09:36,140 [INFO] __main__: Epoch 0, 171 / 149150. Loss - 288.3270, Time - 14.84
+2018-04-02 08:09:39,243 [INFO] __main__: Time for loading ngram distribution - 3.10
+2018-04-02 08:09:50,899 [INFO] __main__: Time for TensorFlow calculations - 11.64
+2018-04-02 08:09:50,899 [INFO] __main__: Epoch 0, 172 / 149150. Loss - 285.5344, Time - 14.76
+2018-04-02 08:09:53,901 [INFO] __main__: Time for loading ngram distribution - 3.00
+2018-04-02 08:10:05,529 [INFO] __main__: Time for TensorFlow calculations - 11.61
+2018-04-02 08:10:05,530 [INFO] __main__: Epoch 0, 173 / 149150. Loss - 278.9262, Time - 14.63
+2018-04-02 08:10:08,563 [INFO] __main__: Time for loading ngram distribution - 3.03
+2018-04-02 08:10:20,367 [INFO] __main__: Time for TensorFlow calculations - 11.78
+2018-04-02 08:10:20,367 [INFO] __main__: Epoch 0, 174 / 149150. Loss - 287.9584, Time - 14.84
+2018-04-02 08:10:23,234 [INFO] __main__: Time for loading ngram distribution - 2.87
+2018-04-02 08:10:35,441 [INFO] __main__: Time for TensorFlow calculations - 12.19
+2018-04-02 08:10:35,441 [INFO] __main__: Epoch 0, 175 / 149150. Loss - 272.2399, Time - 15.07
+2018-04-02 08:10:38,541 [INFO] __main__: Time for loading ngram distribution - 3.10
+2018-04-02 08:10:50,860 [INFO] __main__: Time for TensorFlow calculations - 12.30
+2018-04-02 08:10:50,860 [INFO] __main__: Epoch 0, 176 / 149150. Loss - 274.5243, Time - 15.42
+2018-04-02 08:10:53,868 [INFO] __main__: Time for loading ngram distribution - 3.01
+2018-04-02 08:11:06,172 [INFO] __main__: Time for TensorFlow calculations - 12.28
+2018-04-02 08:11:06,173 [INFO] __main__: Epoch 0, 177 / 149150. Loss - 272.1024, Time - 15.31
+2018-04-02 08:11:09,104 [INFO] __main__: Time for loading ngram distribution - 2.93
+2018-04-02 08:11:20,754 [INFO] __main__: Time for TensorFlow calculations - 11.63
+2018-04-02 08:11:20,755 [INFO] __main__: Epoch 0, 178 / 149150. Loss - 277.2649, Time - 14.58
+2018-04-02 08:11:23,881 [INFO] __main__: Time for loading ngram distribution - 3.13
+2018-04-02 08:11:35,304 [INFO] __main__: Time for TensorFlow calculations - 11.40
+2018-04-02 08:11:35,305 [INFO] __main__: Epoch 0, 179 / 149150. Loss - 278.1785, Time - 14.55
+2018-04-02 08:11:38,399 [INFO] __main__: Time for loading ngram distribution - 3.09
+2018-04-02 08:11:50,083 [INFO] __main__: Time for TensorFlow calculations - 11.65
+2018-04-02 08:11:50,083 [INFO] __main__: Epoch 0, 180 / 149150. Loss - 282.1585, Time - 14.78
+2018-04-02 08:11:53,122 [INFO] __main__: Time for loading ngram distribution - 3.04
+2018-04-02 08:12:04,710 [INFO] __main__: Time for TensorFlow calculations - 11.57
+2018-04-02 08:12:04,710 [INFO] __main__: Epoch 0, 181 / 149150. Loss - 277.9877, Time - 14.63
+2018-04-02 08:12:07,596 [INFO] __main__: Time for loading ngram distribution - 2.89
+2018-04-02 08:12:19,189 [INFO] __main__: Time for TensorFlow calculations - 11.57
+2018-04-02 08:12:19,189 [INFO] __main__: Epoch 0, 182 / 149150. Loss - 274.1744, Time - 14.48
+2018-04-02 08:12:22,214 [INFO] __main__: Time for loading ngram distribution - 3.02
+2018-04-02 08:12:34,429 [INFO] __main__: Time for TensorFlow calculations - 12.19
+2018-04-02 08:12:34,429 [INFO] __main__: Epoch 0, 183 / 149150. Loss - 277.9927, Time - 15.24
+2018-04-02 08:12:37,403 [INFO] __main__: Time for loading ngram distribution - 2.97
+2018-04-02 08:12:49,253 [INFO] __main__: Time for TensorFlow calculations - 11.82
+2018-04-02 08:12:49,253 [INFO] __main__: Epoch 0, 184 / 149150. Loss - 274.8295, Time - 14.82
+2018-04-02 08:12:52,279 [INFO] __main__: Time for loading ngram distribution - 3.03
+2018-04-02 08:13:04,176 [INFO] __main__: Time for TensorFlow calculations - 11.88
+2018-04-02 08:13:04,177 [INFO] __main__: Epoch 0, 185 / 149150. Loss - 276.8158, Time - 14.92
+2018-04-02 08:13:07,312 [INFO] __main__: Time for loading ngram distribution - 3.13
+2018-04-02 08:13:19,130 [INFO] __main__: Time for TensorFlow calculations - 11.80
+2018-04-02 08:13:19,130 [INFO] __main__: Epoch 0, 186 / 149150. Loss - 276.4466, Time - 14.95
+2018-04-02 08:13:22,419 [INFO] __main__: Time for loading ngram distribution - 3.29
+2018-04-02 08:13:34,091 [INFO] __main__: Time for TensorFlow calculations - 11.65
+2018-04-02 08:13:34,092 [INFO] __main__: Epoch 0, 187 / 149150. Loss - 276.4012, Time - 14.96
+2018-04-02 08:13:37,289 [INFO] __main__: Time for loading ngram distribution - 3.20
+2018-04-02 08:13:49,288 [INFO] __main__: Time for TensorFlow calculations - 11.98
+2018-04-02 08:13:49,288 [INFO] __main__: Epoch 0, 188 / 149150. Loss - 273.7803, Time - 15.20
+2018-04-02 08:13:52,428 [INFO] __main__: Time for loading ngram distribution - 3.14
+2018-04-02 08:14:04,111 [INFO] __main__: Time for TensorFlow calculations - 11.66
+2018-04-02 08:14:04,111 [INFO] __main__: Epoch 0, 189 / 149150. Loss - 269.3675, Time - 14.82
+2018-04-02 08:14:07,060 [INFO] __main__: Time for loading ngram distribution - 2.95
+2018-04-02 08:14:18,812 [INFO] __main__: Time for TensorFlow calculations - 11.73
+2018-04-02 08:14:18,812 [INFO] __main__: Epoch 0, 190 / 149150. Loss - 266.7213, Time - 14.70
+2018-04-02 08:14:21,910 [INFO] __main__: Time for loading ngram distribution - 3.10
+2018-04-02 08:14:33,470 [INFO] __main__: Time for TensorFlow calculations - 11.54
+2018-04-02 08:14:33,470 [INFO] __main__: Epoch 0, 191 / 149150. Loss - 270.0738, Time - 14.66
+2018-04-02 08:14:42,134 [INFO] __main__: Time for loading ngram distribution - 8.66
+2018-04-02 08:14:53,465 [INFO] __main__: Time for TensorFlow calculations - 11.31
+2018-04-02 08:14:53,466 [INFO] __main__: Epoch 0, 192 / 149150. Loss - 275.6679, Time - 19.99
+2018-04-02 08:14:55,998 [INFO] __main__: Time for loading ngram distribution - 2.53
+2018-04-02 08:15:06,701 [INFO] __main__: Time for TensorFlow calculations - 10.68
+2018-04-02 08:15:06,701 [INFO] __main__: Epoch 0, 193 / 149150. Loss - 274.5690, Time - 13.23
+2018-04-02 08:15:08,144 [INFO] __main__: Time for loading ngram distribution - 1.44
+2018-04-02 08:15:18,461 [INFO] __main__: Time for TensorFlow calculations - 10.30
+2018-04-02 08:15:18,461 [INFO] __main__: Epoch 0, 194 / 149150. Loss - 263.0128, Time - 11.76
+2018-04-02 08:15:19,749 [INFO] __main__: Time for loading ngram distribution - 1.29
+2018-04-02 08:15:30,099 [INFO] __main__: Time for TensorFlow calculations - 10.34
+2018-04-02 08:15:30,099 [INFO] __main__: Epoch 0, 195 / 149150. Loss - 273.6881, Time - 11.64
+2018-04-02 08:15:31,504 [INFO] __main__: Time for loading ngram distribution - 1.40
+2018-04-02 08:15:42,024 [INFO] __main__: Time for TensorFlow calculations - 10.51
+2018-04-02 08:15:42,024 [INFO] __main__: Epoch 0, 196 / 149150. Loss - 273.7662, Time - 11.92
+2018-04-02 08:15:43,430 [INFO] __main__: Time for loading ngram distribution - 1.41
+2018-04-02 08:15:53,935 [INFO] __main__: Time for TensorFlow calculations - 10.49
+2018-04-02 08:15:53,935 [INFO] __main__: Epoch 0, 197 / 149150. Loss - 277.5090, Time - 11.91
+2018-04-02 08:15:55,499 [INFO] __main__: Time for loading ngram distribution - 1.53
+2018-04-02 08:16:05,802 [INFO] __main__: Time for TensorFlow calculations - 10.29
+2018-04-02 08:16:05,803 [INFO] __main__: Epoch 0, 198 / 149150. Loss - 267.9669, Time - 11.83
+2018-04-02 08:16:07,035 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:16:17,507 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:16:17,507 [INFO] __main__: Epoch 0, 199 / 149150. Loss - 280.0835, Time - 11.70
+2018-04-02 08:16:18,988 [INFO] __main__: Time for loading ngram distribution - 1.48
+2018-04-02 08:16:29,526 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 08:16:29,526 [INFO] __main__: Epoch 0, 200 / 149150. Loss - 272.0503, Time - 12.02
+2018-04-02 08:16:30,688 [INFO] __main__: Time for loading ngram distribution - 1.13
+2018-04-02 08:16:41,082 [INFO] __main__: Time for TensorFlow calculations - 10.38
+2018-04-02 08:16:41,082 [INFO] __main__: Epoch 0, 201 / 149150. Loss - 272.1891, Time - 11.52
+2018-04-02 08:16:42,374 [INFO] __main__: Time for loading ngram distribution - 1.29
+2018-04-02 08:16:52,890 [INFO] __main__: Time for TensorFlow calculations - 10.51
+2018-04-02 08:16:52,890 [INFO] __main__: Epoch 0, 202 / 149150. Loss - 271.5547, Time - 11.81
+2018-04-02 08:16:54,344 [INFO] __main__: Time for loading ngram distribution - 1.45
+2018-04-02 08:17:04,993 [INFO] __main__: Time for TensorFlow calculations - 10.64
+2018-04-02 08:17:04,993 [INFO] __main__: Epoch 0, 203 / 149150. Loss - 277.5764, Time - 12.10
+2018-04-02 08:17:06,288 [INFO] __main__: Time for loading ngram distribution - 1.29
+2018-04-02 08:17:16,825 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 08:17:16,825 [INFO] __main__: Epoch 0, 204 / 149150. Loss - 279.5299, Time - 11.83
+2018-04-02 08:17:18,049 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:17:28,608 [INFO] __main__: Time for TensorFlow calculations - 10.55
+2018-04-02 08:17:28,608 [INFO] __main__: Epoch 0, 205 / 149150. Loss - 272.7227, Time - 11.78
+2018-04-02 08:17:29,849 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 08:17:40,155 [INFO] __main__: Time for TensorFlow calculations - 10.30
+2018-04-02 08:17:40,155 [INFO] __main__: Epoch 0, 206 / 149150. Loss - 265.2501, Time - 11.51
+2018-04-02 08:17:41,417 [INFO] __main__: Time for loading ngram distribution - 1.26
+2018-04-02 08:17:51,670 [INFO] __main__: Time for TensorFlow calculations - 10.24
+2018-04-02 08:17:51,670 [INFO] __main__: Epoch 0, 207 / 149150. Loss - 274.6854, Time - 11.51
+2018-04-02 08:17:52,892 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 08:18:03,591 [INFO] __main__: Time for TensorFlow calculations - 10.69
+2018-04-02 08:18:03,591 [INFO] __main__: Epoch 0, 208 / 149150. Loss - 271.1176, Time - 11.89
+2018-04-02 08:18:04,780 [INFO] __main__: Time for loading ngram distribution - 1.19
+2018-04-02 08:18:15,338 [INFO] __main__: Time for TensorFlow calculations - 10.55
+2018-04-02 08:18:15,338 [INFO] __main__: Epoch 0, 209 / 149150. Loss - 275.2424, Time - 11.75
+2018-04-02 08:18:16,645 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 08:18:27,134 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 08:18:27,135 [INFO] __main__: Epoch 0, 210 / 149150. Loss - 268.2891, Time - 11.80
+2018-04-02 08:18:28,328 [INFO] __main__: Time for loading ngram distribution - 1.19
+2018-04-02 08:18:38,774 [INFO] __main__: Time for TensorFlow calculations - 10.43
+2018-04-02 08:18:38,774 [INFO] __main__: Epoch 0, 211 / 149150. Loss - 268.2581, Time - 11.64
+2018-04-02 08:18:40,098 [INFO] __main__: Time for loading ngram distribution - 1.32
+2018-04-02 08:18:50,486 [INFO] __main__: Time for TensorFlow calculations - 10.38
+2018-04-02 08:18:50,486 [INFO] __main__: Epoch 0, 212 / 149150. Loss - 267.1516, Time - 11.71
+2018-04-02 08:18:51,831 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 08:19:02,437 [INFO] __main__: Time for TensorFlow calculations - 10.59
+2018-04-02 08:19:02,438 [INFO] __main__: Epoch 0, 213 / 149150. Loss - 276.7138, Time - 11.91
+2018-04-02 08:19:03,668 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:19:14,018 [INFO] __main__: Time for TensorFlow calculations - 10.34
+2018-04-02 08:19:14,018 [INFO] __main__: Epoch 0, 214 / 149150. Loss - 275.1873, Time - 11.58
+2018-04-02 08:19:15,248 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:19:25,917 [INFO] __main__: Time for TensorFlow calculations - 10.66
+2018-04-02 08:19:25,918 [INFO] __main__: Epoch 0, 215 / 149150. Loss - 284.5922, Time - 11.90
+2018-04-02 08:19:27,149 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:19:37,591 [INFO] __main__: Time for TensorFlow calculations - 10.43
+2018-04-02 08:19:37,592 [INFO] __main__: Epoch 0, 216 / 149150. Loss - 262.6916, Time - 11.67
+2018-04-02 08:19:38,847 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:19:49,336 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 08:19:49,337 [INFO] __main__: Epoch 0, 217 / 149150. Loss - 276.6030, Time - 11.74
+2018-04-02 08:19:50,580 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:20:01,407 [INFO] __main__: Time for TensorFlow calculations - 10.82
+2018-04-02 08:20:01,407 [INFO] __main__: Epoch 0, 218 / 149150. Loss - 269.5714, Time - 12.04
+2018-04-02 08:20:02,636 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:20:12,989 [INFO] __main__: Time for TensorFlow calculations - 10.34
+2018-04-02 08:20:12,990 [INFO] __main__: Epoch 0, 219 / 149150. Loss - 264.4301, Time - 11.58
+2018-04-02 08:20:14,173 [INFO] __main__: Time for loading ngram distribution - 1.18
+2018-04-02 08:20:24,701 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 08:20:24,701 [INFO] __main__: Epoch 0, 220 / 149150. Loss - 276.8224, Time - 11.71
+2018-04-02 08:20:25,949 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:20:36,329 [INFO] __main__: Time for TensorFlow calculations - 10.36
+2018-04-02 08:20:36,329 [INFO] __main__: Epoch 0, 221 / 149150. Loss - 291.7675, Time - 11.63
+2018-04-02 08:20:37,743 [INFO] __main__: Time for loading ngram distribution - 1.41
+2018-04-02 08:20:48,236 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 08:20:48,236 [INFO] __main__: Epoch 0, 222 / 149150. Loss - 267.9306, Time - 11.91
+2018-04-02 08:20:49,519 [INFO] __main__: Time for loading ngram distribution - 1.28
+2018-04-02 08:20:59,796 [INFO] __main__: Time for TensorFlow calculations - 10.27
+2018-04-02 08:20:59,796 [INFO] __main__: Epoch 0, 223 / 149150. Loss - 268.5902, Time - 11.56
+2018-04-02 08:21:01,026 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:21:11,711 [INFO] __main__: Time for TensorFlow calculations - 10.67
+2018-04-02 08:21:11,712 [INFO] __main__: Epoch 0, 224 / 149150. Loss - 269.9804, Time - 11.92
+2018-04-02 08:21:12,902 [INFO] __main__: Time for loading ngram distribution - 1.19
+2018-04-02 08:21:23,232 [INFO] __main__: Time for TensorFlow calculations - 10.32
+2018-04-02 08:21:23,232 [INFO] __main__: Epoch 0, 225 / 149150. Loss - 273.1020, Time - 11.52
+2018-04-02 08:21:24,507 [INFO] __main__: Time for loading ngram distribution - 1.27
+2018-04-02 08:21:34,857 [INFO] __main__: Time for TensorFlow calculations - 10.34
+2018-04-02 08:21:34,857 [INFO] __main__: Epoch 0, 226 / 149150. Loss - 268.0373, Time - 11.62
+2018-04-02 08:21:36,107 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:21:46,372 [INFO] __main__: Time for TensorFlow calculations - 10.26
+2018-04-02 08:21:46,372 [INFO] __main__: Epoch 0, 227 / 149150. Loss - 271.2074, Time - 11.51
+2018-04-02 08:21:47,670 [INFO] __main__: Time for loading ngram distribution - 1.30
+2018-04-02 08:21:57,952 [INFO] __main__: Time for TensorFlow calculations - 10.27
+2018-04-02 08:21:57,952 [INFO] __main__: Epoch 0, 228 / 149150. Loss - 272.0844, Time - 11.58
+2018-04-02 08:21:59,335 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 08:22:09,646 [INFO] __main__: Time for TensorFlow calculations - 10.30
+2018-04-02 08:22:09,646 [INFO] __main__: Epoch 0, 229 / 149150. Loss - 273.3412, Time - 11.69
+2018-04-02 08:22:10,872 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:22:21,275 [INFO] __main__: Time for TensorFlow calculations - 10.39
+2018-04-02 08:22:21,276 [INFO] __main__: Epoch 0, 230 / 149150. Loss - 263.4216, Time - 11.63
+2018-04-02 08:22:22,502 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:22:32,762 [INFO] __main__: Time for TensorFlow calculations - 10.25
+2018-04-02 08:22:32,762 [INFO] __main__: Epoch 0, 231 / 149150. Loss - 269.1204, Time - 11.49
+2018-04-02 08:22:33,918 [INFO] __main__: Time for loading ngram distribution - 1.16
+2018-04-02 08:22:44,382 [INFO] __main__: Time for TensorFlow calculations - 10.45
+2018-04-02 08:22:44,382 [INFO] __main__: Epoch 0, 232 / 149150. Loss - 284.6008, Time - 11.62
+2018-04-02 08:22:45,573 [INFO] __main__: Time for loading ngram distribution - 1.19
+2018-04-02 08:22:56,081 [INFO] __main__: Time for TensorFlow calculations - 10.50
+2018-04-02 08:22:56,082 [INFO] __main__: Epoch 0, 233 / 149150. Loss - 270.1021, Time - 11.70
+2018-04-02 08:22:57,294 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 08:23:07,871 [INFO] __main__: Time for TensorFlow calculations - 10.56
+2018-04-02 08:23:07,871 [INFO] __main__: Epoch 0, 234 / 149150. Loss - 269.6149, Time - 11.79
+2018-04-02 08:23:09,120 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:23:19,315 [INFO] __main__: Time for TensorFlow calculations - 10.18
+2018-04-02 08:23:19,316 [INFO] __main__: Epoch 0, 235 / 149150. Loss - 270.0753, Time - 11.44
+2018-04-02 08:23:20,697 [INFO] __main__: Time for loading ngram distribution - 1.38
+2018-04-02 08:23:30,899 [INFO] __main__: Time for TensorFlow calculations - 10.19
+2018-04-02 08:23:30,899 [INFO] __main__: Epoch 0, 236 / 149150. Loss - 270.1378, Time - 11.58
+2018-04-02 08:23:32,071 [INFO] __main__: Time for loading ngram distribution - 1.17
+2018-04-02 08:23:42,456 [INFO] __main__: Time for TensorFlow calculations - 10.37
+2018-04-02 08:23:42,456 [INFO] __main__: Epoch 0, 237 / 149150. Loss - 268.7107, Time - 11.56
+2018-04-02 08:23:43,717 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 08:23:54,062 [INFO] __main__: Time for TensorFlow calculations - 10.33
+2018-04-02 08:23:54,062 [INFO] __main__: Epoch 0, 238 / 149150. Loss - 267.8560, Time - 11.58
+2018-04-02 08:23:55,359 [INFO] __main__: Time for loading ngram distribution - 1.30
+2018-04-02 08:24:05,683 [INFO] __main__: Time for TensorFlow calculations - 10.31
+2018-04-02 08:24:05,683 [INFO] __main__: Epoch 0, 239 / 149150. Loss - 277.9244, Time - 11.62
+2018-04-02 08:24:06,892 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 08:24:17,423 [INFO] __main__: Time for TensorFlow calculations - 10.51
+2018-04-02 08:24:17,423 [INFO] __main__: Epoch 0, 240 / 149150. Loss - 270.5836, Time - 11.74
+2018-04-02 08:24:18,734 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 08:24:29,100 [INFO] __main__: Time for TensorFlow calculations - 10.35
+2018-04-02 08:24:29,100 [INFO] __main__: Epoch 0, 241 / 149150. Loss - 268.4168, Time - 11.68
+2018-04-02 08:24:30,346 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:24:41,046 [INFO] __main__: Time for TensorFlow calculations - 10.69
+2018-04-02 08:24:41,046 [INFO] __main__: Epoch 0, 242 / 149150. Loss - 259.6238, Time - 11.95
+2018-04-02 08:24:42,311 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:24:52,777 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:24:52,777 [INFO] __main__: Epoch 0, 243 / 149150. Loss - 268.9720, Time - 11.68
+2018-04-02 08:24:53,958 [INFO] __main__: Time for loading ngram distribution - 1.18
+2018-04-02 08:25:04,467 [INFO] __main__: Time for TensorFlow calculations - 10.50
+2018-04-02 08:25:04,467 [INFO] __main__: Epoch 0, 244 / 149150. Loss - 269.8253, Time - 11.69
+2018-04-02 08:25:05,612 [INFO] __main__: Time for loading ngram distribution - 1.15
+2018-04-02 08:25:15,988 [INFO] __main__: Time for TensorFlow calculations - 10.37
+2018-04-02 08:25:15,989 [INFO] __main__: Epoch 0, 245 / 149150. Loss - 267.0242, Time - 11.52
+2018-04-02 08:25:17,160 [INFO] __main__: Time for loading ngram distribution - 1.17
+2018-04-02 08:25:27,505 [INFO] __main__: Time for TensorFlow calculations - 10.33
+2018-04-02 08:25:27,505 [INFO] __main__: Epoch 0, 246 / 149150. Loss - 265.4043, Time - 11.52
+2018-04-02 08:25:28,742 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 08:25:39,060 [INFO] __main__: Time for TensorFlow calculations - 10.31
+2018-04-02 08:25:39,061 [INFO] __main__: Epoch 0, 247 / 149150. Loss - 264.5432, Time - 11.53
+2018-04-02 08:25:40,260 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 08:25:50,709 [INFO] __main__: Time for TensorFlow calculations - 10.44
+2018-04-02 08:25:50,709 [INFO] __main__: Epoch 0, 248 / 149150. Loss - 263.9546, Time - 11.65
+2018-04-02 08:25:51,937 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:26:02,296 [INFO] __main__: Time for TensorFlow calculations - 10.35
+2018-04-02 08:26:02,296 [INFO] __main__: Epoch 0, 249 / 149150. Loss - 309.2013, Time - 11.59
+2018-04-02 08:26:03,535 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 08:26:14,075 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 08:26:14,075 [INFO] __main__: Epoch 0, 250 / 149150. Loss - 268.0567, Time - 11.78
+2018-04-02 08:26:15,280 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 08:26:25,747 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:26:25,747 [INFO] __main__: Epoch 0, 251 / 149150. Loss - 261.9461, Time - 11.67
+2018-04-02 08:26:27,050 [INFO] __main__: Time for loading ngram distribution - 1.30
+2018-04-02 08:26:37,361 [INFO] __main__: Time for TensorFlow calculations - 10.30
+2018-04-02 08:26:37,361 [INFO] __main__: Epoch 0, 252 / 149150. Loss - 270.7867, Time - 11.61
+2018-04-02 08:26:38,583 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:26:48,980 [INFO] __main__: Time for TensorFlow calculations - 10.39
+2018-04-02 08:26:48,980 [INFO] __main__: Epoch 0, 253 / 149150. Loss - 268.5815, Time - 11.62
+2018-04-02 08:26:50,128 [INFO] __main__: Time for loading ngram distribution - 1.15
+2018-04-02 08:27:00,657 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 08:27:00,658 [INFO] __main__: Epoch 0, 254 / 149150. Loss - 269.8539, Time - 11.68
+2018-04-02 08:27:01,878 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:27:12,354 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:27:12,354 [INFO] __main__: Epoch 0, 255 / 149150. Loss - 270.5859, Time - 11.70
+2018-04-02 08:27:13,610 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:27:23,902 [INFO] __main__: Time for TensorFlow calculations - 10.28
+2018-04-02 08:27:23,902 [INFO] __main__: Epoch 0, 256 / 149150. Loss - 274.4403, Time - 11.55
+2018-04-02 08:27:25,108 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 08:27:35,596 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 08:27:35,597 [INFO] __main__: Epoch 0, 257 / 149150. Loss - 265.7219, Time - 11.69
+2018-04-02 08:27:36,746 [INFO] __main__: Time for loading ngram distribution - 1.15
+2018-04-02 08:27:47,136 [INFO] __main__: Time for TensorFlow calculations - 10.38
+2018-04-02 08:27:47,137 [INFO] __main__: Epoch 0, 258 / 149150. Loss - 282.3094, Time - 11.54
+2018-04-02 08:27:48,408 [INFO] __main__: Time for loading ngram distribution - 1.27
+2018-04-02 08:27:58,881 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:27:58,881 [INFO] __main__: Epoch 0, 259 / 149150. Loss - 267.0439, Time - 11.74
+2018-04-02 08:28:00,138 [INFO] __main__: Time for loading ngram distribution - 1.26
+2018-04-02 08:28:10,413 [INFO] __main__: Time for TensorFlow calculations - 10.26
+2018-04-02 08:28:10,413 [INFO] __main__: Epoch 0, 260 / 149150. Loss - 260.4055, Time - 11.53
+2018-04-02 08:28:11,650 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 08:28:21,954 [INFO] __main__: Time for TensorFlow calculations - 10.29
+2018-04-02 08:28:21,955 [INFO] __main__: Epoch 0, 261 / 149150. Loss - 271.1456, Time - 11.54
+2018-04-02 08:28:23,251 [INFO] __main__: Time for loading ngram distribution - 1.30
+2018-04-02 08:28:33,555 [INFO] __main__: Time for TensorFlow calculations - 10.29
+2018-04-02 08:28:33,556 [INFO] __main__: Epoch 0, 262 / 149150. Loss - 266.1660, Time - 11.60
+2018-04-02 08:28:34,792 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 08:28:45,361 [INFO] __main__: Time for TensorFlow calculations - 10.56
+2018-04-02 08:28:45,361 [INFO] __main__: Epoch 0, 263 / 149150. Loss - 269.1027, Time - 11.80
+2018-04-02 08:28:46,666 [INFO] __main__: Time for loading ngram distribution - 1.28
+2018-04-02 08:28:57,074 [INFO] __main__: Time for TensorFlow calculations - 10.40
+2018-04-02 08:28:57,075 [INFO] __main__: Epoch 0, 264 / 149150. Loss - 261.4708, Time - 11.68
+2018-04-02 08:28:58,331 [INFO] __main__: Time for loading ngram distribution - 1.26
+2018-04-02 08:29:08,551 [INFO] __main__: Time for TensorFlow calculations - 10.21
+2018-04-02 08:29:08,551 [INFO] __main__: Epoch 0, 265 / 149150. Loss - 257.8808, Time - 11.48
+2018-04-02 08:29:09,793 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 08:29:20,263 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:29:20,263 [INFO] __main__: Epoch 0, 266 / 149150. Loss - 263.6998, Time - 11.71
+2018-04-02 08:29:21,602 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 08:29:32,054 [INFO] __main__: Time for TensorFlow calculations - 10.44
+2018-04-02 08:29:32,055 [INFO] __main__: Epoch 0, 267 / 149150. Loss - 270.8370, Time - 11.79
+2018-04-02 08:29:33,345 [INFO] __main__: Time for loading ngram distribution - 1.26
+2018-04-02 08:29:43,587 [INFO] __main__: Time for TensorFlow calculations - 10.23
+2018-04-02 08:29:43,587 [INFO] __main__: Epoch 0, 268 / 149150. Loss - 261.8212, Time - 11.50
+2018-04-02 08:29:44,830 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 08:29:55,474 [INFO] __main__: Time for TensorFlow calculations - 10.63
+2018-04-02 08:29:55,474 [INFO] __main__: Epoch 0, 269 / 149150. Loss - 271.7049, Time - 11.89
+2018-04-02 08:29:56,674 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 08:30:06,948 [INFO] __main__: Time for TensorFlow calculations - 10.26
+2018-04-02 08:30:06,949 [INFO] __main__: Epoch 0, 270 / 149150. Loss - 260.6207, Time - 11.47
+2018-04-02 08:30:08,161 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 08:30:18,690 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 08:30:18,690 [INFO] __main__: Epoch 0, 271 / 149150. Loss - 268.5477, Time - 11.74
+2018-04-02 08:30:19,866 [INFO] __main__: Time for loading ngram distribution - 1.18
+2018-04-02 08:30:30,339 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:30:30,339 [INFO] __main__: Epoch 0, 272 / 149150. Loss - 270.6513, Time - 11.65
+2018-04-02 08:30:32,345 [INFO] __main__: Time for loading ngram distribution - 2.00
+2018-04-02 08:30:43,419 [INFO] __main__: Time for TensorFlow calculations - 11.06
+2018-04-02 08:30:43,419 [INFO] __main__: Epoch 0, 273 / 149150. Loss - 261.5082, Time - 13.08
+2018-04-02 08:30:44,726 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 08:30:54,967 [INFO] __main__: Time for TensorFlow calculations - 10.23
+2018-04-02 08:30:54,967 [INFO] __main__: Epoch 0, 274 / 149150. Loss - 268.6195, Time - 11.55
+2018-04-02 08:30:57,321 [INFO] __main__: Time for loading ngram distribution - 2.35
+2018-04-02 08:31:07,861 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 08:31:07,862 [INFO] __main__: Epoch 0, 275 / 149150. Loss - 267.8516, Time - 12.89
+2018-04-02 08:31:09,114 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:31:19,592 [INFO] __main__: Time for TensorFlow calculations - 10.45
+2018-04-02 08:31:19,592 [INFO] __main__: Epoch 0, 276 / 149150. Loss - 266.3231, Time - 11.73
+2018-04-02 08:31:21,000 [INFO] __main__: Time for loading ngram distribution - 1.41
+2018-04-02 08:31:33,115 [INFO] __main__: Time for TensorFlow calculations - 12.10
+2018-04-02 08:31:33,115 [INFO] __main__: Epoch 0, 277 / 149150. Loss - 267.9985, Time - 13.52
+2018-04-02 08:31:34,334 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:31:44,905 [INFO] __main__: Time for TensorFlow calculations - 10.56
+2018-04-02 08:31:44,905 [INFO] __main__: Epoch 0, 278 / 149150. Loss - 263.9618, Time - 11.79
+2018-04-02 08:31:46,034 [INFO] __main__: Time for loading ngram distribution - 1.13
+2018-04-02 08:31:56,270 [INFO] __main__: Time for TensorFlow calculations - 10.22
+2018-04-02 08:31:56,270 [INFO] __main__: Epoch 0, 279 / 149150. Loss - 261.0975, Time - 11.36
+2018-04-02 08:31:57,644 [INFO] __main__: Time for loading ngram distribution - 1.37
+2018-04-02 08:32:07,723 [INFO] __main__: Time for TensorFlow calculations - 10.07
+2018-04-02 08:32:07,724 [INFO] __main__: Epoch 0, 280 / 149150. Loss - 268.0898, Time - 11.45
+2018-04-02 08:32:11,226 [INFO] __main__: Time for loading ngram distribution - 3.50
+2018-04-02 08:32:21,643 [INFO] __main__: Time for TensorFlow calculations - 10.40
+2018-04-02 08:32:21,643 [INFO] __main__: Epoch 0, 281 / 149150. Loss - 276.2284, Time - 13.92
+2018-04-02 08:32:22,804 [INFO] __main__: Time for loading ngram distribution - 1.16
+2018-04-02 08:32:44,216 [INFO] __main__: Time for TensorFlow calculations - 21.40
+2018-04-02 08:32:44,216 [INFO] __main__: Epoch 0, 282 / 149150. Loss - 265.7076, Time - 22.57
+2018-04-02 08:32:46,957 [INFO] __main__: Time for loading ngram distribution - 2.74
+2018-04-02 08:32:57,335 [INFO] __main__: Time for TensorFlow calculations - 10.37
+2018-04-02 08:32:57,336 [INFO] __main__: Epoch 0, 283 / 149150. Loss - 269.0069, Time - 13.12
+2018-04-02 08:33:08,013 [INFO] __main__: Time for loading ngram distribution - 10.68
+2018-04-02 08:33:18,655 [INFO] __main__: Time for TensorFlow calculations - 10.63
+2018-04-02 08:33:18,655 [INFO] __main__: Epoch 0, 284 / 149150. Loss - 265.5983, Time - 21.32
+2018-04-02 08:33:21,740 [INFO] __main__: Time for loading ngram distribution - 3.08
+2018-04-02 08:33:32,307 [INFO] __main__: Time for TensorFlow calculations - 10.55
+2018-04-02 08:33:32,307 [INFO] __main__: Epoch 0, 285 / 149150. Loss - 264.6311, Time - 13.65
+2018-04-02 08:33:36,634 [INFO] __main__: Time for loading ngram distribution - 4.33
+2018-04-02 08:33:48,612 [INFO] __main__: Time for TensorFlow calculations - 11.96
+2018-04-02 08:33:48,613 [INFO] __main__: Epoch 0, 286 / 149150. Loss - 267.1418, Time - 16.30
+2018-04-02 08:33:49,905 [INFO] __main__: Time for loading ngram distribution - 1.29
+2018-04-02 08:34:00,729 [INFO] __main__: Time for TensorFlow calculations - 10.81
+2018-04-02 08:34:00,729 [INFO] __main__: Epoch 0, 287 / 149150. Loss - 263.7715, Time - 12.12
+2018-04-02 08:34:02,448 [INFO] __main__: Time for loading ngram distribution - 1.72
+2018-04-02 08:34:13,063 [INFO] __main__: Time for TensorFlow calculations - 10.60
+2018-04-02 08:34:13,063 [INFO] __main__: Epoch 0, 288 / 149150. Loss - 268.2768, Time - 12.33
+2018-04-02 08:34:19,536 [INFO] __main__: Time for loading ngram distribution - 6.47
+2018-04-02 08:34:31,167 [INFO] __main__: Time for TensorFlow calculations - 11.62
+2018-04-02 08:34:31,168 [INFO] __main__: Epoch 0, 289 / 149150. Loss - 268.8365, Time - 18.10
+2018-04-02 08:34:51,640 [INFO] __main__: Time for loading ngram distribution - 20.47
+2018-04-02 08:35:02,237 [INFO] __main__: Time for TensorFlow calculations - 10.58
+2018-04-02 08:35:02,237 [INFO] __main__: Epoch 0, 290 / 149150. Loss - 272.6961, Time - 31.07
+2018-04-02 08:35:06,141 [INFO] __main__: Time for loading ngram distribution - 3.90
+2018-04-02 08:35:16,676 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 08:35:16,676 [INFO] __main__: Epoch 0, 291 / 149150. Loss - 267.1911, Time - 14.44
+2018-04-02 08:35:29,955 [INFO] __main__: Time for loading ngram distribution - 13.28
+2018-04-02 08:35:40,466 [INFO] __main__: Time for TensorFlow calculations - 10.49
+2018-04-02 08:35:40,467 [INFO] __main__: Epoch 0, 292 / 149150. Loss - 268.0745, Time - 23.79
+2018-04-02 08:35:47,759 [INFO] __main__: Time for loading ngram distribution - 7.29
+2018-04-02 08:35:58,133 [INFO] __main__: Time for TensorFlow calculations - 10.36
+2018-04-02 08:35:58,133 [INFO] __main__: Epoch 0, 293 / 149150. Loss - 266.3081, Time - 17.67
+2018-04-02 08:36:01,759 [INFO] __main__: Time for loading ngram distribution - 3.62
+2018-04-02 08:36:12,171 [INFO] __main__: Time for TensorFlow calculations - 10.40
+2018-04-02 08:36:12,171 [INFO] __main__: Epoch 0, 294 / 149150. Loss - 264.5610, Time - 14.04
+2018-04-02 08:36:13,398 [INFO] __main__: Time for loading ngram distribution - 1.23
+2018-04-02 08:36:23,745 [INFO] __main__: Time for TensorFlow calculations - 10.33
+2018-04-02 08:36:23,745 [INFO] __main__: Epoch 0, 295 / 149150. Loss - 267.6446, Time - 11.57
+2018-04-02 08:36:25,099 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 08:36:35,660 [INFO] __main__: Time for TensorFlow calculations - 10.55
+2018-04-02 08:36:35,661 [INFO] __main__: Epoch 0, 296 / 149150. Loss - 262.6632, Time - 11.92
+2018-04-02 08:36:37,009 [INFO] __main__: Time for loading ngram distribution - 1.35
+2018-04-02 08:36:55,594 [INFO] __main__: Time for TensorFlow calculations - 18.57
+2018-04-02 08:36:55,594 [INFO] __main__: Epoch 0, 297 / 149150. Loss - 264.2867, Time - 19.93
+2018-04-02 08:36:56,863 [INFO] __main__: Time for loading ngram distribution - 1.27
+2018-04-02 08:37:07,173 [INFO] __main__: Time for TensorFlow calculations - 10.30
+2018-04-02 08:37:07,174 [INFO] __main__: Epoch 0, 298 / 149150. Loss - 266.9635, Time - 11.58
+2018-04-02 08:37:09,007 [INFO] __main__: Time for loading ngram distribution - 1.83
+2018-04-02 08:37:19,645 [INFO] __main__: Time for TensorFlow calculations - 10.63
+2018-04-02 08:37:19,646 [INFO] __main__: Epoch 0, 299 / 149150. Loss - 261.9038, Time - 12.47
+2018-04-02 08:37:34,374 [INFO] __main__: Time for loading ngram distribution - 14.73
+2018-04-02 08:37:44,897 [INFO] __main__: Time for TensorFlow calculations - 10.51
+2018-04-02 08:37:44,897 [INFO] __main__: Epoch 0, 300 / 149150. Loss - 258.2722, Time - 25.25
+2018-04-02 08:37:51,552 [INFO] __main__: Time for loading ngram distribution - 6.65
+2018-04-02 08:38:01,953 [INFO] __main__: Time for TensorFlow calculations - 10.39
+2018-04-02 08:38:01,953 [INFO] __main__: Epoch 0, 301 / 149150. Loss - 267.4367, Time - 17.06
+2018-04-02 08:38:06,167 [INFO] __main__: Time for loading ngram distribution - 4.16
+2018-04-02 08:38:16,707 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 08:38:16,707 [INFO] __main__: Epoch 0, 302 / 149150. Loss - 260.8503, Time - 14.70
+2018-04-02 08:38:17,958 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 08:38:28,231 [INFO] __main__: Time for TensorFlow calculations - 10.26
+2018-04-02 08:38:28,231 [INFO] __main__: Epoch 0, 303 / 149150. Loss - 263.5739, Time - 11.52
+2018-04-02 08:38:30,199 [INFO] __main__: Time for loading ngram distribution - 1.97
+2018-04-02 08:38:40,687 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 08:38:40,687 [INFO] __main__: Epoch 0, 304 / 149150. Loss - 262.0308, Time - 12.46
+2018-04-02 08:38:45,873 [INFO] __main__: Time for loading ngram distribution - 5.18
+2018-04-02 08:38:56,255 [INFO] __main__: Time for TensorFlow calculations - 10.37
+2018-04-02 08:38:56,255 [INFO] __main__: Epoch 0, 305 / 149150. Loss - 261.9685, Time - 15.57
+2018-04-02 08:39:07,230 [INFO] __main__: Time for loading ngram distribution - 10.97
+2018-04-02 08:39:17,682 [INFO] __main__: Time for TensorFlow calculations - 10.44
+2018-04-02 08:39:17,683 [INFO] __main__: Epoch 0, 306 / 149150. Loss - 260.2022, Time - 21.43
+2018-04-02 08:39:28,227 [INFO] __main__: Time for loading ngram distribution - 10.52
+2018-04-02 08:39:39,720 [INFO] __main__: Time for TensorFlow calculations - 11.48
+2018-04-02 08:39:39,721 [INFO] __main__: Epoch 0, 307 / 149150. Loss - 262.5989, Time - 22.01
+2018-04-02 08:39:42,712 [INFO] __main__: Time for loading ngram distribution - 2.99
+2018-04-02 08:39:52,980 [INFO] __main__: Time for TensorFlow calculations - 10.26
+2018-04-02 08:39:52,980 [INFO] __main__: Epoch 0, 308 / 149150. Loss - 273.0214, Time - 13.26
+2018-04-02 08:40:08,521 [INFO] __main__: Time for loading ngram distribution - 15.54
+2018-04-02 08:40:27,206 [INFO] __main__: Time for TensorFlow calculations - 18.67
+2018-04-02 08:40:27,206 [INFO] __main__: Epoch 0, 309 / 149150. Loss - 270.7010, Time - 34.23
+2018-04-02 08:41:04,247 [INFO] __main__: Time for loading ngram distribution - 37.04
+2018-04-02 08:41:28,819 [INFO] __main__: Time for TensorFlow calculations - 24.56
+2018-04-02 08:41:28,819 [INFO] __main__: Epoch 0, 310 / 149150. Loss - 270.9330, Time - 61.61
+2018-04-02 08:41:30,125 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 08:41:40,690 [INFO] __main__: Time for TensorFlow calculations - 10.55
+2018-04-02 08:41:40,690 [INFO] __main__: Epoch 0, 311 / 149150. Loss - 264.6933, Time - 11.87
+2018-04-02 08:41:47,001 [INFO] __main__: Time for loading ngram distribution - 6.31
+2018-04-02 08:42:04,804 [INFO] __main__: Time for TensorFlow calculations - 17.79
+2018-04-02 08:42:04,805 [INFO] __main__: Epoch 0, 312 / 149150. Loss - 259.9095, Time - 24.11
+2018-04-02 08:42:06,131 [INFO] __main__: Time for loading ngram distribution - 1.33
+2018-04-02 08:42:16,570 [INFO] __main__: Time for TensorFlow calculations - 10.43
+2018-04-02 08:42:16,570 [INFO] __main__: Epoch 0, 313 / 149150. Loss - 273.6042, Time - 11.76
+2018-04-02 08:42:19,113 [INFO] __main__: Time for loading ngram distribution - 2.54
+2018-04-02 08:42:38,192 [INFO] __main__: Time for TensorFlow calculations - 19.07
+2018-04-02 08:42:38,192 [INFO] __main__: Epoch 0, 314 / 149150. Loss - 267.2394, Time - 21.62
+2018-04-02 08:42:42,256 [INFO] __main__: Time for loading ngram distribution - 4.06
+2018-04-02 08:42:56,254 [INFO] __main__: Time for TensorFlow calculations - 13.99
+2018-04-02 08:42:56,254 [INFO] __main__: Epoch 0, 315 / 149150. Loss - 258.4073, Time - 18.06
+2018-04-02 08:43:33,610 [INFO] __main__: Time for loading ngram distribution - 37.35
+2018-04-02 08:43:49,101 [INFO] __main__: Time for TensorFlow calculations - 15.48
+2018-04-02 08:43:49,101 [INFO] __main__: Epoch 0, 316 / 149150. Loss - 258.6115, Time - 52.85
+2018-04-02 08:43:58,759 [INFO] __main__: Time for loading ngram distribution - 9.66
+2018-04-02 08:44:09,336 [INFO] __main__: Time for TensorFlow calculations - 10.56
+2018-04-02 08:44:09,336 [INFO] __main__: Epoch 0, 317 / 149150. Loss - 266.5112, Time - 20.23
+2018-04-02 08:44:12,788 [INFO] __main__: Time for loading ngram distribution - 3.45
+2018-04-02 08:44:26,546 [INFO] __main__: Time for TensorFlow calculations - 13.75
+2018-04-02 08:44:26,546 [INFO] __main__: Epoch 0, 318 / 149150. Loss - 271.9315, Time - 17.21
+2018-04-02 08:44:38,268 [INFO] __main__: Time for loading ngram distribution - 11.72
+2018-04-02 08:44:48,530 [INFO] __main__: Time for TensorFlow calculations - 10.25
+2018-04-02 08:44:48,530 [INFO] __main__: Epoch 0, 319 / 149150. Loss - 261.8206, Time - 21.98
+2018-04-02 08:45:48,753 [INFO] __main__: Time for loading ngram distribution - 60.22
+2018-04-02 08:45:59,376 [INFO] __main__: Time for TensorFlow calculations - 10.61
+2018-04-02 08:45:59,376 [INFO] __main__: Epoch 0, 320 / 149150. Loss - 257.6415, Time - 70.85
+2018-04-02 08:46:07,159 [INFO] __main__: Time for loading ngram distribution - 7.78
+2018-04-02 08:46:29,125 [INFO] __main__: Time for TensorFlow calculations - 21.95
+2018-04-02 08:46:29,126 [INFO] __main__: Epoch 0, 321 / 149150. Loss - 258.5394, Time - 29.75
+2018-04-02 08:46:36,768 [INFO] __main__: Time for loading ngram distribution - 7.64
+2018-04-02 08:46:47,073 [INFO] __main__: Time for TensorFlow calculations - 10.29
+2018-04-02 08:46:47,074 [INFO] __main__: Epoch 0, 322 / 149150. Loss - 263.1939, Time - 17.95
+2018-04-02 08:46:50,573 [INFO] __main__: Time for loading ngram distribution - 3.50
+2018-04-02 08:47:02,587 [INFO] __main__: Time for TensorFlow calculations - 12.00
+2018-04-02 08:47:02,587 [INFO] __main__: Epoch 0, 323 / 149150. Loss - 261.3811, Time - 15.51
+2018-04-02 08:47:17,140 [INFO] __main__: Time for loading ngram distribution - 14.55
+2018-04-02 08:47:27,993 [INFO] __main__: Time for TensorFlow calculations - 10.84
+2018-04-02 08:47:27,993 [INFO] __main__: Epoch 0, 324 / 149150. Loss - 256.6873, Time - 25.41
+2018-04-02 08:48:10,415 [INFO] __main__: Time for loading ngram distribution - 42.42
+2018-04-02 08:48:20,861 [INFO] __main__: Time for TensorFlow calculations - 10.43
+2018-04-02 08:48:20,861 [INFO] __main__: Epoch 0, 325 / 149150. Loss - 276.6937, Time - 52.87
+2018-04-02 08:48:34,059 [INFO] __main__: Time for loading ngram distribution - 13.20
+2018-04-02 08:48:44,268 [INFO] __main__: Time for TensorFlow calculations - 10.19
+2018-04-02 08:48:44,268 [INFO] __main__: Epoch 0, 326 / 149150. Loss - 262.0230, Time - 23.41
+2018-04-02 08:48:48,548 [INFO] __main__: Time for loading ngram distribution - 4.28
+2018-04-02 08:49:00,045 [INFO] __main__: Time for TensorFlow calculations - 11.48
+2018-04-02 08:49:00,046 [INFO] __main__: Epoch 0, 327 / 149150. Loss - 282.7850, Time - 15.78
+2018-04-02 08:49:43,068 [INFO] __main__: Time for loading ngram distribution - 43.02
+2018-04-02 08:50:12,696 [INFO] __main__: Time for TensorFlow calculations - 29.62
+2018-04-02 08:50:12,696 [INFO] __main__: Epoch 0, 328 / 149150. Loss - 261.8775, Time - 72.65
+2018-04-02 08:50:22,604 [INFO] __main__: Time for loading ngram distribution - 9.91
+2018-04-02 08:50:32,920 [INFO] __main__: Time for TensorFlow calculations - 10.30
+2018-04-02 08:50:32,921 [INFO] __main__: Epoch 0, 329 / 149150. Loss - 262.3716, Time - 20.22
+2018-04-02 08:51:03,112 [INFO] __main__: Time for loading ngram distribution - 30.19
+2018-04-02 08:51:27,112 [INFO] __main__: Time for TensorFlow calculations - 23.99
+2018-04-02 08:51:27,112 [INFO] __main__: Epoch 0, 330 / 149150. Loss - 261.0978, Time - 54.19
+2018-04-02 08:52:05,433 [INFO] __main__: Time for loading ngram distribution - 38.32
+2018-04-02 08:52:15,795 [INFO] __main__: Time for TensorFlow calculations - 10.35
+2018-04-02 08:52:15,795 [INFO] __main__: Epoch 0, 331 / 149150. Loss - 260.4269, Time - 48.68
+2018-04-02 08:52:28,185 [INFO] __main__: Time for loading ngram distribution - 12.39
+2018-04-02 08:52:41,163 [INFO] __main__: Time for TensorFlow calculations - 12.96
+2018-04-02 08:52:41,163 [INFO] __main__: Epoch 0, 332 / 149150. Loss - 264.7674, Time - 25.37
+2018-04-02 08:53:00,561 [INFO] __main__: Time for loading ngram distribution - 19.40
+2018-04-02 08:53:10,968 [INFO] __main__: Time for TensorFlow calculations - 10.39
+2018-04-02 08:53:10,968 [INFO] __main__: Epoch 0, 333 / 149150. Loss - 259.9878, Time - 29.80
+2018-04-02 08:53:28,774 [INFO] __main__: Time for loading ngram distribution - 17.81
+2018-04-02 08:53:39,943 [INFO] __main__: Time for TensorFlow calculations - 11.15
+2018-04-02 08:53:39,944 [INFO] __main__: Epoch 0, 334 / 149150. Loss - 272.4387, Time - 28.97
+2018-04-02 08:54:14,137 [INFO] __main__: Time for loading ngram distribution - 34.19
+2018-04-02 08:54:25,168 [INFO] __main__: Time for TensorFlow calculations - 11.02
+2018-04-02 08:54:25,169 [INFO] __main__: Epoch 0, 335 / 149150. Loss - 261.5068, Time - 45.22
+2018-04-02 08:54:26,625 [INFO] __main__: Time for loading ngram distribution - 1.46
+2018-04-02 08:54:37,096 [INFO] __main__: Time for TensorFlow calculations - 10.46
+2018-04-02 08:54:37,097 [INFO] __main__: Epoch 0, 336 / 149150. Loss - 257.0225, Time - 11.93
+2018-04-02 08:54:38,356 [INFO] __main__: Time for loading ngram distribution - 1.26
+2018-04-02 08:54:48,742 [INFO] __main__: Time for TensorFlow calculations - 10.38
+2018-04-02 08:54:48,742 [INFO] __main__: Epoch 0, 337 / 149150. Loss - 252.3201, Time - 11.65
+2018-04-02 08:54:49,938 [INFO] __main__: Time for loading ngram distribution - 1.19
+2018-04-02 08:55:00,476 [INFO] __main__: Time for TensorFlow calculations - 10.53
+2018-04-02 08:55:00,476 [INFO] __main__: Epoch 0, 338 / 149150. Loss - 267.6714, Time - 11.73
+2018-04-02 08:55:01,676 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 08:55:12,463 [INFO] __main__: Time for TensorFlow calculations - 10.77
+2018-04-02 08:55:12,464 [INFO] __main__: Epoch 0, 339 / 149150. Loss - 264.4183, Time - 11.99
+2018-04-02 08:55:13,766 [INFO] __main__: Time for loading ngram distribution - 1.30
+2018-04-02 08:55:24,009 [INFO] __main__: Time for TensorFlow calculations - 10.23
+2018-04-02 08:55:24,009 [INFO] __main__: Epoch 0, 340 / 149150. Loss - 253.6774, Time - 11.55
+2018-04-02 08:55:25,162 [INFO] __main__: Time for loading ngram distribution - 1.15
+2018-04-02 08:55:35,939 [INFO] __main__: Time for TensorFlow calculations - 10.77
+2018-04-02 08:55:35,940 [INFO] __main__: Epoch 0, 341 / 149150. Loss - 265.7012, Time - 11.93
+2018-04-02 08:55:37,462 [INFO] __main__: Time for loading ngram distribution - 1.52
+2018-04-02 08:55:47,791 [INFO] __main__: Time for TensorFlow calculations - 10.32
+2018-04-02 08:55:47,791 [INFO] __main__: Epoch 0, 342 / 149150. Loss - 254.3343, Time - 11.85
+2018-04-02 08:55:49,089 [INFO] __main__: Time for loading ngram distribution - 1.30
+2018-04-02 08:55:59,430 [INFO] __main__: Time for TensorFlow calculations - 10.33
+2018-04-02 08:55:59,430 [INFO] __main__: Epoch 0, 343 / 149150. Loss - 256.3895, Time - 11.64
+2018-04-02 08:56:00,673 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 08:56:11,289 [INFO] __main__: Time for TensorFlow calculations - 10.60
+2018-04-02 08:56:11,289 [INFO] __main__: Epoch 0, 344 / 149150. Loss - 250.5837, Time - 11.86
+2018-04-02 08:56:12,567 [INFO] __main__: Time for loading ngram distribution - 1.28
+2018-04-02 08:56:22,799 [INFO] __main__: Time for TensorFlow calculations - 10.22
+2018-04-02 08:56:22,799 [INFO] __main__: Epoch 0, 345 / 149150. Loss - 260.0070, Time - 11.51
+2018-04-02 08:56:24,138 [INFO] __main__: Time for loading ngram distribution - 1.31
+2018-04-02 08:56:34,615 [INFO] __main__: Time for TensorFlow calculations - 10.47
+2018-04-02 08:56:34,675 [INFO] __main__: Epoch 0, 346 / 149150. Loss - 255.5078, Time - 11.79
+2018-04-02 08:56:35,864 [INFO] __main__: Time for loading ngram distribution - 1.19
+2018-04-02 08:56:46,087 [INFO] __main__: Time for TensorFlow calculations - 10.21
+2018-04-02 08:56:46,087 [INFO] __main__: Epoch 0, 347 / 149150. Loss - 262.6464, Time - 11.41
+2018-04-02 08:56:47,390 [INFO] __main__: Time for loading ngram distribution - 1.30
+2018-04-02 08:56:57,757 [INFO] __main__: Time for TensorFlow calculations - 10.36
+2018-04-02 08:56:57,757 [INFO] __main__: Epoch 0, 348 / 149150. Loss - 255.3245, Time - 11.67
+2018-04-02 08:56:59,103 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 08:57:09,600 [INFO] __main__: Time for TensorFlow calculations - 10.49
+2018-04-02 08:57:09,600 [INFO] __main__: Epoch 0, 349 / 149150. Loss - 273.8604, Time - 11.84
+2018-04-02 08:57:10,782 [INFO] __main__: Time for loading ngram distribution - 1.18
+2018-04-02 08:57:21,317 [INFO] __main__: Time for TensorFlow calculations - 10.52
+2018-04-02 08:57:21,317 [INFO] __main__: Epoch 0, 350 / 149150. Loss - 259.7259, Time - 11.72
+2018-04-02 08:57:22,514 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 08:57:33,180 [INFO] __main__: Time for TensorFlow calculations - 10.65
+2018-04-02 08:57:33,180 [INFO] __main__: Epoch 0, 351 / 149150. Loss - 269.8147, Time - 11.86
+2018-04-02 08:57:34,463 [INFO] __main__: Time for loading ngram distribution - 1.28
+2018-04-02 08:57:45,209 [INFO] __main__: Time for TensorFlow calculations - 10.73
+2018-04-02 08:57:45,209 [INFO] __main__: Epoch 0, 352 / 149150. Loss - 257.7600, Time - 12.03
+2018-04-02 08:57:46,428 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:57:56,803 [INFO] __main__: Time for TensorFlow calculations - 10.36
+2018-04-02 08:57:56,803 [INFO] __main__: Epoch 0, 353 / 149150. Loss - 254.6939, Time - 11.59
+2018-04-02 08:57:58,027 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 08:58:08,275 [INFO] __main__: Time for TensorFlow calculations - 10.24
+2018-04-02 08:58:08,275 [INFO] __main__: Epoch 0, 354 / 149150. Loss - 264.5706, Time - 11.47
+2018-04-02 08:58:09,615 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 08:58:19,919 [INFO] __main__: Time for TensorFlow calculations - 10.29
+2018-04-02 08:58:19,919 [INFO] __main__: Epoch 0, 355 / 149150. Loss - 258.0166, Time - 11.64
+2018-04-02 08:58:21,314 [INFO] __main__: Time for loading ngram distribution - 1.36
+2018-04-02 08:58:31,774 [INFO] __main__: Time for TensorFlow calculations - 10.45
+2018-04-02 08:58:31,774 [INFO] __main__: Epoch 0, 356 / 149150. Loss - 281.8451, Time - 11.82
+2018-04-02 08:58:33,219 [INFO] __main__: Time for loading ngram distribution - 1.44
+2018-04-02 08:58:43,651 [INFO] __main__: Time for TensorFlow calculations - 10.42
+2018-04-02 08:58:43,652 [INFO] __main__: Epoch 0, 357 / 149150. Loss - 256.5409, Time - 11.88
+2018-04-02 08:58:44,855 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 08:58:55,275 [INFO] __main__: Time for TensorFlow calculations - 10.41
+2018-04-02 08:58:55,275 [INFO] __main__: Epoch 0, 358 / 149150. Loss - 286.7049, Time - 11.62
+2018-04-02 08:58:56,617 [INFO] __main__: Time for loading ngram distribution - 1.34
+2018-04-02 08:59:06,874 [INFO] __main__: Time for TensorFlow calculations - 10.25
+2018-04-02 08:59:06,874 [INFO] __main__: Epoch 0, 359 / 149150. Loss - 261.4623, Time - 11.60
+2018-04-02 08:59:07,965 [INFO] __main__: Time for loading ngram distribution - 1.09
+2018-04-02 08:59:18,332 [INFO] __main__: Time for TensorFlow calculations - 10.35
+2018-04-02 08:59:18,332 [INFO] __main__: Epoch 0, 360 / 149150. Loss - 259.6885, Time - 11.46
+2018-04-02 08:59:19,427 [INFO] __main__: Time for loading ngram distribution - 1.09
+2018-04-02 08:59:29,993 [INFO] __main__: Time for TensorFlow calculations - 10.56
+2018-04-02 08:59:29,993 [INFO] __main__: Epoch 0, 361 / 149150. Loss - 255.0234, Time - 11.66
+2018-04-02 08:59:31,273 [INFO] __main__: Time for loading ngram distribution - 1.28
+2018-04-02 08:59:41,730 [INFO] __main__: Time for TensorFlow calculations - 10.45
+2018-04-02 08:59:41,730 [INFO] __main__: Epoch 0, 362 / 149150. Loss - 277.7368, Time - 11.74
+2018-04-02 08:59:43,239 [INFO] __main__: Time for loading ngram distribution - 1.51
+2018-04-02 08:59:53,603 [INFO] __main__: Time for TensorFlow calculations - 10.35
+2018-04-02 08:59:53,603 [INFO] __main__: Epoch 0, 363 / 149150. Loss - 256.8445, Time - 11.87
+2018-04-02 08:59:54,875 [INFO] __main__: Time for loading ngram distribution - 1.27
+2018-04-02 09:00:05,363 [INFO] __main__: Time for TensorFlow calculations - 10.48
+2018-04-02 09:00:05,363 [INFO] __main__: Epoch 0, 364 / 149150. Loss - 263.0162, Time - 11.76
+2018-04-02 09:00:06,502 [INFO] __main__: Time for loading ngram distribution - 1.14
+2018-04-02 09:00:16,775 [INFO] __main__: Time for TensorFlow calculations - 10.26
+2018-04-02 09:00:16,775 [INFO] __main__: Epoch 0, 365 / 149150. Loss - 254.5704, Time - 11.41
+2018-04-02 09:00:17,977 [INFO] __main__: Time for loading ngram distribution - 1.20
+2018-04-02 09:00:28,849 [INFO] __main__: Time for TensorFlow calculations - 10.86
+2018-04-02 09:00:28,850 [INFO] __main__: Epoch 0, 366 / 149150. Loss - 257.8377, Time - 12.07
+2018-04-02 09:00:30,088 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 09:00:40,491 [INFO] __main__: Time for TensorFlow calculations - 10.39
+2018-04-02 09:00:40,492 [INFO] __main__: Epoch 0, 367 / 149150. Loss - 255.3203, Time - 11.64
+2018-04-02 09:01:02,623 [INFO] __main__: Time for loading ngram distribution - 22.13
+2018-04-02 09:01:18,438 [INFO] __main__: Time for TensorFlow calculations - 15.80
+2018-04-02 09:01:18,438 [INFO] __main__: Epoch 0, 368 / 149150. Loss - 273.1254, Time - 37.95
+2018-04-02 09:01:51,304 [INFO] __main__: Time for loading ngram distribution - 32.87
+2018-04-02 09:02:16,776 [INFO] __main__: Time for TensorFlow calculations - 25.45
+2018-04-02 09:02:16,777 [INFO] __main__: Epoch 0, 369 / 149150. Loss - 263.4569, Time - 58.34
+2018-04-02 09:02:47,556 [INFO] __main__: Time for loading ngram distribution - 30.78
+2018-04-02 09:03:00,413 [INFO] __main__: Time for TensorFlow calculations - 12.84
+2018-04-02 09:03:00,413 [INFO] __main__: Epoch 0, 370 / 149150. Loss - 255.8264, Time - 43.64
+2018-04-02 09:03:47,711 [INFO] __main__: Time for loading ngram distribution - 47.30
+2018-04-02 09:04:14,771 [INFO] __main__: Time for TensorFlow calculations - 27.04
+2018-04-02 09:04:14,772 [INFO] __main__: Epoch 0, 371 / 149150. Loss - 267.3458, Time - 74.36
+2018-04-02 09:05:34,376 [INFO] __main__: Time for loading ngram distribution - 79.60
+2018-04-02 09:05:49,608 [INFO] __main__: Time for TensorFlow calculations - 15.22
+2018-04-02 09:05:49,608 [INFO] __main__: Epoch 0, 372 / 149150. Loss - 258.2792, Time - 94.84
+2018-04-02 09:06:00,832 [INFO] __main__: Time for loading ngram distribution - 11.22
+2018-04-02 09:06:11,317 [INFO] __main__: Time for TensorFlow calculations - 10.47
+2018-04-02 09:06:11,317 [INFO] __main__: Epoch 0, 373 / 149150. Loss - 260.1711, Time - 21.71
+2018-04-02 09:06:12,679 [INFO] __main__: Time for loading ngram distribution - 1.36
+2018-04-02 09:06:23,066 [INFO] __main__: Time for TensorFlow calculations - 10.38
+2018-04-02 09:06:23,066 [INFO] __main__: Epoch 0, 374 / 149150. Loss - 255.7044, Time - 11.75
+2018-04-02 09:06:24,276 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 09:06:34,561 [INFO] __main__: Time for TensorFlow calculations - 10.27
+2018-04-02 09:06:34,562 [INFO] __main__: Epoch 0, 375 / 149150. Loss - 263.2545, Time - 11.49
+2018-04-02 09:06:36,767 [INFO] __main__: Time for loading ngram distribution - 2.21
+2018-04-02 09:06:47,172 [INFO] __main__: Time for TensorFlow calculations - 10.39
+2018-04-02 09:06:47,172 [INFO] __main__: Epoch 0, 376 / 149150. Loss - 256.3292, Time - 12.61
+2018-04-02 09:06:48,425 [INFO] __main__: Time for loading ngram distribution - 1.25
+2018-04-02 09:06:58,806 [INFO] __main__: Time for TensorFlow calculations - 10.37
+2018-04-02 09:06:58,806 [INFO] __main__: Epoch 0, 377 / 149150. Loss - 269.2182, Time - 11.63
+2018-04-02 09:07:00,049 [INFO] __main__: Time for loading ngram distribution - 1.24
+2018-04-02 09:07:10,475 [INFO] __main__: Time for TensorFlow calculations - 10.42
+2018-04-02 09:07:10,475 [INFO] __main__: Epoch 0, 378 / 149150. Loss - 262.2116, Time - 11.67
+2018-04-02 09:07:11,695 [INFO] __main__: Time for loading ngram distribution - 1.22
+2018-04-02 09:07:22,148 [INFO] __main__: Time for TensorFlow calculations - 10.44
+2018-04-02 09:07:22,148 [INFO] __main__: Epoch 0, 379 / 149150. Loss - 265.4737, Time - 11.67
+2018-04-02 09:07:23,320 [INFO] __main__: Time for loading ngram distribution - 1.17
+2018-04-02 09:07:33,762 [INFO] __main__: Time for TensorFlow calculations - 10.43
+2018-04-02 09:07:33,763 [INFO] __main__: Epoch 0, 380 / 149150. Loss - 253.6869, Time - 11.61
+2018-04-02 09:07:34,973 [INFO] __main__: Time for loading ngram distribution - 1.21
+2018-04-02 09:07:45,682 [INFO] __main__: Time for TensorFlow calculations - 10.70
+2018-04-02 09:07:45,682 [INFO] __main__: Epoch 0, 381 / 149150. Loss - 272.0245, Time - 11.92
+2018-04-02 09:07:47,106 [INFO] __main__: Time for loading ngram distribution - 1.42
+2018-04-02 09:07:57,500 [INFO] __main__: Time for TensorFlow calculations - 10.38
+2018-04-02 09:07:57,500 [INFO] __main__: Epoch 0, 382 / 149150. Loss - 258.1577, Time - 11.82
+2018-04-02 09:07:58,858 [INFO] __main__: Time for loading ngram distribution - 1.36
+2018-04-02 09:08:09,318 [INFO] __main__: Time for TensorFlow calculations - 10.45
+2018-04-02 09:08:09,318 [INFO] __main__: Epoch 0, 383 / 149150. Loss - 253.9268, Time - 11.82
+2018-04-02 09:08:10,496 [INFO] __main__: Time for loading ngram distribution - 1.18
+2018-04-02 09:08:20,951 [INFO] __main__: Time for TensorFlow calculations - 10.44
+2018-04-02 09:08:20,951 [INFO] __main__: Epoch 0, 384 / 149150. Loss - 264.1595, Time - 11.63
+2018-04-02 09:08:22,398 [INFO] __main__: Time for loading ngram distribution - 1.45
+2018-04-02 09:08:32,875 [INFO] __main__: Time for TensorFlow calculations - 10.47
+2018-04-02 09:08:32,876 [INFO] __main__: Epoch 0, 385 / 149150. Loss - 258.2627, Time - 11.92
+2018-04-02 09:08:34,205 [INFO] __main__: Time for loading ngram distribution - 1.33
+2018-04-02 09:08:44,785 [INFO] __main__: Time for TensorFlow calculations - 10.57
+2018-04-02 09:08:44,785 [INFO] __main__: Epoch 0, 386 / 149150. Loss - 286.4673, Time - 11.91
+2018-04-02 09:08:46,231 [INFO] __main__: Time for loading ngram distribution - 1.44
+2018-04-02 09:08:56,951 [INFO] __main__: Time for TensorFlow calculations - 10.71
+2018-04-02 09:08:56,951 [INFO] __main__: Epoch 0, 387 / 149150. Loss - 253.0948, Time - 12.17
+2018-04-02 09:08:58,274 [INFO] __main__: Time for loading ngram distribution - 1.32

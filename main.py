@@ -7,11 +7,11 @@ from six.moves import cPickle
 from config.arguments import parser
 
 """ Default model """
-from model.model import Model
+# from model.model import Model
 """ Temperature variation in softmax layer """
 # from model.TModel import TemperatureModel as Model
 """ L2 loss in intermediate layer and L1 loss in the final layer """
-# from model.IntermediateLossModel import IntermediateLossModel as Model
+from model.IntermediateLossModel import IntermediateLossModel as Model
 """ L3 loss combined with other losses """
 # from model.ConflictAverseLossModel import ConflictAverseLossModel as Model
 
