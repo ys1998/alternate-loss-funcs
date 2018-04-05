@@ -8,6 +8,7 @@ import numpy as np
 import os
 import sys
 import pathos.multiprocessing as mp
+import time
 
 
 class DataLoader(object):
@@ -122,6 +123,13 @@ class BatchLoader(object):
 	def get_freq(self):
 		"""Return a tensor having frequency data."""
 		tr = self.data_loader.tr
+
+		# Trial to check if trie implementation is correct
+		st = time.time()
+		tr.get_distro(contexts[0], np.zeros(self.vocab_size))
+		end = time.time()
+		print(end - st)
+		
 		# `tensor` will store the final batch to be sent to TensorFlow
 		print("Creating tensor")
 		tensor = np.zeros([self.batch_size, self.timesteps, self.vocab_size])
