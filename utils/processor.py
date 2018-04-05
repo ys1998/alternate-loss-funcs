@@ -7,7 +7,7 @@ import codecs
 import numpy as np
 import os
 import sys
-import multiprocessing as mp
+import pathos.multiprocessing as mp
 
 
 class DataLoader(object):
@@ -123,13 +123,18 @@ class BatchLoader(object):
 		"""Return a tensor having frequency data."""
 		tr = self.data_loader.tr
 		# `tensor` will store the final batch to be sent to TensorFlow
+		print("Creating tensor")
 		tensor = np.zeros([self.batch_size, self.timesteps, self.vocab_size])
 
-		pool = mp.Pool(mp.cpu_count()/2)
-
-		feed_data = [(self.contexts[i * self.timesteps * self.num_batches + self.pointer * self.timesteps + j],tensor[i][j]) for i in range(self.batch_size) for j in range(self.timesteps)]
+		pool = mp.ProcessingPool(mp.cpu_count()//2)
+		print("Creating context data")
+		context_data = [self.contexts[i * self.timesteps * self.num_batches + self.pointer * self.timesteps + j] for i in range(self.batch_size) for j in range(self.timesteps)]
+		print("Creating distro data")
+		distro_data = [tensor[i][j] for i in range(self.batch_size) for j in range(self.timesteps)]
 		# Compute ngram probability distribution parallely
-		pool.map(tr.get_distro, feed_data)
+		print("Entering pool map")
+		pool.map(tr.get_distro, context_data, distro_data)
+		print("Exiting pool map")
 		return tensor
 
 	def reset_batch_pointer(self):

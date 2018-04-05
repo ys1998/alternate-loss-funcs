@@ -67,12 +67,14 @@ class Trie(object):
         context : Indices of words in context window for a given word
         distro  : Array to be filled with ngram probability distribution
         """
+        print("In get distro")
         backoff = 0.0
         context_size = len(context)
         for gram in range(context_size):
             i = gram
             current = self
             while i is not context_size:
+                print("In while loop")
                 if context[i] not in current.children:
                     break
                 else:
