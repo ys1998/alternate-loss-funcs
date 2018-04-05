@@ -1,12 +1,13 @@
 """This file loads text, processes it and converts it into batches."""
-from decoder import trie
-from strings import FILES, LOGS, ERRORS
+from utils.trie import Trie
+from utils.strings import FILES, LOGS, ERRORS
 
 from six.moves import cPickle
 import codecs
 import numpy as np
 import os
 import sys
+import multiprocessing as mp
 
 
 class DataLoader(object):
@@ -45,8 +46,8 @@ class DataLoader(object):
 		self.data = np.array(list(map(self.vocab.get, self.text)))
 
 		# Load n-gram ARPA file
-		self.tr = tr = trie.Trie()
-		tr.load_arpa(lm_path, trie.map_string_int(vocab))
+		self.tr = tr = Trie()
+		tr.load_arpa(lm_path, vocab)
 
 
 class BatchLoader(object):
@@ -72,7 +73,7 @@ class BatchLoader(object):
 		if args.loss_mode != 'l1':
 			print("Loading contexts...")
 			self.contexts = contexts = []
-			for i, d in enumerate(data):
+			for i in range(len(data)):
 				if i == 0:
 					# For the first token, context is <s>
 					context = [vocab['<s>'], data[0]]
@@ -82,7 +83,7 @@ class BatchLoader(object):
 					context = [vocab['<s>'], data[i]]
 				else:
 					context = [data[i - 1], data[i]]
-				contexts.append(trie.vector_int(context))
+				contexts.append(context)
 
 		xdata = data[:num_batches * batch_size * timesteps]
 		ydata = np.copy(xdata)
@@ -120,14 +121,15 @@ class BatchLoader(object):
 
 	def get_freq(self):
 		"""Return a tensor having frequency data."""
-		num_batches = self.num_batches
-		timesteps = self.args.config.timesteps
-		batch_size = self.args.config.batch_size
-		vocab_size = self.vocab_size
 		tr = self.data_loader.tr
 		# `tensor` will store the final batch to be sent to TensorFlow
-		tensor = np.zeros([batch_size, timesteps, vocab_size], order='C')
-		tr.get_distro(trie.vector_vector_int(self.contexts), num_batches, self.pointer, tensor)
+		tensor = np.zeros([self.batch_size, self.timesteps, self.vocab_size])
+
+		pool = mp.Pool(mp.cpu_count()/2)
+
+		feed_data = [(self.contexts[i * self.timesteps * self.num_batches + self.pointer * self.timesteps + j],tensor[i][j]) for i in range(self.batch_size) for j in range(self.timesteps)]
+		# Compute ngram probability distribution parallely
+		pool.map(tr.get_distro, feed_data)
 		return tensor
 
 	def reset_batch_pointer(self):

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """The primary script to execute the tensorflow models."""
 from __future__ import print_function
-from bunch import bunchify
+from munch import munchify
 from six.moves import cPickle
 
 from config.arguments import parser
@@ -46,7 +46,7 @@ def main():
 	"""The main method of script."""
 	args = parser.parse_args()
 	with open(args.config_file, 'r') as stream:
-		args.config = bunchify(yaml.load(stream))
+		args.config = munchify(yaml.load(stream))
 	args.save_dir = os.path.join(args.save_dir, args.job_id)
 	args.best_dir = os.path.join(args.best_dir, args.job_id)
 	if not os.path.exists(args.save_dir):
