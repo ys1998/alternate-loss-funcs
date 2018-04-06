@@ -7,7 +7,8 @@ import codecs
 import numpy as np
 import os
 import sys
-import pathos.multiprocessing as mp
+import multiprocessing as mp
+from multiprocessing import sharedctypes
 import time
 
 
@@ -125,25 +126,27 @@ class BatchLoader(object):
 		tr = self.data_loader.tr
 
 		# Trial to check if trie implementation is correct
-		st = time.time()
-		tr.get_distro(contexts[0], np.zeros(self.vocab_size))
-		end = time.time()
-		print(end - st)
-		
-		# `tensor` will store the final batch to be sent to TensorFlow
-		print("Creating tensor")
-		tensor = np.zeros([self.batch_size, self.timesteps, self.vocab_size])
+		# st = time.time()
+		# tr.get_distro(contexts[0], np.zeros(self.vocab_size))
+		# end = time.time()
+		# print(end - st)
 
-		pool = mp.ProcessingPool(mp.cpu_count()//2)
-		print("Creating context data")
-		context_data = [self.contexts[i * self.timesteps * self.num_batches + self.pointer * self.timesteps + j] for i in range(self.batch_size) for j in range(self.timesteps)]
-		print("Creating distro data")
-		distro_data = [tensor[i][j] for i in range(self.batch_size) for j in range(self.timesteps)]
-		# Compute ngram probability distribution parallely
-		print("Entering pool map")
-		pool.map(tr.get_distro, context_data, distro_data)
-		print("Exiting pool map")
-		return tensor
+		# `tensor` will store the final batch to be sent to TensorFlow
+		tensor = np.zeros([self.batch_size, self.timesteps, self.vocab_size])
+		jobs = []
+		for i in range(self.batch_size):
+			for j in range(self.timesteps):
+				print("Mapping %d %d"%(i,j))
+				shared_tensor = sharedctypes.Array('d', np.ctypeslib.as_ctypes(tensor[i][j]), lock=False)
+				ptr = i * self.timesteps * self.num_batches + self.pointer * self.timesteps + j
+				p = mp.Process(target=tr.get_distro, args=(self.contexts[ptr], shared_tensor))
+				jobs.append(p)
+				p.start()
+
+		for p in jobs:
+			p.join()
+
+		return np.ctypeslib.as_array(tensor)
 
 	def reset_batch_pointer(self):
 		"""Bring pointer back to first batch."""

@@ -13,6 +13,9 @@ class Trie(object):
         self.children = {}
         self.character = None
 
+    def ptr(self):
+        return self
+
     def load_arpa(self, filename, vocab):
         """
         filename  : Path to ngram file in ARPA format
@@ -67,7 +70,6 @@ class Trie(object):
         context : Indices of words in context window for a given word
         distro  : Array to be filled with ngram probability distribution
         """
-        print("In get distro")
         backoff = 0.0
         context_size = len(context)
         for gram in range(context_size):
