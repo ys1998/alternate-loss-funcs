@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "main.py", line 14, in <module>
+    from model.IntermediateLossModel import IntermediateLossModel as Model
+  File "/exp/yash/research-nlm/model/IntermediateLossModel.py", line 3, in <module>
+    import tensorflow as tf
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/__init__.py", line 24, in <module>
+    from tensorflow.python import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/python/__init__.py", line 52, in <module>
+    from tensorflow.core.framework.graph_pb2 import *
+  File "/usr/local/lib/python2.7/dist-packages/tensorflow/core/framework/graph_pb2.py", line 6, in <module>
+    from google.protobuf import descriptor as _descriptor
+  File "/home/yash/.local/lib/python2.7/site-packages/google/protobuf/__init__.py", line 37, in <module>
+    __import__('pkg_resources').declare_namespace(__name__)
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 3088, in <module>
+    @_call_aside
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 3072, in _call_aside
+    f(*args, **kwargs)
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 3101, in _initialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 565, in _build_master
+    ws = cls()
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 558, in __init__
+    self.add_entry(entry)
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 614, in add_entry
+    for dist in find_distributions(entry, True):
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1964, in find_on_path
+    for dist in factory(fullpath):
+  File "/home/yash/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2026, in distributions_from_metadata
+    if len(os.listdir(path)) == 0:
+OSError: [Errno 13] Permission denied: '/usr/local/lib/python2.7/dist-packages/prompt_toolkit-1.0.15.dist-info'
